@@ -1,0 +1,119 @@
+<!DOCTYPE HTML>
+<!--
+	Forty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+	This is an example of a sub page for each module.  It has to be replicated in each module, containing the requested contents -  artefacts, notes, reflections etc
+	Ensure you give a different title to each replica and link it to the main module page accordingly.
+-->
+<html>
+	<head>
+		<title>Leigh Feaviour</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="/e-portfolio/css/main.css" />
+		<noscript><link rel="stylesheet" href="/e-portfolio/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="/e-portfolio/index.html" class="logo"><span>Leigh Feaviour</span></a>
+						<nav>
+							<a href="#menu">Menu</a>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<ul class="links">
+							<<li><a href="/e-portfolio/index.html">Home</a></li>
+							<li><a href="/e-portfolio/About.html">About Me</a></li>
+							<li><a href="/e-portfolio/Launch Module.html">Induction Module</a></li>
+							<li><a href="/e-portfolio/Module 2.html">Understanding Artificial Intelligence</a></li>
+							<li><a href="/e-portfolio/Module 3.html">Numerical Analysis</a></li>
+							<li><a href="/e-portfolio/Module 4.html">Machine Learning</a></li>
+							<li><a href="/e-portfolio/Module 5.html">Knowledge Representation and Reasoning</a></li>
+							<li><a href="/e-portfolio/Module 6.html">Intelligent Agents</a></li>
+							<li><a href="/e-portfolio/Module 7.html">Research Methods and Professional Practice</a></li>
+							<li><a href="/e-portfolio/Project.html">MSc Computing Project</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main" class="alt">
+
+						<!-- One -->
+							<section id="one">
+								<div class="inner">
+									<header class="major">
+										<h1>Summary Post</h1>
+									</header>
+									<span class="image main"><img src="images/pic11.jpg" alt="" /></span>
+
+                    <p>In my initial post I claimed that Artificial Intelligence (AI) is ubiquitous. Maclean (2022a) disagreed, saying “there are many areas where AI has not made an impact”, which he explained further in (Maclean 2022b) with examples of immature AI. I acknowledge the challenge but remain of the view that AI is ubiquitous, with perhaps a more casual definition, because whilst not strictly “everywhere”, and not always mature, it is difficult to find examples of places where AI is not having at least some impact.
+                    </p>
+                    <p>I gave examples of recommendation systems that use AI for competitive advantage. Similar examples were discussed in van Toor (2022a) with more details about collaborative filtering and other techniques. This prompted me to explore deeper and discover that recommender systems typically use multiple techniques for best results, especially to deal with cold users and cold content (Feaviour, 2022a).
+                    </p>
+                    <p>I mentioned recruitment systems powered by AI, and specifically one that Amazon retired when it became biased (Dastin 2018). Van Toor (2022b) asked why Amazon did not re-train the model to remove the bias. I suggested that it would be difficult to be sure that other biases had not been introduced instead, but I suspect the real reason was to avoid negative public reaction, as suggested by Lambert (2022a).
+                    </p>
+                    <p>Finally, I explained that ethics is important across AI, including recommender systems for entertainment that have the potential for social engineering. Lambert (2022a) agreed in principle, albeit over a long period, with which I concur. However, Maclean (2022a) felt this was less about AI and more about general censoring, also discussed in Lambert (2022b). Whilst censoring is an issue, I made the point that total content censoring is not a consequence of unethical AI (Feaviour 2022b), but unethical AI can still control the content that we consume (Feaviour 2022c).
+                    </p>
+                    <p><centre>Word count: 300
+                    </center></p>
+                    <p>/b>References
+                    </b></p>
+                    <p>Dastin, J. (2018) Amazon scraps secret AI recruiting tool that showed bias against women. Available from: https://www.reuters.com/article/us-amazon-com-jobs-automation-insight-idUSKCN1MK08G [Accessed 8 October 2022].
+                    </p>
+                    <p>Feaviour, L. (2022a) Re: Peer Response. Available from: https://www.my-course.co.uk/mod/hsuforum/discuss.php?d=325708#p1125512 [Accessed 8 October 2022].
+                    </p>
+                    <p>Feaviour, L. (2022b) Peer Response. Available from: https://www.my-course.co.uk/mod/hsuforum/discuss.php?d=325884#p1122894 [Accessed 8 October 2022].
+                    </p>
+                    <p>Feaviour, L. (2022c) Re: Peer Response. Available from: https://www.my-course.co.uk/mod/hsuforum/discuss.php?d=325820#p1124017 [Accessed 8 October 2022].
+                    </p>
+                    <p>Lambert, D. (2022a) Peer Response. Available from: https://www.my-course.co.uk/mod/hsuforum/discuss.php?d=325820#p1124632 [Accessed 8 October 2022].
+                    </p>
+                    <p>Lambert, D. (2022) Initial Post: AI in the Media Industry and how it Impacts Society Ethically. Available from: https://www.my-course.co.uk/mod/hsuforum/discuss.php?d=325884 [Accessed 8 October 2022].
+                    </p>
+                    <p>Maclean, R. (2022a) Peer Response. Available from: https://www.my-course.co.uk/mod/hsuforum/discuss.php?d=325820#p1123996 [Accessed 8 October 2022].
+                    </p>
+                    <p>Maclean, R. (2022b) Initial Post: AI in the Life Sciences. Available from: https://www.my-course.co.uk/mod/hsuforum/discuss.php?d=327129 [Accessed 8 October 2022].
+                    </p>
+                    <p>van Toor, A. (2022a) Initial Post. Available from: https://www.my-course.co.uk/mod/hsuforum/discuss.php?d=325708 [Accessed 8 October 2022].
+                    </p>
+                    <p>van Toor, A. (2022b) Peer Response. Available from: https://www.my-course.co.uk/mod/hsuforum/discuss.php?d=325820#p1123329 [Accessed 8 October 2008].
+                    </p>
+								</div>
+							</section>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<ul class="icons">
+								<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+								<li><a href="https://www.linkedin.com/in/leigh-feaviour/" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+							</ul>
+							<ul class="copyright">
+								<li>&copy; 2022 Leigh Feaviour</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="/e-portfolio/js/jquery.min.js"></script>
+			<script src="/e-portfolio/js/jquery.scrolly.min.js"></script>
+			<script src="/e-portfolio/js/jquery.scrollex.min.js"></script>
+			<script src="/e-portfolio/js/browser.min.js"></script>
+			<script src="/e-portfolio/js/breakpoints.min.js"></script>
+			<script src="/e-portfolio/js/util.js"></script>
+			<script src="/e-portfolio/js/main.js"></script>
+
+	</body>
+</html>

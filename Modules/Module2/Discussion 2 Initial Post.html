@@ -1,0 +1,125 @@
+<!DOCTYPE HTML>
+<!--
+	Forty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+	This is an example of a sub page for each module.  It has to be replicated in each module, containing the requested contents -  artefacts, notes, reflections etc
+	Ensure you give a different title to each replica and link it to the main module page accordingly.
+-->
+<html>
+	<head>
+		<title>Leigh Feaviour</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="/e-portfolio/css/main.css" />
+		<noscript><link rel="stylesheet" href="/e-portfolio/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="/e-portfolio/index.html" class="logo"><span>Leigh Feaviour</span></a>
+						<nav>
+							<a href="#menu">Menu</a>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<ul class="links">
+							<<li><a href="/e-portfolio/index.html">Home</a></li>
+							<li><a href="/e-portfolio/About.html">About Me</a></li>
+							<li><a href="/e-portfolio/Launch Module.html">Induction Module</a></li>
+							<li><a href="/e-portfolio/Module 2.html">Understanding Artificial Intelligence</a></li>
+							<li><a href="/e-portfolio/Module 3.html">Numerical Analysis</a></li>
+							<li><a href="/e-portfolio/Module 4.html">Machine Learning</a></li>
+							<li><a href="/e-portfolio/Module 5.html">Knowledge Representation and Reasoning</a></li>
+							<li><a href="/e-portfolio/Module 6.html">Intelligent Agents</a></li>
+							<li><a href="/e-portfolio/Module 7.html">Research Methods and Professional Practice</a></li>
+							<li><a href="/e-portfolio/Project.html">MSc Computing Project</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main" class="alt">
+
+						<!-- One -->
+							<section id="one">
+								<div class="inner">
+									<header class="major">
+										<h1>Initial Post</h1>
+									</header>
+									<p><b>Identify and discuss two machine learning algorithms and the context in which they can be employed
+									</b></p>
+									<p>There are many machine learning (ML) algorithms so in order to pick two for comparison, a quick literature review of supervised learning algorithms was first conducted to determine which are most widely used. Supervised learning relies upon labelled input and output data, which means that pre-processing the data is often needed unlike unsupervised learning. It is typically used for classifying and predicting, which are widely used ML use cases so considered a good option for this discussion.
+									</p>
+									<p>Based upon a study of journals and books, Suhaimi & Abas (2020) found that Support Vector Machine (SVM) and Artificial Neural Network (ANN) were the most widely used and best performing supervised learning algorithms. Danso et al (2014) found that SVM was the best performing algorithm for verbal autopsy text classification. Caruana & Niculescu-Mizil (2006) tested supervised learning algorithms with various problems and found that calibrated boosted trees performed best, followed by Random Forest (RF) and SVM, although they concede that no single model performs best in every scenario. Finally, Osisanwo et al (2017) used diabetes research data to test supervised machine learning algorithms and concluded:
+									</p>
+									<p><blockquote>“the key question when dealing with ML classification is not whether a learning algorithm is superior to others, but under which conditions a particular method can significantly outperform others on a given application problem”
+                  </blockquote></p>
+									<p>They did, however note that SVM performed well in many situations, especially when a larger data set is available.
+									</p>
+									<p>Based upon that far from exhaustive literature review, SVM was chosen as one of the supervised learning algorithms. The other, to be examined first, is Decision Tree (DT), chosen because it was considered to provide a good contrast in simplicity and explainability.
+									</p>
+                  <p><b>Decision Tree
+                  </b></p>
+                  <p>DT algorithms can be used to classify or for regression. They take a number of inputs and pass them through a series of questions and answers (decisions) to arrive at an output. The key is to make the tree as small as possible so features that have the biggest impact on getting closer to an output are put first (Russell & Norvig, 2021).
+									</p>
+                  <p>DTs are prone to overfitting, which is where the algorithm becomes too attuned to the training data, effectively basing decisions on “noise” in the data, meaning it will be less accurate when real data is applied. Overfitting is more likely when there are more attributes and when there is less training data (Russell & Norvig, 2021), both of which effectively increase the likelihood of edge cases appearing in the data. Overfitting can be addressed by pruning the tree of decisions that have no statistical relevance.
+									</p>
+                  <p>DT is a relatively old approach to AI, but it still gives good results. A key strength is it’s readability to humans. The tree can literally be drawn out and followed like flow chart so decisions that the algorithm makes can be easily traced through using the input data. This can be important in regulated industries such as financial services where decisions may need to be audited. A weakness of DT is that adding a single new attribute means the entire tree needs to be re-drawn starting with re-discovering the most important decisions. 
+									</p>
+                  <p><b>Support Vector Machine
+                  </b></p>
+                  <p>SVM is a binary classification algorithm. It plots every data point using the number of features as the number of dimensions. It then finds a hyperplane that divides the data points between the two output classifications. Crucially, the hyperplane is the one with the widest margin between itself and the nearest data points in both groups. This makes the algorithm more generalised, or more accurate when presented with real data.
+									</p>                  
+                  <p>Often it’s not possible to draw a linear hyperplane between the two categories. In this case the data points are re-plotted after having one of a number of kernels applied to re-plot them in additional dimensions until the two data sets are separable by a single hyperplane. At this stage, as before, the hyperplane is defined as that having the greatest distance from the data points. The data points that are closest to the hyperplane are called support vectors, and it is only those data points that need to be retained in memory during the execution of the algorithm, improving the efficiency of SVM. It’s also easier to eliminate overfitting and noise in SVM by applying a soft margin to data points that fall on the wrong side of the hyperplane which allows the hyperplane to be given a best fit for the general population of data (Cervantes et al, 2020). A weakness is that the output, whilst mathematically auditable, is not easily read by humans. SVM also has a larger computational cost when training with larger data sets, but that can be mitigated with data selection methods to limit the training data mainly to data points that define the hyperplane (Cervantes et al, 2020).
+									</p>
+                  <p><b>References
+									</b></p>
+									<p>Caruana, R. & Niculescu-Mizil, A. (2006) ‘An Empirical Comparison of Supervised Learning Algorithms’, <i>The 23rd International Conference on Machine Learning</i>, Pittsburgh, PA, 25-29 June. New York: Association for Computing Machinery. 161-168.
+									</p>
+									<p>Cervantes, J., Garcia-Lamont, F., Rodríguez-Mazahua, L. & Lopez, A. (2020) A Comprehensive Survey on Support Vector Machine Classification: Applications, Challenges and Trends. <i>Neurocomputing</i>, 408: 189-215. DOI: <a href="https://doi.org/10.1016/j.neucom.2019.10.118">https://doi.org/10.1016/j.neucom.2019.10.118</a>.
+                  </p>
+									<p>Danso, S., Atwell, E. and Johnson, O. (2013) A Comparative Study of Machine Learning Methods for Verbal Autopsy Text Classification. <i>International Journal of Computer Science Issues</i>, 10(6): 1-10. DOI: <a href="https://doi.org/10.48550/arXiv.1402.4380">https://doi.org/10.48550/arXiv.1402.4380</a>.
+                  </p>
+									<p>Osisanwo, F.Y., Akinsola, J.E.T., Awodele, O., Hinmikaiye, J.O., Olakanmi, O. and Akinjobi, J. (2017) Supervised Machine Learning Algorithms: Classification and Comparison. <i>International Journal of Computer Trends and Technology</i>, 48(3): 128-138. DOI: <a href="http://dx.doi.org/10.14445/22312803/IJCTT-V48P126">http://dx.doi.org/10.14445/22312803/IJCTT-V48P126</a>.
+                  </p>
+                  <p>Russell, S. & Norvig, P. (2021) <i>Artificial Intelligence: A Modern Approach.</i> 4th ed. Harlow: Pearson Education Limited.
+									</p>
+                  </p>Suhaimi, N.A.D. & Abas, H. (2020) A Systematic Literature Review on Supervised Machine Learning Algorithms. <i>Perintis E-Journal,</i> 10(1): 1-24.
+									<p>
+								</div>
+							</section>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<ul class="icons">
+								<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+								<li><a href="https://www.linkedin.com/in/leigh-feaviour/" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+							</ul>
+							<ul class="copyright">
+								<li>&copy; 2022 Leigh Feaviour</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="/e-portfolio/js/jquery.min.js"></script>
+			<script src="/e-portfolio/js/jquery.scrolly.min.js"></script>
+			<script src="/e-portfolio/js/jquery.scrollex.min.js"></script>
+			<script src="/e-portfolio/js/browser.min.js"></script>
+			<script src="/e-portfolio/js/breakpoints.min.js"></script>
+			<script src="/e-portfolio/js/util.js"></script>
+			<script src="/e-portfolio/js/main.js"></script>
+
+	</body>
+</html>

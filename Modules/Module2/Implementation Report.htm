@@ -56,37 +56,229 @@
 <div class=WordSection1>
 
 <p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
-200%'><b><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>Introduction<o:p></o:p></span></b></p>
+200%'><b><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>Artificial
+Intelligence (AI) Solution Implementation<o:p></o:p></span></b></p>
 
 <p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
-200%'><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>YourMoney
-is a start-up building society with opportunities to increase efficiencies and
-customer satisfaction through Artificial Intelligence (AI).<o:p></o:p></span></p>
+200%'><b><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>Executive
+Summary</span></b><span style='font-size:12.0pt;line-height:200%;font-family:
+"Arial",sans-serif'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
+200%'><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>AI
+can be used to address credit card fraud for YourMoney building society by
+detecting unusual transactions to flag as potentially fraudulent. A dataset has
+been selected from a public repository and various classification algorithms
+tested on it. Decision tree was the best performing algorithm using the
+original imbalanced dataset but Support Vector Machine (SVM) with Pearson VII Universal
+Kernel (PUK) was best after the dataset was balanced. The recommendation is to
+develop an SVM with PUK algorithm using YourMoney historic data and deploy it to
+production. It will start in passive mode, monitoring and reporting, and will move
+into active mode to intercept suspected fraudulent transactions once YourMoney
+is confident that it is performing as it should.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
+200%'><b><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>Business
+Context<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
+200%'><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>UK
+credit card fraud losses amounted to £574.2m in 2020 (UK Finance, 2021), making
+fraud detection a good AI use case. It is proposed to use a supervised learning
+classification algorithm to monitor credit card transactions in real-time,
+looking for indicators that a transaction is fraudulent. If a transaction is
+highlighted as potentially fraudulent it would not be authorised and the card
+would be temporarily stopped while the customer is contacted to confirm if the
+transaction was legitimate. This approach is not considered to have a radical
+consequence because the customer retains control, hence ”black box” algorithms
+that are not entirely explainable can be used because AI needs to be
+explainable “when consequences are radical“ (Gill, 2021).<o:p></o:p></span></p>
+
+<b><span style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif;
+mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;mso-ansi-language:
+EN-GB;mso-fareast-language:EN-US;mso-bidi-language:AR-SA'><br clear=all
+style='mso-special-character:line-break;page-break-before:always'>
+</span></b>
+
+<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:107%;
+font-family:"Arial",sans-serif'><o:p>&nbsp;</o:p></span></b></p>
+
+<p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
+200%'><b><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>Dataset<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
+200%'><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>It
+was recommended in the original report to test the algorithms on historic data
+supplied by YourMoney. That data is not currently available so to demonstrate
+if a supervised learning algorithm would be suitable for credit card fraud
+detection, and if so which one, a dataset from a public repository was used.<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
 200%'><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>Three
-AI use cases are proposed with benefits, risks and data requirements discussed
-for each.<o:p></o:p></span></p>
+criteria were considered when selecting the dataset, in descending order of
+importance:<o:p></o:p></span></p>
+
+<p class=MsoListParagraphCxSpFirst style='margin-bottom:12.0pt;mso-add-space:
+auto;text-align:justify;text-indent:-18.0pt;line-height:200%;mso-list:l10 level1 lfo12'><![if !supportLists]><span
+style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif;
+mso-fareast-font-family:Arial'><span style='mso-list:Ignore'>1.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><b><span
+style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>Provenance</span></b><span
+style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>.
+Ideally, the data will be real data. If only synthetic data can be found it
+should be generated from a trusted simulator. <o:p></o:p></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-bottom:12.0pt;mso-add-space:
+auto;text-align:justify;text-indent:-18.0pt;line-height:200%;mso-list:l10 level1 lfo12'><![if !supportLists]><span
+style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif;
+mso-fareast-font-family:Arial'><span style='mso-list:Ignore'>2.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><b><span
+style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>Volume</span></b><span
+style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>. A
+larger volume of data is preferred to train and test the algorithms
+effectively.<o:p></o:p></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-bottom:12.0pt;mso-add-space:
+auto;text-align:justify;text-indent:-18.0pt;line-height:200%;mso-list:l10 level1 lfo12'><![if !supportLists]><span
+style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif;
+mso-fareast-font-family:Arial'><span style='mso-list:Ignore'>3.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><b><span
+style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>Accurately
+balanced</span></b><span style='font-size:12.0pt;line-height:200%;font-family:
+"Arial",sans-serif'>. Real-world data is highly imbalanced. UK credit card
+spending in 2020 was £162.78bn (de Best, 2022), of which £574.2m was lost to
+fraud (UK Finance, 2021). This means 0.34% of total spending was lost to fraud.<o:p></o:p></span></p>
+
+<p class=MsoListParagraphCxSpLast style='margin-bottom:12.0pt;mso-add-space:
+auto;text-align:justify;text-indent:-18.0pt;line-height:200%;mso-list:l10 level1 lfo12'><![if !supportLists]><span
+style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif;
+mso-fareast-font-family:Arial'><span style='mso-list:Ignore'>4.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><b><span
+style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>Understandable
+feature set</span></b><span style='font-size:12.0pt;line-height:200%;
+font-family:"Arial",sans-serif'>. Understanding the features in the data is
+desirable to make general observations about the data and for feature
+engineering. This might not be possible with real data if it has been
+anonymised.<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
-200%'><b><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>YourMoney
-Building Society</span></b><span style='font-size:12.0pt;line-height:200%;
-font-family:"Arial",sans-serif'><o:p></o:p></span></p>
+200%'><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>The
+dataset from Kaggle (<span class=SpellE>N.D.a</span>) was chosen because it meets
+the three most important criteria:<o:p></o:p></span></p>
+
+<p class=MsoListParagraphCxSpFirst style='margin-bottom:12.0pt;mso-add-space:
+auto;text-align:justify;text-indent:-18.0pt;line-height:200%;mso-list:l11 level1 lfo13'><![if !supportLists]><span
+style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif;
+mso-fareast-font-family:Arial'><span style='mso-list:Ignore'>1.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><b><span
+style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>Provenance</span></b><span
+style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>. It
+is real data taken from actual European credit card transactions over two days
+in September 2013. <o:p></o:p></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-bottom:12.0pt;mso-add-space:
+auto;text-align:justify;text-indent:-18.0pt;line-height:200%;mso-list:l11 level1 lfo13'><![if !supportLists]><span
+style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif;
+mso-fareast-font-family:Arial'><span style='mso-list:Ignore'>2.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><b><span
+style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>Volume</span></b><span
+style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>. It
+contains 284,807 transactions which were considered plenty, even considering
+the highly imbalanced class values. There were datasets with higher volumes;
+over a million rows, but they were all simulated data and it was felt having
+real data was more important than a bigger volume of simulated data.<o:p></o:p></span></p>
+
+<p class=MsoListParagraphCxSpLast style='margin-bottom:12.0pt;mso-add-space:
+auto;text-align:justify;text-indent:-18.0pt;line-height:200%;mso-list:l11 level1 lfo13'><![if !supportLists]><span
+style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif;
+mso-fareast-font-family:Arial'><span style='mso-list:Ignore'>3.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><b><span
+style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>Accurately
+balanced</span></b><span style='font-size:12.0pt;line-height:200%;font-family:
+"Arial",sans-serif'>. Out of a total of 284,807 transactions, 492 (0.172%) were
+fraudulent. The fraudulent transactions had a total value of 60,128 (currency
+not provided) out of a total of 25,162,590, which is 0.24%. This is broadly
+representative of the UK’s actual percentage of 0.34%.<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
-200%'><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>YourMoney
-is a start-up building society offering savings and current accounts, loans,
-mortgages and credit cards. <o:p></o:p></span></p>
+200%'><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>The
+fourth criterion was not met with this dataset. Because real data was used, all
+except two features (time and amount) were anonymised using PCA transformation
+to preserve confidentiality. This makes feature engineering with this data
+impossible. For example, it is known that the majority of credit card fraud is
+remote, where the cardholder is not present (UK Finance, 2021), but we cannot
+tell this from the PCA-transformed data. <o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
-200%'><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>Key
-Performance Indicator (KPI) groups in financial and risk categories are shown
-in figure 2, derived from KPMG (2016).<o:p></o:p></span></p>
+200%'><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>The
+only editing of the data was converting class from binary to nominal values to
+enable WEKA to process it where nominal class values are required, and also to
+make the results easier to read. “1” was changed to “Fraud” and “0” was changed
+to “Not Fraud”. <o:p></o:p></span></p>
+
+<b><span style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif;
+mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;mso-ansi-language:
+EN-GB;mso-fareast-language:EN-US;mso-bidi-language:AR-SA'><br clear=all
+style='mso-special-character:line-break;page-break-before:always'>
+</span></b>
+
+<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:107%;
+font-family:"Arial",sans-serif'><o:p>&nbsp;</o:p></span></b></p>
+
+<p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
+200%'><b><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>Development
+of the prediction model<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
+200%'><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>Support
+Vector Machine (SVM) generally performs better than Decision Tree (DT) (<span
+class=SpellE>Danso</span> et al, 2014; <span class=SpellE>Suhaimi</span> &amp;
+Abas, 2020), so SVM with Polynomial kernel, Pearson VII Universal Kernel (PUK)
+and Radial Basis Function (RBF) kernel were tested, as well as DT and Artificial
+Neural Network (ANN) to give options with lower and higher compute requirements
+respectively.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
+200%'><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>WEKA
+was used to build prediction models using the selected algorithms because WEKA
+is quick and simple to use with output that allows easy comparison. The CSV
+data file was loaded into WEKA. Default values for each algorithm were used aside
+from selecting different SVM kernels using the SMO classifier function.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
+200%'><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>Stratified
+10-fold cross-validation was used because the dataset is highly imbalanced. K-fold
+cross-validation made use of all of the data in both training and testing, whilst
+stratification ensured the models were trained and tested using negative and
+positive class values (<span class=SpellE>Raschka</span>, 2018). Screenshots of
+the WEKA results are in Appendix A.<o:p></o:p></span></p>
+
+<b><span style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif;
+mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;mso-ansi-language:
+EN-GB;mso-fareast-language:EN-US;mso-bidi-language:AR-SA'><br clear=all
+style='mso-special-character:line-break;page-break-before:always'>
+</span></b>
+
+<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:107%;
+font-family:"Arial",sans-serif'><o:p>&nbsp;</o:p></span></b></p>
+
+<p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
+200%'><b><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>Performance
+of the algorithms<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
+200%'><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif;
+mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:minor-fareast'>The
+five algorithms were each tested on the chosen dataset using stratified 10-fold
+cross-validation and the results were put into confusion matrices, as shown in figure
+1. <o:p></o:p></span></p>
 
 <p class=MsoNormal align=center style='margin-bottom:12.0pt;text-align:center;
-line-height:200%'><span style='mso-no-proof:yes'><!--[if gte vml 1]><v:shapetype
- id="_x0000_t75" coordsize="21600,21600" o:spt="75" o:preferrelative="t"
- path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f">
+line-height:normal'><span style='font-size:12.0pt;font-family:"Arial",sans-serif;
+mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:minor-fareast;
+mso-no-proof:yes'><!--[if gte vml 1]><v:shapetype id="_x0000_t75" coordsize="21600,21600"
+ o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe" filled="f"
+ stroked="f">
  <v:stroke joinstyle="miter"/>
  <v:formulas>
   <v:f eqn="if lineDrawn pixelLineWidth 0"/>
@@ -104,371 +296,785 @@ line-height:200%'><span style='mso-no-proof:yes'><!--[if gte vml 1]><v:shapetype
  </v:formulas>
  <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
  <o:lock v:ext="edit" aspectratio="t"/>
-</v:shapetype><v:shape id="Picture_x0020_4" o:spid="_x0000_i1026" type="#_x0000_t75"
- style='width:451.5pt;height:90pt;visibility:visible;mso-wrap-style:square'>
- <v:imagedata src="Individual%20Essay_files/image001.emz" o:title=""/>
-</v:shape><![endif]--><![if !vml]><img width=602 height=120
-src="Individual%20Essay_files/image002.png" v:shapes="Picture_x0020_4"><![endif]></span><span
-style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'><o:p></o:p></span></p>
+</v:shapetype><v:shape id="Picture_x0020_27" o:spid="_x0000_i1048" type="#_x0000_t75"
+ style='width:457.5pt;height:339.75pt;visibility:visible;mso-wrap-style:square'>
+ <v:imagedata src="Solution%20Implementation_files/image001.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=610 height=453
+src="Solution%20Implementation_files/image002.png" v:shapes="Picture_x0020_27"><![endif]></span><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;mso-fareast-font-family:
+"Times New Roman";mso-fareast-theme-font:minor-fareast'><o:p></o:p></span></p>
 
 <p class=MsoNormal align=center style='margin-bottom:12.0pt;text-align:center;
 line-height:200%'><span style='font-size:12.0pt;line-height:200%;font-family:
-"Arial",sans-serif'>Figure 1. KPI Summary derived from KPGN (2016)<o:p></o:p></span></p>
+"Arial",sans-serif;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:
+minor-fareast'>Figure 1. Confusion Matrices – Original Dataset<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:12.0pt;line-height:200%'><span
+style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif;
+mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:minor-fareast'>Next,
+the values from the confusion matrices were used to calculate various
+performance metrics described in </span><span style='font-size:12.0pt;
+line-height:200%;font-family:"Arial",sans-serif'>Sokolova et al (2006), <span
+class=SpellE>Hossin</span> and <span class=SpellE>Sulaiman</span> <span
+style='mso-spacerun:yes'> </span>(2015), <span class=SpellE>Danso</span> et al (2021)
+and Chicco and <span class=SpellE>Jurman</span> (2020).<o:p></o:p></span></p>
+
+<span style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif;
+mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:minor-fareast;
+mso-ansi-language:EN-GB;mso-fareast-language:EN-US;mso-bidi-language:AR-SA'><br
+clear=all style='mso-special-character:line-break;page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%;font-family:
+"Arial",sans-serif;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:
+minor-fareast'><o:p>&nbsp;</o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
-200%'><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>The
-challenge is balancing risk and income; attracting new business whilst not taking
-unacceptable risk. Financial services is heavily regulated so operations need
-to be compliant and auditable. <o:p></o:p></span></p>
+200%'><!--[if gte msEquation 12]><m:oMathPara><m:oMath><i style='mso-bidi-font-style:
+  normal'><span style='font-size:12.0pt;line-height:200%;font-family:"Cambria Math",serif;
+  mso-bidi-font-family:Arial'><m:r>Accuracy</m:r><m:r>=</m:r></span></i><m:f><m:fPr><span
+    style='font-size:12.0pt;mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;
+    font-family:"Cambria Math",serif;mso-ascii-font-family:"Cambria Math";
+    mso-hansi-font-family:"Cambria Math";mso-bidi-font-family:Arial;font-style:
+    italic;mso-bidi-font-style:normal'><m:ctrlPr></m:ctrlPr></span></m:fPr><m:num><i
+    style='mso-bidi-font-style:normal'><span style='font-size:12.0pt;
+    line-height:200%;font-family:"Cambria Math",serif;mso-bidi-font-family:
+    Arial'><m:r>TP</m:r><m:r>+</m:r><m:r>TN</m:r></span></i></m:num><m:den><i
+    style='mso-bidi-font-style:normal'><span style='font-size:12.0pt;
+    line-height:200%;font-family:"Cambria Math",serif;mso-bidi-font-family:
+    Arial'><m:r>TP</m:r><m:r>+</m:r><m:r>TN</m:r><m:r>+</m:r><m:r>FP</m:r><m:r>+</m:r><m:r>FN</m:r></span></i></m:den></m:f></m:oMath></m:oMathPara><![endif]--><![if !msEquation]><span
+style='font-size:11.0pt;line-height:107%;font-family:"Calibri",sans-serif;
+mso-ascii-theme-font:minor-latin;mso-fareast-font-family:Calibri;mso-fareast-theme-font:
+minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-font-family:"Times New Roman";
+mso-bidi-theme-font:minor-bidi;mso-ansi-language:EN-GB;mso-fareast-language:
+EN-US;mso-bidi-language:AR-SA'><!--[if gte vml 1]><v:shape id="_x0000_i1025"
+ type="#_x0000_t75" style='width:171.75pt;height:28.5pt'>
+ <v:imagedata src="Solution%20Implementation_files/image003.png" o:title=""
+  chromakey="white"/>
+</v:shape><![endif]--><![if !vml]><img width=229 height=38
+src="Solution%20Implementation_files/image004.png" v:shapes="_x0000_i1025"><![endif]></span><![endif]><span
+style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif;
+mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:minor-fareast'><o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
-200%'><b><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'><o:p>&nbsp;</o:p></span></b></p>
-
-<b><span style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif;
-mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;mso-ansi-language:
-EN-GB;mso-fareast-language:EN-US;mso-bidi-language:AR-SA'><br clear=all
-style='mso-special-character:line-break;page-break-before:always'>
-</span></b>
-
-<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:107%;
-font-family:"Arial",sans-serif'><o:p>&nbsp;</o:p></span></b></p>
+200%'><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>DT
+had the highest accuracy, meaning that it made the most accurate predictions. However,
+that doesn’t mean that it’s the best algorithm. Accuracy is best when the
+datasets are symmetric (<span class=SpellE>Ghoneim</span>, 2019), which is not
+the case here. <o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
-200%'><b><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>AI
-Opportunities</span></b><span style='font-size:12.0pt;line-height:200%;
-font-family:"Arial",sans-serif'><o:p></o:p></span></p>
+200%'><!--[if gte msEquation 12]><m:oMathPara><m:oMath><i style='mso-bidi-font-style:
+  normal'><span style='font-size:12.0pt;line-height:200%;font-family:"Cambria Math",serif;
+  mso-bidi-font-family:Arial'><m:r>Precision</m:r><m:r>=</m:r></span></i><m:f><m:fPr><span
+    style='font-size:12.0pt;mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;
+    font-family:"Cambria Math",serif;mso-ascii-font-family:"Cambria Math";
+    mso-hansi-font-family:"Cambria Math";mso-bidi-font-family:Arial;font-style:
+    italic;mso-bidi-font-style:normal'><m:ctrlPr></m:ctrlPr></span></m:fPr><m:num><i
+    style='mso-bidi-font-style:normal'><span style='font-size:12.0pt;
+    line-height:200%;font-family:"Cambria Math",serif;mso-bidi-font-family:
+    Arial'><m:r>TP</m:r></span></i></m:num><m:den><i style='mso-bidi-font-style:
+    normal'><span style='font-size:12.0pt;line-height:200%;font-family:"Cambria Math",serif;
+    mso-bidi-font-family:Arial'><m:r>TP</m:r><m:r>+</m:r><m:r>FP</m:r></span></i></m:den></m:f></m:oMath></m:oMathPara><![endif]--><![if !msEquation]><span
+style='font-size:11.0pt;line-height:107%;font-family:"Calibri",sans-serif;
+mso-ascii-theme-font:minor-latin;mso-fareast-font-family:Calibri;mso-fareast-theme-font:
+minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-font-family:"Times New Roman";
+mso-bidi-theme-font:minor-bidi;mso-ansi-language:EN-GB;mso-fareast-language:
+EN-US;mso-bidi-language:AR-SA'><!--[if gte vml 1]><v:shape id="_x0000_i1025"
+ type="#_x0000_t75" style='width:111pt;height:28.5pt'>
+ <v:imagedata src="Solution%20Implementation_files/image005.png" o:title=""
+  chromakey="white"/>
+</v:shape><![endif]--><![if !vml]><img width=148 height=38
+src="Solution%20Implementation_files/image006.png" v:shapes="_x0000_i1025"><![endif]></span><![endif]><span
+style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif;
+mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:minor-fareast'><o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
-200%'><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>AI
-adoption is growing in financial services and is becoming a key competitive
-differentiator, as noted by Linklaters (2018):<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:12.0pt;
-margin-left:36.0pt;text-align:justify;line-height:200%'><span style='font-size:
-12.0pt;line-height:200%;font-family:"Arial",sans-serif'>“The winners and losers
-in the new digital banking landscape will be defined by those that can best
-access, process and analyse data, the speed with which they <span
-style='mso-spacerun:yes'> </span>can react to such analysis, and their ability
-to predict and control the increasingly <span style='mso-spacerun:yes'> </span>autonomous
-activities of their IT systems.”<o:p></o:p></span></p>
+200%'><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>DT
+also scored well on precision, which is the measure of how accurate the
+positive predictions were. This might not be best for credit card fraud
+detection though. Precision scores highly when there are fewer false positives,
+but it doesn’t penalise false negatives, so the algorithm could be missing
+fraudulent transactions and still score highly for precision.<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
-200%'><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>They
-note challenges including ensuring algorithms don’t make discriminatory decisions
-that might be unethical or unlawful, with <span class=SpellE>Ostmann</span>
-&amp; <span class=SpellE>Dorobantu</span> (2021) highlighting similar benefits
-and risks.<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
-200%'><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>Van
-Niekerk &amp; Subramanian (2022) also note that there are many opportunities to
-use AI in financial services, but each comes with different benefits and risks
-so it is important to select the right use case based on value and feasibility.<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
-200%'><span class=SpellE><span style='font-size:12.0pt;line-height:200%;
-font-family:"Arial",sans-serif'>Berns</span></span><span style='font-size:12.0pt;
-line-height:200%;font-family:"Arial",sans-serif'> (2020) found that most executives
-from financial institutions across Germany, Austria and Switzerland are looking
-for AI to deliver conventional benefits such as increased efficiency (79%) and
-cost savings (73%) – figure 2.<o:p></o:p></span></p>
-
-<p class=MsoNormal align=center style='margin-bottom:12.0pt;text-align:center;
-line-height:200%'><span style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape
- id="Picture_x0020_1" o:spid="_x0000_i1025" type="#_x0000_t75" style='width:408.75pt;
- height:280.5pt;visibility:visible;mso-wrap-style:square' o:bordertopcolor="yellow pure"
- o:borderleftcolor="yellow pure" o:borderbottomcolor="yellow pure"
- o:borderrightcolor="yellow pure">
- <v:imagedata src="Individual%20Essay_files/image003.png" o:title=""/>
- <w:bordertop type="single" width="6"/>
- <w:borderleft type="single" width="6"/>
- <w:borderbottom type="single" width="6"/>
- <w:borderright type="single" width="6"/>
-</v:shape><![endif]--><![if !vml]><img width=547 height=376
-src="Individual%20Essay_files/image004.jpg" v:shapes="Picture_x0020_1"><![endif]></span><span
-style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'><o:p></o:p></span></p>
-
-<p class=MsoNormal align=center style='margin-bottom:12.0pt;text-align:center;
-line-height:200%'><span style='font-size:12.0pt;line-height:200%;font-family:
-"Arial",sans-serif'>Figure 2. Important fields of application for AI (<span
-class=SpellE>Berns</span>, 2022).<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
-200%'><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>With
-those benefits and cautions in mind, three AI use cases are proposed. All
-require data to be provided by domain experts from YourMoney so the CRISP-DM
-process (Wirth &amp; <span class=SpellE>Hipp</span>, 2000) is recommended to
-ensure a structured approach for data capture, preparation, modelling and
-deployment.<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
-200%'><b><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>Virtual
-Agent<o:p></o:p></span></b></p>
-
-<p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
-200%'><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>Banks
-and building societies face increasing volumes of customer calls and emails due
-to growth and expanding product lines leading to increased costs, so many are
-turning to virtual agents (Chan et al, 2019). <o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
-200%'><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>A
-virtual agent would reduce costs by handling routine contacts without human
-intervention, and increase customer satisfaction by dealing with simple
-enquiries 24/7 because YourMoney answers calls and emails during UK office
-hours.<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
-200%'><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>The
-proposal is to build a virtual agent using Natural Language Processing (NLP) on
-a platform such as IBM Watson, Google’s <span class=SpellE>Dialogflow</span> or
-Microsoft Bot Framework, as suggested by <span class=SpellE>Kvale</span> (2020)
-and Pérez-Soler et al (2021). This would enable fast start-up because core
-language training data is already provided, even including a basic financial
-services agent (Google, <span class=SpellE>N.D.a</span>) so domain experts from
-YourMoney would initially only need to provide training data to cover their
-products. Training would be iterative whereby training data is added and the
-virtual agent is tested, iterating with more data until it is able to answer
-most questions.<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
-200%'><span class=SpellE><span style='font-size:12.0pt;line-height:200%;
-font-family:"Arial",sans-serif'>Dialogflow</span></span><span style='font-size:
-12.0pt;line-height:200%;font-family:"Arial",sans-serif'> uses two algorithms
-simultaneously; rule-based grammar matching and Machine Learning (ML) matching
-(Google, <span class=SpellE>N.D.b</span>). This would allow quick deployment of
-an initial solution using rule-based grammar matching to answer simple
-questions such as “what is my balance?” and “when does my mortgage fixed rate
-end?”. The next iteration could integrate into additional systems to take actions
-such as stopping a credit card in response to “my credit card has been stolen”.
-<span style='mso-spacerun:yes'> </span>Over time, as the ML matching has more
-training data added, the conversational language would become more natural and
-easy to use.<o:p></o:p></span></p>
+200%'><!--[if gte msEquation 12]><m:oMathPara><m:oMath><i style='mso-bidi-font-style:
+  normal'><span style='font-size:12.0pt;line-height:200%;font-family:"Cambria Math",serif;
+  mso-bidi-font-family:Arial'><m:r>Recall</m:r><m:r> </m:r><m:r>or</m:r><m:r> </m:r><m:r>Sensitivity</m:r><m:r>=</m:r></span></i><m:f><m:fPr><span
+    style='font-size:12.0pt;mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;
+    font-family:"Cambria Math",serif;mso-ascii-font-family:"Cambria Math";
+    mso-hansi-font-family:"Cambria Math";mso-bidi-font-family:Arial;font-style:
+    italic;mso-bidi-font-style:normal'><m:ctrlPr></m:ctrlPr></span></m:fPr><m:num><i
+    style='mso-bidi-font-style:normal'><span style='font-size:12.0pt;
+    line-height:200%;font-family:"Cambria Math",serif;mso-bidi-font-family:
+    Arial'><m:r>TP</m:r></span></i></m:num><m:den><i style='mso-bidi-font-style:
+    normal'><span style='font-size:12.0pt;line-height:200%;font-family:"Cambria Math",serif;
+    mso-bidi-font-family:Arial'><m:r>TP</m:r><m:r>+</m:r><m:r>FN</m:r></span></i></m:den></m:f></m:oMath></m:oMathPara><![endif]--><![if !msEquation]><span
+style='font-size:11.0pt;line-height:107%;font-family:"Calibri",sans-serif;
+mso-ascii-theme-font:minor-latin;mso-fareast-font-family:Calibri;mso-fareast-theme-font:
+minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-font-family:"Times New Roman";
+mso-bidi-theme-font:minor-bidi;mso-ansi-language:EN-GB;mso-fareast-language:
+EN-US;mso-bidi-language:AR-SA'><!--[if gte vml 1]><v:shape id="_x0000_i1025"
+ type="#_x0000_t75" style='width:171.75pt;height:28.5pt'>
+ <v:imagedata src="Solution%20Implementation_files/image007.png" o:title=""
+  chromakey="white"/>
+</v:shape><![endif]--><![if !vml]><img width=229 height=38
+src="Solution%20Implementation_files/image008.png" v:shapes="_x0000_i1025"><![endif]></span><![endif]><span
+style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif;
+mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:minor-fareast'><o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
 200%'><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>If
-YourMoney does not want a cloud solution, a simple rules-based virtual agent
-could be deployed using Artificial Intelligence Markup Language (AIML) as explained
-by <span class=SpellE>Lalwani</span> et al (2021).<o:p></o:p></span></p>
+the main objective of YourMoney is to identify as many genuinely fraudulent
+transactions as possible, it might be prepared to accept more false positives (false
+alarms) to achieve that. A better metric could therefore be recall, which measures
+how many of the total positive cases were predicted without being penalised for
+false positives. Indeed, <span class=SpellE>Jayaswal</span> (2020) suggests
+using recall for credit card fraud detection for precisely that reason. ANN
+scored best for recall, followed by SVM with PUK, with DT third.<o:p></o:p></span></p>
+
+<span style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif;
+mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:minor-fareast;
+mso-ansi-language:EN-GB;mso-fareast-language:EN-US;mso-bidi-language:AR-SA'><br
+clear=all style='mso-special-character:line-break;page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%;font-family:
+"Arial",sans-serif;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:
+minor-fareast'><o:p>&nbsp;</o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
-200%'><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>The
-virtual agent would have access to personal information so it would be vital to
-include data encryption and authentication. It could answer general enquiries
-whilst unauthenticated.<o:p></o:p></span></p>
-
-<b><span style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif;
-mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;mso-ansi-language:
-EN-GB;mso-fareast-language:EN-US;mso-bidi-language:AR-SA'><br clear=all
-style='mso-special-character:line-break;page-break-before:always'>
-</span></b>
-
-<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:107%;
-font-family:"Arial",sans-serif'><o:p>&nbsp;</o:p></span></b></p>
-
-<p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
-200%'><b><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>Loan
-Application Assistant<o:p></o:p></span></b></p>
-
-<p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
-200%'><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>The
-application process for mortgages and unsecured loans at YourMoney is time-consuming.
-A loan application assistant could take the affordability data for a customer
-and instantly determine if they qualify for a mortgage or unsecure loan. <o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
-200%'><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>Financial
-Conduct Authority (2022) states that records must be kept of the reason for every
-mortgage decision, so transparency will be important in the solution. For this
-reason, Decision Tree (DT) is proposed because DT results are understandable (Russell
-&amp; Norvig, 2021). The DT would log the decision along with the reasons for
-complete transparency.<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
-200%'><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>Loan
-applications also need to validate documents such as bank statements, utility
-bills and passports. To fully automate the process a document reader could also
-be included using a Convolutional Neural Network (CNN) (Simard et al, 2003),
-although there are “off the shelf” document readers so knowledge of the precise
-algorithm is not necessarily required. The document reader would input data
-into the DT so the DT would be making the “understandable” decision with the CNN
-providing auditable inputs.<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
-200%'><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>Initially,
-the DT would be used with a human agent checking the documents and inputting
-the required data, with further benefits in a subsequent iteration by adding a
-document reader.<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
-200%'><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>Benefits
-include reduced costs due to automation, reduced average time to approve loans and
-simplified compliance auditing because every decision is stored with reasons
-from the DT.<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
-200%'><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>The
-DT would be trained on historic loan applications data and then tested on the
-remainder using the holdout method (<span class=SpellE>Raschka</span>, 2018).
-The ratio of training and test data would depend on the amount of data
-available.<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
-200%'><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>A
-risk with supervised learning such as DT is the model becomes biased, making
-decisions using inappropriate criteria (Navarro et al, 2021). To combat bias, domain
-experts from YourMoney should ensure data that should not be used in the
-decision is excluded from the algorithm. For example, name, gender and
-occupation would be necessary to capture, but it would be inappropriate for them
-to be used in the DT because it could, for example, result in an inadvertently
-sexist model. Overfitting should also be eliminated with pruning (Russell &amp;
-Norvig, 2021). With such safeguards in place, the model should be objective,
-and potentially less prone to bias than human agents.<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
-200%'><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>Data
-collected would need to be stored securely and in compliance with General Data
-Protection Regulation (GDPR) (Information Commissioner’s Office, N.D.).<o:p></o:p></span></p>
-
-<b><span style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif;
-mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;mso-ansi-language:
-EN-GB;mso-fareast-language:EN-US;mso-bidi-language:AR-SA'><br clear=all
-style='mso-special-character:line-break;page-break-before:always'>
-</span></b>
-
-<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:107%;
-font-family:"Arial",sans-serif'><o:p>&nbsp;</o:p></span></b></p>
-
-<p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
-200%'><b><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>Credit
-Card Fraud Detection</span></b><span style='font-size:12.0pt;line-height:200%;
-font-family:"Arial",sans-serif'><o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
-200%'><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>There
-is an opportunity to use AI to assess credit card transactions for indicators
-of fraudulent activity. UK credit card losses from fraud fell from £620.6m in
-2019 to £574.2m in 2020, partly as a result of improved protection such as 3D
-Secure (UK Finance, 2021). There is, however, still a big opportunity to reduce
-<span class=SpellE>YourMoney’s</span> losses and increase customer satisfaction
-by preventing fraudulent transactions.<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
-200%'><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>The
-AI would monitor every credit card transaction looking for clues that it does not
-fit a normal pattern and is potentially fraudulent so it would need to be highly
-performant. Algorithms such as Support Vector Machine (SVM) are generally
-better performing than DT (<span class=SpellE>Suhaimi</span> &amp; Abas, 2020; <span
-class=SpellE>Danso</span> et al, 2014), so would seem an ideal choice.
-Unfortunately SVM is a “black-box” because unlike DT the reasons for decisions
-are not obvious. This seems to make it unsuitable for financial services where
-transparency and <span class=SpellE>explainability</span> are important. However,
-Gill (2021) notes that AI needs to be explainable “when consequences are
-radical”. <o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
-200%'><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>The
-proposed solution would stop the transaction and put a temporary stop on the
-card upon detecting a potentially fraudulent transaction, whilst contacting the
-customer by text to confirm if the transaction was genuine. If confirmation is
-received the card will be unlocked. This is considered to not be a radical consequence
-and therefore any algorithm can be used. This is supported by <span
-class=SpellE>Gyamfi</span> &amp; <span class=SpellE>Abdulai</span> (2021) who recommend
-SVM for this use case, although they are based in Ghana so subject to different
-legislation.<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
-200%'><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>WEKA
-would be used to model historic credit card transaction data using multiple
-algorithms such as SVM with different kernels plus Artificial Neural Network (ANN)
-and DT. Stratified 10-fold cross-validation would be used because the data set
-is highly imbalanced with a small percentage of fraudulent transactions so stratification
-would ensure the models are trained and tested with both positive and negative
-class values whilst k-fold maximises the use of the data, using it all for
-training and testing (<span class=SpellE>Raschka</span>, 2018). Precision,
-accuracy, sensitivity and specificity would be calculated and discussed with
-the management team to select the best performing model based upon their requirements,
-for example minimising false positives (keeping transactions flowing to
-maintain customer satisfaction) or maximising precision (stopping the highest
-volume of fraudulent transactions to minimise financial losses).<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
-200%'><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>The
-transactional data is already anonymous so there are no anticipated data
-confidentiality risks. The main risks are operational; if the model is
-over-zealous at stopping transactions. As a first step the model should be
-deployed passively, monitoring and flagging transactions but without the
-ability to directly intervene. This would provide safe real-world feedback to
-YourMoney before full deployment. <o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
-200%'><b><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>Additional
-Opportunities<o:p></o:p></span></b></p>
-
-<p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
-200%'><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>There
-are opportunities to extend the proposed use cases for additional benefits. For
-example, analysing current and savings account data could provide insights that
-signal that a customer might be ready to buy a home so they could be
-proactively marketed with YourMoney mortgage products. Data could be
-pre-populated into the loan application assistant to give them a pre-approved
-conditional offer at a certain loan to value level.<o:p></o:p></span></p>
-
-<b><span style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif;
-mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;mso-ansi-language:
-EN-GB;mso-fareast-language:EN-US;mso-bidi-language:AR-SA'><br clear=all
-style='mso-special-character:line-break;page-break-before:always'>
-</span></b>
-
-<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:107%;
-font-family:"Arial",sans-serif'><o:p>&nbsp;</o:p></span></b></p>
-
-<p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
-200%'><b><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>Conclusion</span></b><span
+200%'><!--[if gte msEquation 12]><m:oMathPara><m:oMath><i style='mso-bidi-font-style:
+  normal'><span style='font-size:12.0pt;line-height:200%;font-family:"Cambria Math",serif;
+  mso-bidi-font-family:Arial'><m:r>F</m:r><m:r>1 </m:r><m:r>Score</m:r><m:r>=</m:r></span></i><m:f><m:fPr><span
+    style='font-size:12.0pt;mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;
+    font-family:"Cambria Math",serif;mso-ascii-font-family:"Cambria Math";
+    mso-hansi-font-family:"Cambria Math";mso-bidi-font-family:Arial;font-style:
+    italic;mso-bidi-font-style:normal'><m:ctrlPr></m:ctrlPr></span></m:fPr><m:num><i
+    style='mso-bidi-font-style:normal'><span style='font-size:12.0pt;
+    line-height:200%;font-family:"Cambria Math",serif;mso-bidi-font-family:
+    Arial'><m:r>2</m:r></span></i><m:d><m:dPr><span style='font-size:12.0pt;
+      mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;font-family:"Cambria Math",serif;
+      mso-ascii-font-family:"Cambria Math";mso-hansi-font-family:"Cambria Math";
+      mso-bidi-font-family:Arial;font-style:italic;mso-bidi-font-style:normal'><m:ctrlPr></m:ctrlPr></span></m:dPr><m:e><i
+      style='mso-bidi-font-style:normal'><span style='font-size:12.0pt;
+      line-height:200%;font-family:"Cambria Math",serif;mso-bidi-font-family:
+      Arial'><m:r>Precision</m:r><m:r>*</m:r><m:r>Recall</m:r></span></i></m:e></m:d></m:num><m:den><i
+    style='mso-bidi-font-style:normal'><span style='font-size:12.0pt;
+    line-height:200%;font-family:"Cambria Math",serif;mso-bidi-font-family:
+    Arial'><m:r>Precision</m:r><m:r>+</m:r><m:r>Recall</m:r></span></i></m:den></m:f></m:oMath></m:oMathPara><![endif]--><![if !msEquation]><span
+style='font-size:11.0pt;line-height:107%;font-family:"Calibri",sans-serif;
+mso-ascii-theme-font:minor-latin;mso-fareast-font-family:Calibri;mso-fareast-theme-font:
+minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-font-family:"Times New Roman";
+mso-bidi-theme-font:minor-bidi;mso-ansi-language:EN-GB;mso-fareast-language:
+EN-US;mso-bidi-language:AR-SA'><!--[if gte vml 1]><v:shape id="_x0000_i1025"
+ type="#_x0000_t75" style='width:175.5pt;height:29.25pt'>
+ <v:imagedata src="Solution%20Implementation_files/image009.png" o:title=""
+  chromakey="white"/>
+</v:shape><![endif]--><![if !vml]><img width=234 height=39
+src="Solution%20Implementation_files/image010.png" v:shapes="_x0000_i1025"><![endif]></span><![endif]><span
 style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'><o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
-200%'><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>Three
-AI opportunities for YourMoney have been examined; virtual agent using NLP,
-loan application assistant using DT and CNN, and credit card fraud detection
-using a best-fit algorithm, likely to be SVM. Benefits, risks and data
-requirements have been discussed and the recommendation is to deploy all three,
-starting with a basic capability for each that would be expanded over time.<o:p></o:p></span></p>
+200%'><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>F1
+Score combines precision and recall. This is useful because either false
+positives or false negatives bring the score down, so it provides a well-balanced
+score of how many positives were correctly identified as well as how precisely
+they are grouped. Powers (2020: 39) notes that F1 “completely ignores TN which
+can vary freely without affecting the statistic”, but that’s not entirely true
+because changes in TN would be reflected in changes to FP or FN. DT scored best
+in F1, slightly ahead of ANN and SVM with PUK.<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
-200%'><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>Safeguards
-to cover data privacy and ethical AI need to be considered in each solution.<o:p></o:p></span></p>
+200%'><!--[if gte msEquation 12]><m:oMathPara><m:oMath><i style='mso-bidi-font-style:
+  normal'><span style='font-size:12.0pt;line-height:200%;font-family:"Cambria Math",serif;
+  mso-bidi-font-family:Arial'><m:r>Specificity</m:r><m:r>=</m:r></span></i><m:f><m:fPr><span
+    style='font-size:12.0pt;mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;
+    font-family:"Cambria Math",serif;mso-ascii-font-family:"Cambria Math";
+    mso-hansi-font-family:"Cambria Math";mso-bidi-font-family:Arial;font-style:
+    italic;mso-bidi-font-style:normal'><m:ctrlPr></m:ctrlPr></span></m:fPr><m:num><i
+    style='mso-bidi-font-style:normal'><span style='font-size:12.0pt;
+    line-height:200%;font-family:"Cambria Math",serif;mso-bidi-font-family:
+    Arial'><m:r>TN</m:r></span></i></m:num><m:den><i style='mso-bidi-font-style:
+    normal'><span style='font-size:12.0pt;line-height:200%;font-family:"Cambria Math",serif;
+    mso-bidi-font-family:Arial'><m:r>TN</m:r><m:r>+</m:r><m:r>FP</m:r></span></i></m:den></m:f></m:oMath></m:oMathPara><![endif]--><![if !msEquation]><span
+style='font-size:11.0pt;line-height:107%;font-family:"Calibri",sans-serif;
+mso-ascii-theme-font:minor-latin;mso-fareast-font-family:Calibri;mso-fareast-theme-font:
+minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-font-family:"Times New Roman";
+mso-bidi-theme-font:minor-bidi;mso-ansi-language:EN-GB;mso-fareast-language:
+EN-US;mso-bidi-language:AR-SA'><!--[if gte vml 1]><v:shape id="_x0000_i1025"
+ type="#_x0000_t75" style='width:120.75pt;height:28.5pt'>
+ <v:imagedata src="Solution%20Implementation_files/image011.png" o:title=""
+  chromakey="white"/>
+</v:shape><![endif]--><![if !vml]><img width=161 height=38
+src="Solution%20Implementation_files/image012.png" v:shapes="_x0000_i1025"><![endif]></span><![endif]><span
+style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif;
+mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:minor-fareast'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
+200%'><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>Specificity
+is a measure of how many of the negative cases were accurately predicted. It is
+similar to recall but for the negative class value. Higher scores are the
+result of fewer false positives, so specificity would be used where minimising false
+alarms is important. It is thought that YourMoney would prefer a few more false
+alarms if it meant identifying more true positives (fraudulent transactions),
+so specificity isn’t considered to be a useful metric on its own for this use
+case, but for completeness, DT scored best. Specificity is, however, useful
+because it is one of the inputs to the next metric:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
+200%'><!--[if gte msEquation 12]><m:oMathPara><m:oMath><i style='mso-bidi-font-style:
+  normal'><span style='font-size:12.0pt;line-height:200%;font-family:"Cambria Math",serif;
+  mso-bidi-font-family:Arial'><m:r>Geometric</m:r><m:r> </m:r><m:r>Accuracy</m:r><m:r>=</m:r></span></i><m:rad><m:radPr><m:degHide
+     m:val="on"/><span style='font-size:12.0pt;mso-ansi-font-size:12.0pt;
+    mso-bidi-font-size:12.0pt;font-family:"Cambria Math",serif;mso-ascii-font-family:
+    "Cambria Math";mso-hansi-font-family:"Cambria Math";mso-bidi-font-family:
+    Arial;font-style:italic'><m:ctrlPr></m:ctrlPr></span></m:radPr><m:deg></m:deg><m:e><m:d><m:dPr><span
+      style='font-size:12.0pt;mso-ansi-font-size:12.0pt;mso-bidi-font-size:
+      12.0pt;font-family:"Cambria Math",serif;mso-ascii-font-family:"Cambria Math";
+      mso-hansi-font-family:"Cambria Math";mso-bidi-font-family:Arial;
+      font-style:italic'><m:ctrlPr></m:ctrlPr></span></m:dPr><m:e><i
+      style='mso-bidi-font-style:normal'><span style='font-size:12.0pt;
+      line-height:200%;font-family:"Cambria Math",serif;mso-bidi-font-family:
+      Arial'><m:r>Sensitivity</m:r><m:r>+</m:r><m:r>Specificity</m:r></span></i></m:e></m:d></m:e></m:rad></m:oMath></m:oMathPara><![endif]--><![if !msEquation]><span
+style='font-size:11.0pt;line-height:107%;font-family:"Calibri",sans-serif;
+mso-ascii-theme-font:minor-latin;mso-fareast-font-family:Calibri;mso-fareast-theme-font:
+minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-font-family:"Times New Roman";
+mso-bidi-theme-font:minor-bidi;mso-ansi-language:EN-GB;mso-fareast-language:
+EN-US;mso-bidi-language:AR-SA'><!--[if gte vml 1]><v:shape id="_x0000_i1025"
+ type="#_x0000_t75" style='width:276.75pt;height:18.75pt'>
+ <v:imagedata src="Solution%20Implementation_files/image013.png" o:title=""
+  chromakey="white"/>
+</v:shape><![endif]--><![if !vml]><img width=369 height=25
+src="Solution%20Implementation_files/image014.png" v:shapes="_x0000_i1025"><![endif]></span><![endif]><span
+style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif;
+mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:minor-fareast'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
+200%'><span class=SpellE><span style='font-size:12.0pt;line-height:200%;
+font-family:"Arial",sans-serif'>Danso</span></span><span style='font-size:12.0pt;
+line-height:200%;font-family:"Arial",sans-serif'> et al (2021) explain that geometric
+accuracy (GA), which is the square root of the product of sensitivity (which is
+the same as recall) and specificity, is good for imbalanced datasets, which is
+the case in this example. This metric includes all four quadrants of the
+confusion matrix and so provides a well-balanced view of the overall
+performance of the algorithm. ANN scored best in GA, followed by SVM with PUK
+and DT third.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
+200%'><!--[if gte msEquation 12]><m:oMathPara><m:oMath><i style='mso-bidi-font-style:
+  normal'><span style='font-size:12.0pt;line-height:200%;font-family:"Cambria Math",serif;
+  mso-bidi-font-family:"Cambria Math"'><m:r>MCC</m:r></span></i><span
+  style='font-size:12.0pt;line-height:200%;font-family:"Cambria Math",serif;
+  mso-bidi-font-family:"Cambria Math"'><m:r><m:rPr><m:scr m:val="roman"/><m:sty
+     m:val="p"/></m:rPr>=</m:r></span><m:f><m:fPr><span style='font-size:12.0pt;
+    mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;font-family:"Cambria Math",serif;
+    mso-ascii-font-family:"Cambria Math";mso-hansi-font-family:"Cambria Math";
+    mso-bidi-font-family:Arial'><m:ctrlPr></m:ctrlPr></span></m:fPr><m:num><span
+    style='font-size:12.0pt;line-height:200%;font-family:"Cambria Math",serif;
+    mso-bidi-font-family:"Cambria Math"'><m:r><m:rPr><m:scr m:val="roman"/><m:sty
+       m:val="p"/></m:rPr>TP*TN-FP*FN</m:r></span></m:num><m:den><m:rad><m:radPr><m:degHide
+       m:val="on"/><span style='font-size:12.0pt;mso-ansi-font-size:12.0pt;
+      mso-bidi-font-size:12.0pt;font-family:"Cambria Math",serif;mso-ascii-font-family:
+      "Cambria Math";mso-hansi-font-family:"Cambria Math";mso-bidi-font-family:
+      Arial'><m:ctrlPr></m:ctrlPr></span></m:radPr><m:deg></m:deg><m:e><m:d><m:dPr><span
+        style='font-size:12.0pt;mso-ansi-font-size:12.0pt;mso-bidi-font-size:
+        12.0pt;font-family:"Cambria Math",serif;mso-ascii-font-family:"Cambria Math";
+        mso-hansi-font-family:"Cambria Math";mso-bidi-font-family:Arial;
+        font-style:italic;mso-bidi-font-style:normal'><m:ctrlPr></m:ctrlPr></span></m:dPr><m:e><i
+        style='mso-bidi-font-style:normal'><span style='font-size:12.0pt;
+        line-height:200%;font-family:"Cambria Math",serif;mso-bidi-font-family:
+        Arial'><m:r>TP</m:r><m:r>+</m:r><m:r>FP</m:r></span></i></m:e></m:d><i
+      style='mso-bidi-font-style:normal'><span style='font-size:12.0pt;
+      line-height:200%;font-family:"Cambria Math",serif;mso-bidi-font-family:
+      Arial'><m:r>*</m:r></span></i><m:d><m:dPr><span style='font-size:12.0pt;
+        mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;font-family:"Cambria Math",serif;
+        mso-ascii-font-family:"Cambria Math";mso-hansi-font-family:"Cambria Math";
+        mso-bidi-font-family:Arial;font-style:italic;mso-bidi-font-style:normal'><m:ctrlPr></m:ctrlPr></span></m:dPr><m:e><i
+        style='mso-bidi-font-style:normal'><span style='font-size:12.0pt;
+        line-height:200%;font-family:"Cambria Math",serif;mso-bidi-font-family:
+        Arial'><m:r>TP</m:r><m:r>+</m:r><m:r>FN</m:r></span></i></m:e></m:d><i
+      style='mso-bidi-font-style:normal'><span style='font-size:12.0pt;
+      line-height:200%;font-family:"Cambria Math",serif;mso-bidi-font-family:
+      Arial'><m:r>*</m:r></span></i><m:d><m:dPr><span style='font-size:12.0pt;
+        mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;font-family:"Cambria Math",serif;
+        mso-ascii-font-family:"Cambria Math";mso-hansi-font-family:"Cambria Math";
+        mso-bidi-font-family:Arial;font-style:italic;mso-bidi-font-style:normal'><m:ctrlPr></m:ctrlPr></span></m:dPr><m:e><i
+        style='mso-bidi-font-style:normal'><span style='font-size:12.0pt;
+        line-height:200%;font-family:"Cambria Math",serif;mso-bidi-font-family:
+        Arial'><m:r>TN</m:r><m:r>+</m:r><m:r>FP</m:r></span></i></m:e></m:d><i
+      style='mso-bidi-font-style:normal'><span style='font-size:12.0pt;
+      line-height:200%;font-family:"Cambria Math",serif;mso-bidi-font-family:
+      Arial'><m:r>*</m:r><m:r>(</m:r><m:r>TN</m:r><m:r>+</m:r><m:r>FN</m:r><m:r>)</m:r></span></i></m:e></m:rad></m:den></m:f></m:oMath></m:oMathPara><![endif]--><![if !msEquation]><span
+style='font-size:11.0pt;line-height:107%;font-family:"Calibri",sans-serif;
+mso-ascii-theme-font:minor-latin;mso-fareast-font-family:Calibri;mso-fareast-theme-font:
+minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-font-family:"Times New Roman";
+mso-bidi-theme-font:minor-bidi;mso-ansi-language:EN-GB;mso-fareast-language:
+EN-US;mso-bidi-language:AR-SA'><!--[if gte vml 1]><v:shape id="_x0000_i1025"
+ type="#_x0000_t75" style='width:305.25pt;height:33.75pt'>
+ <v:imagedata src="Solution%20Implementation_files/image015.png" o:title=""
+  chromakey="white"/>
+</v:shape><![endif]--><![if !vml]><img width=407 height=45
+src="Solution%20Implementation_files/image016.png" v:shapes="_x0000_i1025"><![endif]></span><![endif]><span
+style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
+200%'><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>Chicco
+and <span class=SpellE>Jurman</span> (2020) suggest Matthews Correlation Coefficient
+(MCC) is a more reliable metric for binary classification with imbalanced
+datasets so it is a good metric for this use case. DT scored best, ahead of ANN
+and SVM with PUK.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
+200%'><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif;
+mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:minor-fareast'>Error
+metrics can also be calculated to compare algorithms, but they were not used in
+this case. </span><span style='font-size:12.0pt;line-height:200%;font-family:
+"Arial",sans-serif'>Error rate measures the ratio of incorrect predictions over
+the total sample (<span class=SpellE>Hossin</span> &amp; <span class=SpellE>Sulaiman</span>,
+2015), but the result is the inverse of accuracy so it added little value when
+accuracy has already been calculated:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
+200%'><!--[if gte msEquation 12]><m:oMathPara><m:oMath><i style='mso-bidi-font-style:
+  normal'><span style='font-size:12.0pt;line-height:200%;font-family:"Cambria Math",serif;
+  mso-bidi-font-family:Arial'><m:r>Error</m:r><m:r> </m:r><m:r>rate</m:r><m:r>=</m:r></span></i><m:f><m:fPr><span
+    style='font-size:12.0pt;mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;
+    font-family:"Cambria Math",serif;mso-ascii-font-family:"Cambria Math";
+    mso-hansi-font-family:"Cambria Math";mso-bidi-font-family:Arial;font-style:
+    italic;mso-bidi-font-style:normal'><m:ctrlPr></m:ctrlPr></span></m:fPr><m:num><i
+    style='mso-bidi-font-style:normal'><span style='font-size:12.0pt;
+    line-height:200%;font-family:"Cambria Math",serif;mso-bidi-font-family:
+    Arial'><m:r>FP</m:r><m:r>+</m:r><m:r>FN</m:r></span></i></m:num><m:den><i
+    style='mso-bidi-font-style:normal'><span style='font-size:12.0pt;
+    line-height:200%;font-family:"Cambria Math",serif;mso-bidi-font-family:
+    Arial'><m:r>TP</m:r><m:r>+</m:r><m:r>FP</m:r><m:r>+</m:r><m:r>TN</m:r><m:r>+</m:r><m:r>FN</m:r></span></i></m:den></m:f><i
+  style='mso-bidi-font-style:normal'><span style='font-size:12.0pt;line-height:
+  200%;font-family:"Cambria Math",serif;mso-bidi-font-family:Arial'><m:r>=1-</m:r><m:r>Accuracy</m:r></span></i></m:oMath></m:oMathPara><![endif]--><![if !msEquation]><span
+style='font-size:11.0pt;line-height:107%;font-family:"Calibri",sans-serif;
+mso-ascii-theme-font:minor-latin;mso-fareast-font-family:Calibri;mso-fareast-theme-font:
+minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-font-family:"Times New Roman";
+mso-bidi-theme-font:minor-bidi;mso-ansi-language:EN-GB;mso-fareast-language:
+EN-US;mso-bidi-language:AR-SA'><!--[if gte vml 1]><v:shape id="_x0000_i1025"
+ type="#_x0000_t75" style='width:265.5pt;height:28.5pt'>
+ <v:imagedata src="Solution%20Implementation_files/image017.png" o:title=""
+  chromakey="white"/>
+</v:shape><![endif]--><![if !vml]><img width=354 height=38
+src="Solution%20Implementation_files/image018.png" v:shapes="_x0000_i1025"><![endif]></span><![endif]><span
+style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif;
+mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:minor-fareast'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
+200%'><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>Mean
+Square Error (MSE) and Root Mean Square Error (RMSE) are used to measure the size
+of prediction errors for regression problems. Since a binary class with just
+two outputs; Fraud or Not Fraud, was used there is no variance in “how wrong”
+an incorrect prediction is, so these metrics were not relevant. The formulae
+for reference are:<o:p></o:p></span></p>
+
+<table class=MsoTableGrid border=0 cellspacing=0 cellpadding=0
+ style='border-collapse:collapse;border:none;mso-yfti-tbllook:1184;mso-padding-alt:
+ 0cm 5.4pt 0cm 5.4pt;mso-border-insideh:none;mso-border-insidev:none'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td width=301 valign=top style='width:225.4pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
+  200%'><!--[if gte msEquation 12]><m:oMathPara><m:oMath><i style='mso-bidi-font-style:
+    normal'><span style='font-size:12.0pt;line-height:200%;font-family:"Cambria Math",serif;
+    mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:minor-fareast;
+    mso-bidi-font-family:Arial'><m:r>MSE</m:r><m:r>=</m:r></span></i><m:f><m:fPr><span
+      style='font-size:12.0pt;mso-ansi-font-size:12.0pt;mso-bidi-font-size:
+      12.0pt;font-family:"Cambria Math",serif;mso-ascii-font-family:"Cambria Math";
+      mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:minor-fareast;
+      mso-hansi-font-family:"Cambria Math";mso-bidi-font-family:Arial;
+      font-style:italic;mso-bidi-font-style:normal'><m:ctrlPr></m:ctrlPr></span></m:fPr><m:num><i
+      style='mso-bidi-font-style:normal'><span style='font-size:12.0pt;
+      line-height:200%;font-family:"Cambria Math",serif;mso-fareast-font-family:
+      "Times New Roman";mso-fareast-theme-font:minor-fareast;mso-bidi-font-family:
+      Arial'><m:r>1</m:r></span></i></m:num><m:den><i style='mso-bidi-font-style:
+      normal'><span style='font-size:12.0pt;line-height:200%;font-family:"Cambria Math",serif;
+      mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:minor-fareast;
+      mso-bidi-font-family:Arial'><m:r>n</m:r></span></i></m:den></m:f><m:nary><m:naryPr><m:chr
+       m:val="&#8721;"/><m:grow m:val="on"/><span style='font-size:12.0pt;
+      mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;font-family:"Cambria Math",serif;
+      mso-ascii-font-family:"Cambria Math";mso-fareast-font-family:"Times New Roman";
+      mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:"Cambria Math";
+      mso-bidi-font-family:Arial'><m:ctrlPr></m:ctrlPr></span></m:naryPr><m:sub><i
+      style='mso-bidi-font-style:normal'><span style='font-size:12.0pt;
+      line-height:200%;font-family:"Cambria Math",serif;mso-fareast-font-family:
+      "Times New Roman";mso-fareast-theme-font:minor-fareast;mso-bidi-font-family:
+      Arial'><m:r>j</m:r><m:r>=1</m:r></span></i></m:sub><m:sup><i
+      style='mso-bidi-font-style:normal'><span style='font-size:12.0pt;
+      line-height:200%;font-family:"Cambria Math",serif;mso-fareast-font-family:
+      "Times New Roman";mso-fareast-theme-font:minor-fareast;mso-bidi-font-family:
+      Arial'><m:r>n</m:r></span></i></m:sup><m:e><m:d><m:dPr><span
+        style='font-size:12.0pt;mso-ansi-font-size:12.0pt;mso-bidi-font-size:
+        12.0pt;font-family:"Cambria Math",serif;mso-ascii-font-family:"Cambria Math";
+        mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:minor-fareast;
+        mso-hansi-font-family:"Cambria Math";mso-bidi-font-family:Arial'><m:ctrlPr></m:ctrlPr></span></m:dPr><m:e><m:sSub><m:sSubPr><span
+          style='font-size:12.0pt;mso-ansi-font-size:12.0pt;mso-bidi-font-size:
+          12.0pt;font-family:"Cambria Math",serif;mso-ascii-font-family:"Cambria Math";
+          mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:
+          minor-fareast;mso-hansi-font-family:"Cambria Math";mso-bidi-font-family:
+          Arial'><m:ctrlPr></m:ctrlPr></span></m:sSubPr><m:e><i
+          style='mso-bidi-font-style:normal'><span style='font-size:12.0pt;
+          line-height:200%;font-family:"Cambria Math",serif;mso-fareast-font-family:
+          "Cambria Math";mso-bidi-font-family:"Cambria Math"'><m:r>P</m:r></span></i></m:e><m:sub><i
+          style='mso-bidi-font-style:normal'><span style='font-size:12.0pt;
+          line-height:200%;font-family:"Cambria Math",serif;mso-fareast-font-family:
+          "Times New Roman";mso-fareast-theme-font:minor-fareast;mso-bidi-font-family:
+          Arial'><m:r>j</m:r></span></i></m:sub></m:sSub><i style='mso-bidi-font-style:
+        normal'><span style='font-size:12.0pt;line-height:200%;font-family:
+        "Cambria Math",serif;mso-fareast-font-family:"Times New Roman";
+        mso-fareast-theme-font:minor-fareast;mso-bidi-font-family:Arial'><m:r>-</m:r></span></i><m:sSub><m:sSubPr><span
+          style='font-size:12.0pt;mso-ansi-font-size:12.0pt;mso-bidi-font-size:
+          12.0pt;font-family:"Cambria Math",serif;mso-ascii-font-family:"Cambria Math";
+          mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:
+          minor-fareast;mso-hansi-font-family:"Cambria Math";mso-bidi-font-family:
+          Arial'><m:ctrlPr></m:ctrlPr></span></m:sSubPr><m:e><i
+          style='mso-bidi-font-style:normal'><span style='font-size:12.0pt;
+          line-height:200%;font-family:"Cambria Math",serif;mso-fareast-font-family:
+          "Cambria Math";mso-bidi-font-family:"Cambria Math"'><m:r>A</m:r></span></i></m:e><m:sub><i
+          style='mso-bidi-font-style:normal'><span style='font-size:12.0pt;
+          line-height:200%;font-family:"Cambria Math",serif;mso-fareast-font-family:
+          "Cambria Math";mso-bidi-font-family:"Cambria Math"'><m:r>j</m:r></span></i></m:sub></m:sSub></m:e></m:d></m:e></m:nary></m:oMath></m:oMathPara><![endif]--><![if !msEquation]><span
+  style='font-size:11.0pt;line-height:107%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-fareast-font-family:Calibri;mso-fareast-theme-font:
+  minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-font-family:"Times New Roman";
+  mso-bidi-theme-font:minor-bidi;mso-ansi-language:EN-GB;mso-fareast-language:
+  EN-US;mso-bidi-language:AR-SA'><!--[if gte vml 1]><v:shape id="_x0000_i1025"
+   type="#_x0000_t75" style='width:111.75pt;height:42pt'>
+   <v:imagedata src="Solution%20Implementation_files/image019.png" o:title=""
+    chromakey="white"/>
+  </v:shape><![endif]--><![if !vml]><img width=149 height=56
+  src="Solution%20Implementation_files/image020.png" v:shapes="_x0000_i1025"><![endif]></span><![endif]><span
+  style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'><o:p></o:p></span></p>
+  </td>
+  <td width=301 valign=top style='width:225.4pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
+  200%'><!--[if gte msEquation 12]><m:oMathPara><m:oMath><i style='mso-bidi-font-style:
+    normal'><span style='font-size:12.0pt;line-height:200%;font-family:"Cambria Math",serif;
+    mso-bidi-font-family:Arial'><m:r>RMSE</m:r><m:r>=</m:r></span></i><m:rad><m:radPr><m:degHide
+       m:val="on"/><span style='font-size:12.0pt;mso-ansi-font-size:12.0pt;
+      mso-bidi-font-size:12.0pt;font-family:"Cambria Math",serif;mso-ascii-font-family:
+      "Cambria Math";mso-hansi-font-family:"Cambria Math";mso-bidi-font-family:
+      Arial;font-style:italic;mso-bidi-font-style:normal'><m:ctrlPr></m:ctrlPr></span></m:radPr><m:deg></m:deg><m:e><m:f><m:fPr><span
+        style='font-size:12.0pt;mso-ansi-font-size:12.0pt;mso-bidi-font-size:
+        12.0pt;font-family:"Cambria Math",serif;mso-ascii-font-family:"Cambria Math";
+        mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:minor-fareast;
+        mso-hansi-font-family:"Cambria Math";mso-bidi-font-family:Arial;
+        font-style:italic;mso-bidi-font-style:normal'><m:ctrlPr></m:ctrlPr></span></m:fPr><m:num><i
+        style='mso-bidi-font-style:normal'><span style='font-size:12.0pt;
+        line-height:200%;font-family:"Cambria Math",serif;mso-fareast-font-family:
+        "Times New Roman";mso-fareast-theme-font:minor-fareast;mso-bidi-font-family:
+        Arial'><m:r>1</m:r></span></i></m:num><m:den><i style='mso-bidi-font-style:
+        normal'><span style='font-size:12.0pt;line-height:200%;font-family:
+        "Cambria Math",serif;mso-fareast-font-family:"Times New Roman";
+        mso-fareast-theme-font:minor-fareast;mso-bidi-font-family:Arial'><m:r>n</m:r></span></i></m:den></m:f><m:nary><m:naryPr><m:chr
+         m:val="&#8721;"/><m:grow m:val="on"/><span style='font-size:12.0pt;
+        mso-ansi-font-size:12.0pt;mso-bidi-font-size:12.0pt;font-family:"Cambria Math",serif;
+        mso-ascii-font-family:"Cambria Math";mso-fareast-font-family:"Times New Roman";
+        mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:"Cambria Math";
+        mso-bidi-font-family:Arial'><m:ctrlPr></m:ctrlPr></span></m:naryPr><m:sub><i
+        style='mso-bidi-font-style:normal'><span style='font-size:12.0pt;
+        line-height:200%;font-family:"Cambria Math",serif;mso-fareast-font-family:
+        "Times New Roman";mso-fareast-theme-font:minor-fareast;mso-bidi-font-family:
+        Arial'><m:r>j</m:r><m:r>=1</m:r></span></i></m:sub><m:sup><i
+        style='mso-bidi-font-style:normal'><span style='font-size:12.0pt;
+        line-height:200%;font-family:"Cambria Math",serif;mso-fareast-font-family:
+        "Times New Roman";mso-fareast-theme-font:minor-fareast;mso-bidi-font-family:
+        Arial'><m:r>n</m:r></span></i></m:sup><m:e><m:sSup><m:sSupPr><span
+          style='font-size:12.0pt;mso-ansi-font-size:12.0pt;mso-bidi-font-size:
+          12.0pt;font-family:"Cambria Math",serif;mso-ascii-font-family:"Cambria Math";
+          mso-hansi-font-family:"Cambria Math";mso-bidi-font-family:Arial'><m:ctrlPr></m:ctrlPr></span></m:sSupPr><m:e><m:d><m:dPr><span
+            style='font-size:12.0pt;mso-ansi-font-size:12.0pt;mso-bidi-font-size:
+            12.0pt;font-family:"Cambria Math",serif;mso-ascii-font-family:"Cambria Math";
+            mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:
+            minor-fareast;mso-hansi-font-family:"Cambria Math";mso-bidi-font-family:
+            Arial'><m:ctrlPr></m:ctrlPr></span></m:dPr><m:e><m:sSub><m:sSubPr><span
+              style='font-size:12.0pt;mso-ansi-font-size:12.0pt;mso-bidi-font-size:
+              12.0pt;font-family:"Cambria Math",serif;mso-ascii-font-family:
+              "Cambria Math";mso-fareast-font-family:"Times New Roman";
+              mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:"Cambria Math";
+              mso-bidi-font-family:Arial'><m:ctrlPr></m:ctrlPr></span></m:sSubPr><m:e><i
+              style='mso-bidi-font-style:normal'><span style='font-size:12.0pt;
+              line-height:200%;font-family:"Cambria Math",serif;mso-fareast-font-family:
+              "Cambria Math";mso-bidi-font-family:"Cambria Math"'><m:r>P</m:r></span></i></m:e><m:sub><i
+              style='mso-bidi-font-style:normal'><span style='font-size:12.0pt;
+              line-height:200%;font-family:"Cambria Math",serif;mso-fareast-font-family:
+              "Times New Roman";mso-fareast-theme-font:minor-fareast;
+              mso-bidi-font-family:Arial'><m:r>j</m:r></span></i></m:sub></m:sSub><i
+            style='mso-bidi-font-style:normal'><span style='font-size:12.0pt;
+            line-height:200%;font-family:"Cambria Math",serif;mso-fareast-font-family:
+            "Times New Roman";mso-fareast-theme-font:minor-fareast;mso-bidi-font-family:
+            Arial'><m:r>-</m:r></span></i><m:sSub><m:sSubPr><span
+              style='font-size:12.0pt;mso-ansi-font-size:12.0pt;mso-bidi-font-size:
+              12.0pt;font-family:"Cambria Math",serif;mso-ascii-font-family:
+              "Cambria Math";mso-fareast-font-family:"Times New Roman";
+              mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:"Cambria Math";
+              mso-bidi-font-family:Arial'><m:ctrlPr></m:ctrlPr></span></m:sSubPr><m:e><i
+              style='mso-bidi-font-style:normal'><span style='font-size:12.0pt;
+              line-height:200%;font-family:"Cambria Math",serif;mso-fareast-font-family:
+              "Cambria Math";mso-bidi-font-family:"Cambria Math"'><m:r>A</m:r></span></i></m:e><m:sub><i
+              style='mso-bidi-font-style:normal'><span style='font-size:12.0pt;
+              line-height:200%;font-family:"Cambria Math",serif;mso-fareast-font-family:
+              "Cambria Math";mso-bidi-font-family:"Cambria Math"'><m:r>j</m:r></span></i></m:sub></m:sSub></m:e></m:d></m:e><m:sup><i
+          style='mso-bidi-font-style:normal'><span style='font-size:12.0pt;
+          line-height:200%;font-family:"Cambria Math",serif;mso-bidi-font-family:
+          Arial'><m:r>2</m:r></span></i></m:sup></m:sSup></m:e></m:nary></m:e></m:rad></m:oMath></m:oMathPara><![endif]--><![if !msEquation]><span
+  style='font-size:11.0pt;line-height:107%;font-family:"Calibri",sans-serif;
+  mso-ascii-theme-font:minor-latin;mso-fareast-font-family:Calibri;mso-fareast-theme-font:
+  minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-font-family:"Times New Roman";
+  mso-bidi-theme-font:minor-bidi;mso-ansi-language:EN-GB;mso-fareast-language:
+  EN-US;mso-bidi-language:AR-SA'><!--[if gte vml 1]><v:shape id="_x0000_i1025"
+   type="#_x0000_t75" style='width:133.5pt;height:57pt'>
+   <v:imagedata src="Solution%20Implementation_files/image021.png" o:title=""
+    chromakey="white"/>
+  </v:shape><![endif]--><![if !vml]><img width=178 height=76
+  src="Solution%20Implementation_files/image022.png" v:shapes="_x0000_i1025"><![endif]></span><![endif]><span
+  style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'><o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<span style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif;
+mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;mso-ansi-language:
+EN-GB;mso-fareast-language:EN-US;mso-bidi-language:AR-SA'><br clear=all
+style='mso-special-character:line-break;page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%;font-family:
+"Arial",sans-serif'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
+200%'><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>All
+of the results, excluding error metrics, are in figure 2 with the best scoring
+algorithm for each metric highlighted in green.<o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:12.0pt;text-align:center;
+line-height:normal'><span style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+ id="Picture_x0020_10" o:spid="_x0000_i1047" type="#_x0000_t75" style='width:468.75pt;
+ height:81pt;visibility:visible;mso-wrap-style:square'>
+ <v:imagedata src="Solution%20Implementation_files/image023.emz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=625 height=108
+src="Solution%20Implementation_files/image024.png" v:shapes="Picture_x0020_10"><![endif]></span><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:12.0pt;text-align:center;
+line-height:200%'><span style='font-size:12.0pt;line-height:200%;font-family:
+"Arial",sans-serif'>Figure 2. Performance Metrics Results <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
+200%'><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>The
+results are charted in figure 3 for visual comparison.<o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:12.0pt;text-align:center;
+line-height:normal'><span style='font-size:12.0pt;font-family:"Arial",sans-serif;
+mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_29" o:spid="_x0000_i1046"
+ type="#_x0000_t75" style='width:452.25pt;height:212.25pt;visibility:visible;
+ mso-wrap-style:square'>
+ <v:imagedata src="Solution%20Implementation_files/image025.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=603 height=283
+src="Solution%20Implementation_files/image026.png" v:shapes="Picture_x0020_29"><![endif]></span><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:12.0pt;text-align:center;
+line-height:200%'><span style='font-size:12.0pt;line-height:200%;font-family:
+"Arial",sans-serif'>Figure 3. Performance Metrics Chart<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
+200%'><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>The
+results were good enough to recommend proceeding to a production implementation
+using DT, but with such an imbalanced dataset it was decided to see if they could
+be improved by balancing the datasets.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
+200%'><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>Chawla
+et al (2002) propose Synthetic Minority Over-sampling Technique (SMOTE) to
+oversample with synthetic data. Their tests only oversampled up to 500% which
+would still leave the dataset highly imbalanced. To fully balance the dataset
+the minority class would need to be increased by 57,876%, which was considered
+to be too much; the real data would be lost amongst the vast quantity of
+synthetic data. To preserve as much data as possible the minority class was
+oversampled using the SMOTE filter at 2,000% and then the majority class was <span
+class=SpellE>undersampled</span> with the <span class=SpellE>SpreadSubsample</span>
+filter with <span class=SpellE>distributionSpread</span> at 1 to equalise the
+classes resulting in 10,332 instances in each. The same five algorithms were tested
+using the same stratified 10-fold cross-validation on the filtered dataset with
+the resultant confusion matrices in figure 4, metrics in figure 5, charts in
+figure 6 (note the different scale from the earlier chart) and WEKA screenshots
+in Appendix B.<o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:12.0pt;text-align:center;
+line-height:normal'><span style='font-size:12.0pt;font-family:"Arial",sans-serif;
+mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:minor-fareast;
+mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_30" o:spid="_x0000_i1045"
+ type="#_x0000_t75" style='width:456pt;height:338.25pt;visibility:visible;
+ mso-wrap-style:square'>
+ <v:imagedata src="Solution%20Implementation_files/image027.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=608 height=451
+src="Solution%20Implementation_files/image028.png" v:shapes="Picture_x0020_30"><![endif]></span><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;mso-fareast-font-family:
+"Times New Roman";mso-fareast-theme-font:minor-fareast'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:12.0pt;text-align:center;
+line-height:200%'><span style='font-size:12.0pt;line-height:200%;font-family:
+"Arial",sans-serif;mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:
+minor-fareast'>Figure 4. Confusion Matrices with Balanced Dataset<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:12.0pt;line-height:200%'><span
+style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif;
+mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:minor-fareast'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_14"
+ o:spid="_x0000_i1044" type="#_x0000_t75" style='width:468.75pt;height:81pt;
+ visibility:visible;mso-wrap-style:square'>
+ <v:imagedata src="Solution%20Implementation_files/image029.emz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=625 height=108
+src="Solution%20Implementation_files/image030.png" v:shapes="Picture_x0020_14"><![endif]></span><b><span
+style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif'><o:p></o:p></span></b></p>
+
+<p class=MsoNormal align=center style='margin-bottom:12.0pt;text-align:center;
+line-height:200%'><span style='font-size:12.0pt;line-height:200%;font-family:
+"Arial",sans-serif'>Figure 5. Performance Metrics Results </span><span
+style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif;
+mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:minor-fareast'>with
+Balanced Dataset</span><span style='font-size:12.0pt;line-height:200%;
+font-family:"Arial",sans-serif'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:12.0pt;text-align:center;
+line-height:normal'><b style='mso-bidi-font-weight:normal'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+ id="Picture_x0020_28" o:spid="_x0000_i1043" type="#_x0000_t75" style='width:464.25pt;
+ height:218.25pt;visibility:visible;mso-wrap-style:square'>
+ <v:imagedata src="Solution%20Implementation_files/image031.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=619 height=291
+src="Solution%20Implementation_files/image032.png" v:shapes="Picture_x0020_28"><![endif]></span></b><b><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif'><o:p></o:p></span></b></p>
+
+<p class=MsoNormal align=center style='margin-bottom:12.0pt;text-align:center;
+line-height:200%'><span style='font-size:12.0pt;line-height:200%;font-family:
+"Arial",sans-serif'>Figure 6. Performance Metrics Chart </span><span
+style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif;
+mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:minor-fareast'>with
+Balanced Dataset<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:12.0pt;line-height:200%'><span
+style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif;
+mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:minor-fareast'>After
+balancing the dataset, accuracy and specificity deteriorated and all of the
+other metrics improved. Accuracy has already been shown to be unreliable on
+imbalanced datasets and specificity is less useful for this use case, so the <b>relevant</b>
+metrics all improved, leading to a conclusion that balancing the dataset was
+effective. SVM with PUK is now the best-performing algorithm, consistent with
+the expectations from </span><span class=SpellE><span style='font-size:12.0pt;
+line-height:200%;font-family:"Arial",sans-serif'>Danso</span></span><span
+style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'> et al
+(2014) and <span class=SpellE>Suhaimi</span> &amp; Abas (2020),</span><span
+style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif;
+mso-fareast-font-family:"Times New Roman";mso-fareast-theme-font:minor-fareast'>
+although all algorithms performed well.</span><span style='font-size:12.0pt;
+line-height:200%;font-family:"Arial",sans-serif'><o:p></o:p></span></p>
+
+<b><span style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif;
+mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;mso-ansi-language:
+EN-GB;mso-fareast-language:EN-US;mso-bidi-language:AR-SA'><br clear=all
+style='mso-special-character:line-break;page-break-before:always'>
+</span></b>
+
+<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:107%;
+font-family:"Arial",sans-serif'><o:p>&nbsp;</o:p></span></b></p>
+
+<p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
+200%'><b><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>Selecting
+the best algorithm<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
+200%'><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>The
+performance metrics on the balanced dataset show that SVM with PUK performed best,
+scoring highest in accuracy, precision, F1 score, specificity and MCC, and not
+far behind ANN on recall and GA.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
+200%'><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>Assuming
+YourMoney accepts that a black-box algorithm is acceptable for the credit card
+fraud detection use case, then SVM with PUK is recommended. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
+200%'><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>It
+is important to note that DT still scored well though, and was the best-performing
+algorithm before the dataset was balanced, so if there is any concern within
+YourMoney about having <span class=SpellE>explainability</span>, selecting DT
+instead would still provide an excellent solution with the benefit of
+transparent decision-making.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
+200%'><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
+200%'><b><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>Applying
+DT to the credit card fraud detection use case<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
+200%'><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>The
+results show that supervised learning algorithms can accurately predict
+fraudulent credit card transactions using the selected dataset, with improved
+performance after balancing the dataset. All of the algorithms performed well
+and SVM with PUK was selected because it performed best across the key metrics.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
+200%'><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>YourMoney
+should obtain a dataset of its historic credit card transactions. Domain
+experts should be consulted to perform feature selection (<span class=SpellE>Duboue</span>,
+2020) to optimise the features on which to train the final model. An example of
+how this might look is provided in Appendix C using a simulated dataset from
+Kaggle (<span class=SpellE>N.D.b</span>).<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
+200%'><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>The
+real dataset will be highly imbalanced like the test data, so the dataset
+should be balanced using a combination of SMOTE and <span class=SpellE>undersampling</span>,
+keeping the number of instances as high as possible. The SVM with PUK should be
+trained using stratified 10-fold cross-validation. Performance metrics should
+then be calculated to verify that the algorithm is performing as expected.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
+200%'><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>YourMoney
+has a cautious approach to AI, so once satisfied that the algorithm is
+performing well it should be deployed in passive mode, reporting fraudulent
+transactions to be checked manually but not intervening. Once YourMoney is
+satisfied that the algorithm is performing accurately and fairly it can be
+integrated into operations to automatically decline suspected fraudulent
+transactions pending confirmation by text from the card owner that the
+transaction is genuine.<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
 200%'><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'><o:p>&nbsp;</o:p></span></p>
 
 <p class=MsoNormal align=center style='margin-bottom:12.0pt;text-align:center;
 line-height:200%'><span style='font-size:12.0pt;line-height:200%;font-family:
-"Arial",sans-serif'>Word count: 1,650<o:p></o:p></span></p>
+"Arial",sans-serif'>Word count: 2,187<o:p></o:p></span></p>
 
 <b><span style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif;
 mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;mso-ansi-language:
 EN-GB;mso-fareast-language:EN-US;mso-bidi-language:AR-SA'><br clear=all
-style='mso-special-character:line-break;page-break-before:always'>
+style='page-break-before:always'>
 </span></b>
 
-<p class=MsoNormal style='text-align:justify'><b><span style='font-size:12.0pt;
-line-height:107%;font-family:"Arial",sans-serif'><o:p>&nbsp;</o:p></span></b></p>
-
-<p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
-200%'><b><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>References<o:p></o:p></span></b></p>
+<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:107%;
+font-family:"Arial",sans-serif'>References<o:p></o:p></span></b></p>
 
 <p class=MsoNormal style='margin-bottom:12.0pt;line-height:200%'><span
-class=SpellE><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>Berns</span></span><span
-style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>, M.
-(2020) <i>How Mature is AI Adoption in Financial Services?</i> Available from: https://www.pwc.de/de/future-of-finance/how-mature-is-ai-adoption-in-financial-services.pdf
-[Accessed 12 November 2022].<o:p></o:p></span></p>
+style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>Chicco,
+D. &amp; <span class=SpellE>Jurman</span>, G. (2020) The Advantages of the
+Matthews Correlation Coefficient (MCC) over F1 score and Accuracy in Binary Classification
+Evaluation. <i>BMC Genomics</i>, 21: 1-13.<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:12.0pt;line-height:200%'><span
-style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>Chan,
-C. et al (2019) <i>Artificial Intelligence Applications in Financial Services</i>.
-Available from: https://www.oliverwyman.com/content/dam/oliver-wyman/v2/publications/2019/dec/ai-app-in-fs.pdf
-[Accessed 12 November 2022].<o:p></o:p></span></p>
+style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>Chawla,
+N.V., Bowyer, K.W., Hall, L.O. &amp; <span class=SpellE>Kegelmeyer</span>, W.P.
+(2002) SMOTE: Synthetic Minority Over-Sampling Technique. <i>Journal of Artificial
+Intelligence Research</i>, 16: 321-357.<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:12.0pt;line-height:200%'><span
 class=SpellE><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>Danso</span></span><span
@@ -479,101 +1085,66 @@ Computer Science Issues</i>, 10(6): 1-10. DOI:
 https://doi.org/10.48550/arXiv.1402.4380.<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:12.0pt;line-height:200%'><span
-style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>Financial
-Conduct Authority (2022) <i>Mortgages and Home Finance: Conduct of Business
-Sourcebook. Chapter 11: Responsible lending, and responsible financing of home
-purchase plans</i>. Available from: https://www.handbook.fca.org.uk/handbook/MCOB/11/6.pdf
-[Accessed 13 November 2022].<o:p></o:p></span></p>
+class=SpellE><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>Danso</span></span><span
+style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>,
+S.O., Zeng, Z., Muniz-<span class=SpellE>Terrera</span>, G. &amp; Ritchie, C.W.
+(2021) <i>Developing an Explainable Machine Learning-Based Personalised Dementia
+Risk Prediction Model: a Transfer Learning Approach with Ensemble Learning Algorithms</i>.
+Frontiers in Big Data.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:12.0pt;line-height:200%'><span
+style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>De
+Best, R. (2022) Value of credit card transactions in the United Kingdom (UK)
+from 2000 to 2020. Available from: https://www.statista.com/statistics/1274322/annual-credit-card-transaction-value-uk/
+[Accessed 25 November 2022].<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:12.0pt;line-height:200%'><span
+class=SpellE><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>Duboue</span></span><span
+style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>, P.
+(2020) <i>The Art of Feature Engineering: Essentials for Machine Learning</i>.
+Cambridge: Cambridge University Press.<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:12.0pt;line-height:200%'><span
 style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>Gill,
 J.K. (2021) Explainable AI in Banking and Financial Services. Available from: https://www.akira.ai/blog/explainable-ai-in-financial-services/
-[Accessed 12 November 2022].<o:p></o:p></span></p>
+[Accessed 26 November 2022].<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:12.0pt;line-height:200%'><span
-style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>Google
-(<span class=SpellE>N.D.a</span>) Prebuilt Agents, Available from: https://cloud.google.com/dialogflow/cx/docs/concept/agents-prebuilt
-[Accessed 12 November 2022].<o:p></o:p></span></p>
+class=SpellE><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>Ghoneim</span></span><span
+style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>, S.
+(2019) Accuracy, Recall, Precision, F-Score &amp; Specificity, which to
+optimize on? Available from: https://towardsdatascience.com/accuracy-recall-precision-f-score-specificity-which-to-optimize-on-867d3f11124
+[Accessed 27 November 2022].<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:12.0pt;line-height:200%'><span
-style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>Google
-(<span class=SpellE>N.D.b</span>) Intent matching, Available from: https://cloud.google.com/dialogflow/es/docs/intents-matching
-[Accessed 12 November 2022].<o:p></o:p></span></p>
+class=SpellE><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>Hossin</span></span><span
+style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>, M.
+and <span class=SpellE>Sulaiman</span>, M.N. (2015) A Review on Evaluation Metrics
+for Data Classification Evaluations. <i>International Journal of Data Mining
+&amp; Knowledge Management Process</i> 5(2): 1-11.<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:12.0pt;line-height:200%'><span
-class=SpellE><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>Gyamfi</span></span><span
-style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>, N.K.
-&amp; <span class=SpellE>Abdulai</span>, J.D. (2018) ‘Bank Fraud Detection
-Using Support Vector Machine’, <i>IEEE 9th Annual Information Technology,
-Electronics and Mobile Communication Conference (IEMCON),</i> Vancouver, 1-3
-November. IEEE. 37-41. DOI: https://doi.org/10.1109/IEMCON.2018.8614994 <o:p></o:p></span></p>
+style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>Kaggle
+(<span class=SpellE>N.D.a</span>) Credit Card Fraud Detection. Available from: https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud
+[Accessed 25 November 2022].<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:12.0pt;line-height:200%'><span
-style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>Information
-Commissioner’s Office (N.D.) Guide to the UK General Data Protection Regulation
-(UK GDPR). Available from: https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/
-[Accessed 13 November 2022].<o:p></o:p></span></p>
+style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>Kaggle
+(<span class=SpellE>N.D.b</span>) Credit Card Fraud. Available from: https://www.kaggle.com/datasets/dhanushnarayananr/credit-card-fraud
+[Accessed 27 November 2022].<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:12.0pt;line-height:200%'><span
-class=SpellE><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>Lalwani</span></span><span
-style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>, T., <span
-class=SpellE>Bhalotia</span>, S., Pal, A., Rathod, V. &amp; Bisen, S. (2021) Implementation
-of a Chatbot System using AI and NLP. <i>International Journal of Innovative
-Research in Computer Science &amp; Technology</i> 6(3): 26-30. <o:p></o:p></span></p>
+style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>Powers,
+D.M. (2020) <i>Evaluation: From Precision, Recall and F-Measure to ROC, <span
+class=SpellE>Informedness</span>, Markedness and Correlation</i>. <span
+class=SpellE>arXiv</span> preprint <span class=SpellE>arXiv</span>. 2010-16061.<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:12.0pt;line-height:200%'><span
-style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>Linklaters
-(2018) <i>Artificial Intelligence in Financial Services: Managing Machines in
-an Evolving Legal Landscape</i>. Available from: https://lpscdn.linklaters.com/-/media/files/insights/2019/september/linklatersartificialintelligenceinfinancialservicesmanagingmachinesinanevolvinglegallandscapesept201.pdf
-[Accessed 12 November 2022].<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:12.0pt;line-height:200%'><span
-style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>KPMG
-(2016) <i>Building Society Dashboard Data KPIs 2016</i>. Available from: https://assets.kpmg/content/dam/kpmg/uk/pdf/2016/12/building-society-dashboard-database.pdf
-[Accessed 12 November 2022].<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:12.0pt;line-height:200%'><span
-class=SpellE><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>Kvale</span></span><span
-style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>, K.,
-Sell, O.A., <span class=SpellE>Hodnebrog</span>, S. &amp; <span class=SpellE>Følstad</span>,
-A. (2020) ‘Improving Conversations: Lessons Learnt from Manual Analysis of Chatbot
-Dialogues’. <i>International Workshop on Chatbot Research and Design</i>. Amsterdam,
-19-20 November 2019. Cham: Springer. 187-200.<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:12.0pt;line-height:200%'><span
-style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>Navarro,
-C.L.A. et al (2021) Risk of Bias in Studies on Prediction Models Developed Using
-Supervised Machine Learning Techniques: Systematic Review. <i>British Medical
-Journal</i> 375: 1-9. DOI: https://doi.org/10.1136/bmj.n2281 <o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:12.0pt;line-height:200%'><span
-class=SpellE><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>Ostmann</span></span><span
-style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>, F.
-&amp; <span class=SpellE>Dorobantu</span>, C. (2021) AI in Financial Services. <i>The
-Alan Turing Institute</i>. DOI: https://doi.org/10.5281/zenodo.4916041 <o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:12.0pt;line-height:200%'><span
-style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>Pérez-Soler,
-S., Juárez-Puerta, S., Guerra, E. &amp; de Lara, J. (2021) Choosing a Chatbot
-Development Tool. <i>IEEE Software</i> 38(4): 94-103.<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:12.0pt;line-height:200%'><span
-class=SpellE><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>Raschka</span></span><span
-style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>, S. (2018)
-<i>Model Evaluation, Model Selection, and Algorithm Selection in Machine Learning</i>.
-<span class=SpellE>arXiv</span> preprint arXiv:1811.12808.<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:12.0pt;line-height:200%'><span
-style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>Russell,
-S. &amp; Norvig, P. (2021) <i>Artificial Intelligence: A Modern Approach</i>.
-4th ed. Harlow: Pearson Education Limited.<o:p></o:p></span></p>
-
-<p class=MsoNormal style='margin-bottom:12.0pt;line-height:200%'><span
-style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>Simard,
-P.Y., Steinkraus, D. &amp; Platt, J.C. (2003) ‘Best practices for Convolutional
-Neural Networks Applied to Visual Document Analysis’. <i>International
-Conference on Document Analysis and Recognition</i>. Edinburgh, 6 August. IEEE.
-958-963.<o:p></o:p></span></p>
+style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>Sokolova,
+M., <span class=SpellE>Japkowicz</span>, N. &amp; <span class=SpellE>Szpakowicz</span>,
+S. (2006) ‘Beyond Accuracy, F-score and ROC: a Family of Discriminant Measures
+for Performance Evaluation’, <i>Australasian Joint Conference on Artificial Intelligence</i>.
+Hobart, Australia, 4-8 December. Berlin, Heidelberg: Springer. 1015-1021.<o:p></o:p></span></p>
 
 <p class=MsoNormal style='margin-bottom:12.0pt;line-height:200%'><span
 class=SpellE><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>Suhaimi</span></span><span
@@ -586,21 +1157,394 @@ E-Journal</i> 10(1): 1-24.<o:p></o:p></span></p>
 style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>UK
 Finance (2021) <i>Fraud – The Facts 2021: The Definition Overview of Payment
 Industry Fraud</i>. Available from: https://www.ukfinance.org.uk/system/files/Fraud%20The%20Facts%202021-%20FINAL.pdf
-[Accessed 13 November 2022].<o:p></o:p></span></p>
+[Accessed 25 November 2022].<o:p></o:p></span></p>
 
-<p class=MsoNormal style='margin-bottom:12.0pt;line-height:200%'><span
-style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>Wirth,
-R. &amp; <span class=SpellE>Hipp</span>, J. (2000) ‘CRISP-DM: Towards a Standard
-Process Model for Data Mining’, <i>4th International Conference on the Practical
-Applications of Knowledge Discovery and Data Mining</i>. Crowne Plaza Midland
-Hotel, Manchester, 11-13 April. Hannover: German National Library of Science
-and Technology. 29-39.<o:p></o:p></span></p>
+<span style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif;
+mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;mso-ansi-language:
+EN-GB;mso-fareast-language:EN-US;mso-bidi-language:AR-SA'><br clear=all
+style='mso-special-character:line-break;page-break-before:always'>
+</span>
 
-<p class=MsoNormal style='margin-bottom:12.0pt;line-height:200%'><span
-style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>Van
-Niekerk, M. &amp; Subramanian, A. (2022) How AI is Shaping the Future of
-Financial Services. Available from: https://www2.deloitte.com/nz/en/blog/financial-services/2022/ai-in-financial-services.html
-[Accessed 12 November 2022].<o:p></o:p></span></p>
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%;font-family:
+"Arial",sans-serif'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
+200%'><b><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>Appendix
+A – WEKA Screen Shots using Primary Dataset<o:p></o:p></span></b></p>
+
+<p class=MsoNormal align=center style='margin-bottom:12.0pt;text-align:center;
+line-height:normal'><span style='font-size:12.0pt;font-family:"Arial",sans-serif;
+mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_19" o:spid="_x0000_i1042"
+ type="#_x0000_t75" alt="Diagram&#10;&#10;Description automatically generated"
+ style='width:450.75pt;height:284.25pt;visibility:visible;mso-wrap-style:square'
+ o:bordertopcolor="yellow pure" o:borderleftcolor="yellow pure"
+ o:borderbottomcolor="yellow pure" o:borderrightcolor="yellow pure">
+ <v:imagedata src="Solution%20Implementation_files/image033.png" o:title="Diagram&#10;&#10;Description automatically generated"/>
+ <w:bordertop type="single" width="6"/>
+ <w:borderleft type="single" width="6"/>
+ <w:borderbottom type="single" width="6"/>
+ <w:borderright type="single" width="6"/>
+</v:shape><![endif]--><![if !vml]><img width=603 height=381
+src="Solution%20Implementation_files/image034.png"
+alt="Diagram&#10;&#10;Description automatically generated" v:shapes="Picture_x0020_19"><![endif]></span><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif'>All
+Data Visualised<o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif;
+mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_21" o:spid="_x0000_i1041"
+ type="#_x0000_t75" alt="Diagram&#10;&#10;Description automatically generated with low confidence"
+ style='width:463.5pt;height:250.5pt;visibility:visible;mso-wrap-style:square'
+ o:bordertopcolor="yellow pure" o:borderleftcolor="yellow pure"
+ o:borderbottomcolor="yellow pure" o:borderrightcolor="yellow pure">
+ <v:imagedata src="Solution%20Implementation_files/image035.png" o:title="Diagram&#10;&#10;Description automatically generated with low confidence"/>
+ <w:bordertop type="single" width="6"/>
+ <w:borderleft type="single" width="6"/>
+ <w:borderbottom type="single" width="6"/>
+ <w:borderright type="single" width="6"/>
+</v:shape><![endif]--><![if !vml]><img width=620 height=336
+src="Solution%20Implementation_files/image036.png"
+alt="Diagram&#10;&#10;Description automatically generated with low confidence"
+v:shapes="Picture_x0020_21"><![endif]></span><span style='font-size:12.0pt;
+line-height:107%;font-family:"Arial",sans-serif'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif'>Decision
+Tree Visualisation<o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif;
+mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_20" o:spid="_x0000_i1040"
+ type="#_x0000_t75" style='width:456pt;height:462pt;visibility:visible;
+ mso-wrap-style:square' o:bordertopcolor="yellow pure" o:borderleftcolor="yellow pure"
+ o:borderbottomcolor="yellow pure" o:borderrightcolor="yellow pure">
+ <v:imagedata src="Solution%20Implementation_files/image037.png" o:title=""/>
+ <w:bordertop type="single" width="6"/>
+ <w:borderleft type="single" width="6"/>
+ <w:borderbottom type="single" width="6"/>
+ <w:borderright type="single" width="6"/>
+</v:shape><![endif]--><![if !vml]><img width=610 height=618
+src="Solution%20Implementation_files/image038.png" v:shapes="Picture_x0020_20"><![endif]></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif'>Decision
+Tree Results <o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif;
+mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_22" o:spid="_x0000_i1039"
+ type="#_x0000_t75" style='width:450pt;height:391.5pt;visibility:visible;
+ mso-wrap-style:square' o:bordertopcolor="yellow pure" o:borderleftcolor="yellow pure"
+ o:borderbottomcolor="yellow pure" o:borderrightcolor="yellow pure">
+ <v:imagedata src="Solution%20Implementation_files/image039.png" o:title=""/>
+ <w:bordertop type="single" width="6"/>
+ <w:borderleft type="single" width="6"/>
+ <w:borderbottom type="single" width="6"/>
+ <w:borderright type="single" width="6"/>
+</v:shape><![endif]--><![if !vml]><img width=602 height=524
+src="Solution%20Implementation_files/image040.png" v:shapes="Picture_x0020_22"><![endif]></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif'>Support
+Vector Machine with Polynomial Kernel Results <o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif;
+mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_23" o:spid="_x0000_i1038"
+ type="#_x0000_t75" style='width:454.5pt;height:393.75pt;visibility:visible;
+ mso-wrap-style:square' o:bordertopcolor="yellow pure" o:borderleftcolor="yellow pure"
+ o:borderbottomcolor="yellow pure" o:borderrightcolor="yellow pure">
+ <v:imagedata src="Solution%20Implementation_files/image041.png" o:title=""/>
+ <w:bordertop type="single" width="6"/>
+ <w:borderleft type="single" width="6"/>
+ <w:borderbottom type="single" width="6"/>
+ <w:borderright type="single" width="6"/>
+</v:shape><![endif]--><![if !vml]><img width=608 height=527
+src="Solution%20Implementation_files/image042.png" v:shapes="Picture_x0020_23"><![endif]></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif'>Support
+Vector Machine with Pearson VII Universal Kernel Results<o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif;
+mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_24" o:spid="_x0000_i1037"
+ type="#_x0000_t75" style='width:456.75pt;height:397.5pt;visibility:visible;
+ mso-wrap-style:square' o:bordertopcolor="yellow pure" o:borderleftcolor="yellow pure"
+ o:borderbottomcolor="yellow pure" o:borderrightcolor="yellow pure">
+ <v:imagedata src="Solution%20Implementation_files/image043.png" o:title=""/>
+ <w:bordertop type="single" width="6"/>
+ <w:borderleft type="single" width="6"/>
+ <w:borderbottom type="single" width="6"/>
+ <w:borderright type="single" width="6"/>
+</v:shape><![endif]--><![if !vml]><img width=611 height=532
+src="Solution%20Implementation_files/image044.png" v:shapes="Picture_x0020_24"><![endif]></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif'>Support
+Vector Machine with Radial Basis Function Kernel Results<o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif;
+mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_25" o:spid="_x0000_i1036"
+ type="#_x0000_t75" style='width:443.25pt;height:406.5pt;visibility:visible;
+ mso-wrap-style:square' o:bordertopcolor="yellow pure" o:borderleftcolor="yellow pure"
+ o:borderbottomcolor="yellow pure" o:borderrightcolor="yellow pure">
+ <v:imagedata src="Solution%20Implementation_files/image045.png" o:title=""/>
+ <w:bordertop type="single" width="6"/>
+ <w:borderleft type="single" width="6"/>
+ <w:borderbottom type="single" width="6"/>
+ <w:borderright type="single" width="6"/>
+</v:shape><![endif]--><![if !vml]><img width=593 height=544
+src="Solution%20Implementation_files/image046.png" v:shapes="Picture_x0020_25"><![endif]></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif'>Artificial
+Neural Network Results<o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif;
+mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_26" o:spid="_x0000_i1035"
+ type="#_x0000_t75" style='width:397.5pt;height:221.25pt;visibility:visible;
+ mso-wrap-style:square' o:bordertopcolor="yellow pure" o:borderleftcolor="yellow pure"
+ o:borderbottomcolor="yellow pure" o:borderrightcolor="yellow pure">
+ <v:imagedata src="Solution%20Implementation_files/image047.png" o:title=""/>
+ <w:bordertop type="single" width="6"/>
+ <w:borderleft type="single" width="6"/>
+ <w:borderbottom type="single" width="6"/>
+ <w:borderright type="single" width="6"/>
+</v:shape><![endif]--><![if !vml]><img width=532 height=297
+src="Solution%20Implementation_files/image048.png" v:shapes="Picture_x0020_26"><![endif]></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif'>Artificial
+Neural Network Visualisation<br clear=all style='mso-special-character:line-break;
+page-break-before:always'>
+<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
+200%'><b><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>Appendix
+B – WEKA Screen Shots </span></b><b><span style='font-size:12.0pt;line-height:
+200%;font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman";
+mso-fareast-theme-font:minor-fareast'>using Balanced Dataset</span></b><b><span
+style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'><o:p></o:p></span></b></p>
+
+<p class=MsoNormal align=center style='text-align:center'><b style='mso-bidi-font-weight:
+normal'><span style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif;
+mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_3" o:spid="_x0000_i1034"
+ type="#_x0000_t75" style='width:450.75pt;height:244.5pt;visibility:visible;
+ mso-wrap-style:square'>
+ <v:imagedata src="Solution%20Implementation_files/image049.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=601 height=326
+src="Solution%20Implementation_files/image050.png" v:shapes="Picture_x0020_3"><![endif]></span></b><b><span
+style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif'><o:p></o:p></span></b></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif'>All
+Data Visualised<o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif;
+mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_4" o:spid="_x0000_i1033"
+ type="#_x0000_t75" style='width:450pt;height:243.75pt;visibility:visible;
+ mso-wrap-style:square'>
+ <v:imagedata src="Solution%20Implementation_files/image051.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=600 height=325
+src="Solution%20Implementation_files/image052.png" v:shapes="Picture_x0020_4"><![endif]></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif'>Decision
+Tree Visualisation<o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif;
+mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_5" o:spid="_x0000_i1032"
+ type="#_x0000_t75" style='width:450.75pt;height:450pt;visibility:visible;
+ mso-wrap-style:square'>
+ <v:imagedata src="Solution%20Implementation_files/image053.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=601 height=600
+src="Solution%20Implementation_files/image054.png" v:shapes="Picture_x0020_5"><![endif]></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif'>Decision
+Tree Results <o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif;
+mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_6" o:spid="_x0000_i1031"
+ type="#_x0000_t75" style='width:450.75pt;height:450pt;visibility:visible;
+ mso-wrap-style:square'>
+ <v:imagedata src="Solution%20Implementation_files/image055.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=601 height=600
+src="Solution%20Implementation_files/image056.png" v:shapes="Picture_x0020_6"><![endif]></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif'>Support
+Vector Machine with Polynomial Kernel Results <o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif;
+mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_7" o:spid="_x0000_i1030"
+ type="#_x0000_t75" style='width:447pt;height:384.75pt;visibility:visible;
+ mso-wrap-style:square'>
+ <v:imagedata src="Solution%20Implementation_files/image057.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=596 height=513
+src="Solution%20Implementation_files/image058.png" v:shapes="Picture_x0020_7"><![endif]></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif'>Support
+Vector Machine with Pearson VII Universal Kernel Results<o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif;
+mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_8" o:spid="_x0000_i1029"
+ type="#_x0000_t75" style='width:448.5pt;height:384pt;visibility:visible;
+ mso-wrap-style:square'>
+ <v:imagedata src="Solution%20Implementation_files/image059.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=598 height=512
+src="Solution%20Implementation_files/image060.png" v:shapes="Picture_x0020_8"><![endif]></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif'>Support
+Vector Machine with Radial Basis Function Kernel Results<o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif;
+mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_9" o:spid="_x0000_i1028"
+ type="#_x0000_t75" style='width:451.5pt;height:387pt;visibility:visible;
+ mso-wrap-style:square'>
+ <v:imagedata src="Solution%20Implementation_files/image061.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=602 height=516
+src="Solution%20Implementation_files/image062.png" v:shapes="Picture_x0020_9"><![endif]></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif'>Artificial
+Neural Network Results<o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif'><o:p>&nbsp;</o:p></span></p>
+
+<span style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif;
+mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;mso-ansi-language:
+EN-GB;mso-fareast-language:EN-US;mso-bidi-language:AR-SA'><br clear=all
+style='mso-special-character:line-break;page-break-before:always'>
+</span>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:12.0pt;text-align:justify;line-height:
+200%'><b><span style='font-size:12.0pt;line-height:200%;font-family:"Arial",sans-serif'>Appendix
+C – WEKA Screen Shots using Simulated Dataset, DT Only<o:p></o:p></span></b></p>
+
+<p class=MsoNormal align=center style='margin-bottom:12.0pt;text-align:center;
+line-height:normal'><span style='font-size:12.0pt;font-family:"Arial",sans-serif;
+mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_16" o:spid="_x0000_i1027"
+ type="#_x0000_t75" alt="Chart, bar chart&#10;&#10;Description automatically generated"
+ style='width:436.5pt;height:234.75pt;visibility:visible;mso-wrap-style:square'
+ o:bordertopcolor="yellow pure" o:borderleftcolor="yellow pure"
+ o:borderbottomcolor="yellow pure" o:borderrightcolor="yellow pure">
+ <v:imagedata src="Solution%20Implementation_files/image063.png" o:title="Chart, bar chart&#10;&#10;Description automatically generated"/>
+ <w:bordertop type="single" width="6"/>
+ <w:borderleft type="single" width="6"/>
+ <w:borderbottom type="single" width="6"/>
+ <w:borderright type="single" width="6"/>
+</v:shape><![endif]--><![if !vml]><img width=584 height=315
+src="Solution%20Implementation_files/image064.png"
+alt="Chart, bar chart&#10;&#10;Description automatically generated" v:shapes="Picture_x0020_16"><![endif]></span><b><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif'><o:p></o:p></span></b></p>
+
+<p class=MsoNormal align=center style='margin-bottom:12.0pt;text-align:center;
+line-height:200%'><span style='font-size:12.0pt;line-height:200%;font-family:
+"Arial",sans-serif'>All Data Visualised<o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:12.0pt;text-align:center;
+line-height:normal'><span style='font-size:12.0pt;font-family:"Arial",sans-serif;
+mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_18" o:spid="_x0000_i1026"
+ type="#_x0000_t75" style='width:460.5pt;height:248.25pt;visibility:visible;
+ mso-wrap-style:square' o:bordertopcolor="yellow pure" o:borderleftcolor="yellow pure"
+ o:borderbottomcolor="yellow pure" o:borderrightcolor="yellow pure">
+ <v:imagedata src="Solution%20Implementation_files/image065.png" o:title=""/>
+ <w:bordertop type="single" width="6"/>
+ <w:borderleft type="single" width="6"/>
+ <w:borderbottom type="single" width="6"/>
+ <w:borderright type="single" width="6"/>
+</v:shape><![endif]--><![if !vml]><img width=616 height=333
+src="Solution%20Implementation_files/image066.png" v:shapes="Picture_x0020_18"><![endif]></span><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:12.0pt;text-align:center;
+line-height:200%'><span style='font-size:12.0pt;line-height:200%;font-family:
+"Arial",sans-serif'>Decision Tree Visualisation<o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:12.0pt;text-align:center;
+line-height:normal'><span style='font-size:12.0pt;font-family:"Arial",sans-serif;
+mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_17" o:spid="_x0000_i1025"
+ type="#_x0000_t75" alt="Graphical user interface, text, application&#10;&#10;Description automatically generated"
+ style='width:463.5pt;height:377.25pt;visibility:visible;mso-wrap-style:square'
+ o:bordertopcolor="yellow pure" o:borderleftcolor="yellow pure"
+ o:borderbottomcolor="yellow pure" o:borderrightcolor="yellow pure">
+ <v:imagedata src="Solution%20Implementation_files/image067.png" o:title="Graphical user interface, text, application&#10;&#10;Description automatically generated"/>
+ <w:bordertop type="single" width="6"/>
+ <w:borderleft type="single" width="6"/>
+ <w:borderbottom type="single" width="6"/>
+ <w:borderright type="single" width="6"/>
+</v:shape><![endif]--><![if !vml]><img width=620 height=505
+src="Solution%20Implementation_files/image068.png"
+alt="Graphical user interface, text, application&#10;&#10;Description automatically generated"
+v:shapes="Picture_x0020_17"><![endif]></span><b><span style='font-size:12.0pt;
+font-family:"Arial",sans-serif'><o:p></o:p></span></b></p>
+
+<p class=MsoNormal align=center style='margin-bottom:12.0pt;text-align:center;
+line-height:200%'><span style='font-size:12.0pt;line-height:200%;font-family:
+"Arial",sans-serif'>Decision Tree Results<o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:12.0pt;text-align:center;
+line-height:200%'><span style='font-size:12.0pt;line-height:200%;font-family:
+"Arial",sans-serif'><o:p>&nbsp;</o:p></span></p>
+
 									
 									
 								</div>

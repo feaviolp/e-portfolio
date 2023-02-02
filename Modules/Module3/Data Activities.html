@@ -50,36 +50,31 @@
 							<section id="one">
 								<div class="inner">
 									<header class="major">
-										<h1>Initial Post</h1>
+										<h1>Data Activities</h1>
 									</header>
-									<p><b>Discuss why AI is now ubiquitous and why it is important for companies to invest in AI technologies
-									</b></p>
-									<p>Artificial Intelligence (AI) is everywhere. It pervades our personal, social and professional lives. Sometimes we’re aware of it, but often it sits in the background quietly using an ever expanding dataset derived from our regular habits to personalise our experiences.
-									</p>
-									<p>Voice assistants such as Amazon Echo and Google Home use conversational AI (Ponnusamy et al 2020) which were estimated to be in more than half of UK homes in 2019 (Easton, 2021). There is also a voice assistant inside every smartphone.
-									</p>
-									<p>Recruitment is often streamlined by AI such as chatbots to guide candidates through the recruitment process and to screen applications quickly and without unconscious bias (Upadhyay & Khandelwal, 2018). However, bias can sometimes be inadvertently introduced into AI solutions such as the recruitment tool that Amazon scrapped when it “learned” to become biased against women (Dastin 2022).
-									</p>
-									<p>Recommendation systems are a particularly common application of AI to improve customer experience, such as buying suggestions from Amazon, and what to watch from Netflix (Burgess, 2018). Looking further into the Netflix example, Netflix uses deep-learning models to recommend to its members what to watch based upon their own viewing habits compared with other members who have watched similar things, alongside other data such as if they gave it a thumbs up/down (Steck et al, 2021). This is an important feature because Netflix is a subscription service with growing competition and a huge amount of content. It is easy for customers to cancel their subscription so Netflix needs to constantly remain relevant to each individual customer, which it does through the use of AI powered recommendations. This means they will be more engaged and less likely to cancel their subscription. The Netflix business model fundamentally relies upon the AI powered recommendations to maintain their subscriber base.
-									</p>
-									<p>A final note about ethics pertaining to recommendation systems. It was earlier highlighted that Amazon had to withdraw a recruitment tool that had become biased. That’s an obvious example of a solution that had become unethical and was dealt with accordingly. But what about something so seemingly trivial as recommending what film to watch? That couldn’t be unethical, right? At worst it might be inaccurate and fail to meet the customer retention objective. Consider that the recommender algorithm is curating what you watch. Now consider that it’s been accepted for a long time that “there are profoundly important relationships between [films] and human [behaviour]” (Fearing, 1947). Could a nefarious film recommender system be used for social engineering? Perhaps. This is simply to illustrate that ethics must be considered in all applications of AI because AI systems make decisions that will have consequences.
-									</p>
-									<p><b>References
-									</b></p>
-									<p>Burgess, A. (2018) <i>The Executive Guide to Artificial Intelligence: How to Identify and Implement Applications for AI in your Organisation.</i> London: Palgrave Macmillan
-									</p>
-									<p>Dastin, J. (2022) ‘Amazon scraps secret AI recruiting tool that showed bias against women’. In: Martin, K (ed) <i>Ethics of Data and Analytics.</i> New York: Auerbach Publications. 296-299.
-									</p>
-									<p>Easton, J. (2019) Voice assistants in more than half of UK homes. Available from: <a href="https://www.digitaltveurope.com/2021/06/08/voice-assistants-in-more-than-half-of-uk-homes/">https://www.digitaltveurope.com/2021/06/08/voice-assistants-in-more-than-half-of-uk-homes/</a> [Accessed 24 September 2022].
-									</p>
-									<p>Fearing, F. (1947) Influence of the Movies on Attitudes and Behavior. <i>The ANNALS of the American Academy of Political and Social Science,</i> 254(1): 70-79.
-									</p>
-									<p>Steck, H., Baltrunas, L., Elahi, E., Liang, D., Raimond, Y. & Basilico, J. (2021) Deep Learning for Recommender Systems: A Netflix Case Study. <i>AI Magazine,</i> 42(3): 7-18.
-									</p>
-									<p>Upadhyay, A.K. & Khandelwal, K. (2018) Applying artificial intelligence: implications for recruitment. Strategic HR Review. <i>Strategic HR Review,</i> 17(5): 255-258.
-									</p>
-									<p>Ponnusamy, P., Ghias, A.R., Guo, C. &  Sarikaya, R. (2020) ‘Feedback-Based Self-Learning in Large-Scale Conversational AI Agents’. <i>The Thirty-Fourth AAAI Conference on Artificial Intelligence.</i> New York Hilton Midtown, New York, 7-12 February. California: AAAI Press. 13180-13187.
-									</p>
+
+											<p><b>Data Activity 1.1</b>
+											<br>Download the  Crime Survey for England and Wales, 2013-2014: Unrestricted Access Teaching Dataset:
+											<br>> csew1314teachingopen <- read_sav("csew1314teachingopen.sav")</p>
+											<p><b>Data Activity 1.2</b>
+											<br>Assess the level of anti-social behaviour that the survey respondents experience in their neighbourhood by creating a summary statistic, using the ‘antisocx’ variable:
+											<br><pre><code>> summary(csew1314teachingopen[['antisocx']])
+											<br>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's
+											<br> -1.215  -0.788  -0.185  -0.007   0.528   4.015    6694</code></pre></p>
+											<p><b>Data Activity 2</b>
+											<br>1. Explore whether survey respondents experienced any crime in the 12 months prior to the survey using the variable bcsvictim.
+											<br>2. Create a frequency table to count if the survey respondents experienced any crime in the previous 12 months. Use the table() command.
+											<br><pre><code>> table(as_factor(csew1314teachingopen[['bcsvictim']]))
+											<br>   0    1 
+											<br>7460 1383</code></pre>
+											<br>3. Assess the results and decide if you need to convert this variable into a factor variable. Use as_factor.
+											<br> - It would be easier to read if the factors were displayed using as_factor:
+											<br><pre><code>> table(as_factor(csew1314teachingopen[['bcsvictim']]))
+											<br>Not a victim of crime       Victim of crime
+											<br>                 7460                  1383 </code></pre>
+									
+									
+									
 								</div>
 							</section>
 

@@ -58,7 +58,7 @@
 											<br><pre><code>> csew1314teachingopen <- read_sav("csew1314teachingopen.sav")</code></pre></p>
 											<p><b>Data Activity 1.2</b>
 											<br>Assess the level of anti-social behaviour that the survey respondents experience in their neighbourhood by creating a summary statistic, using the ‘antisocx’ variable:
-											<br><pre><code>> summary(csew1314teachingopen['antisocx'])
+											<br><code>> summary(csew1314teachingopen['antisocx'])
 											<br>   antisocx   
 											<br>Min.   :-1.215
 											<br>1st Qu.:-0.788
@@ -66,9 +66,7 @@
 											<br>Mean   :-0.007
 											<br>3rd Qu.: 0.528
 											<br>Max.   : 4.015
-											<br>NA's   :6694
-											<br>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's
-											<br> -1.215  -0.788  -0.185  -0.007   0.528   4.015    6694</code></pre></p>
+											<br>NA's   :6694 </code></p>
 											<p><b>Data Activity 2</b>
 											<br>1. Explore whether survey respondents experienced any crime in the 12 months prior to the survey using the variable bcsvictim.
 											<br>2. Create a frequency table to count if the survey respondents experienced any crime in the previous 12 months. Use the table() command.
@@ -78,6 +76,7 @@
 											<br>3. Assess the results and decide if you need to convert this variable into a factor variable. Use as_factor.
 											<br> - It would be easier to read if the factors were displayed using as_factor:
 											<br><pre><code>> table(as_factor(csew1314teachingopen['bcsvictim']))
+											<br>bcsvictim
 											<br>Not a victim of crime       Victim of crime
 											<br>                 7460                  1383 </code></pre>
 									

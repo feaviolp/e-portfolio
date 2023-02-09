@@ -58,15 +58,9 @@
 											<br><pre><code>> csew1314teachingopen <- read_sav("csew1314teachingopen.sav")</code></pre></p>
 											<p><b>Data Activity 1.2</b>
 											<br>Assess the level of anti-social behaviour that the survey respondents experience in their neighbourhood by creating a summary statistic, using the ‘antisocx’ variable:
-											<br><pre><code>> summary(csew1314teachingopen['antisocx'])
-   antisocx   
-Min.   :-1.215
-1st Qu.:-0.788
-Median :-0.185
-Mean   :-0.007
-3rd Qu.: 0.528
-Max.   : 4.015
-NA's   :6694 </code></pre></p>
+											<br><pre><code>> summary(csew1314teachingopen[['antisocx']])
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+ -1.215  -0.788  -0.185  -0.007   0.528   4.015    6694 </code></pre></p>
 											<p><b>Data Activity 2</b>
 											<br>1. Explore whether survey respondents experienced any crime in the 12 months prior to the survey using the variable bcsvictim.
 											<br>2. Create a frequency table to count if the survey respondents experienced any crime in the previous 12 months. Use the table() command.
@@ -80,6 +74,25 @@ NA's   :6694 </code></pre></p>
 
 Not a victim of crime       Victim of crime
                  7460                  1383 </code></pre>
+											<p><b>Data Activity 3</b>
+											<br>Create a subset of individuals who belong to the ‘75+’ age group and who were a ‘victim of crime’ that occurred in the previous 12 months. Save this dataset under a new name 'crime_75victim'.
+											<br> - First look at the attributes of the agegrp7 variable:
+											<br><pre><code>> attributes(csew1314teachingopen[['agegrp7']])
+$label
+[1] "Age group (7 bands)"
+
+$format.spss
+[1] "F8.0"
+
+$class
+[1] "haven_labelled" "vctrs_vctr"     "double"        
+
+$labels
+16-24 25-34 35-44 45-54 55-64 65-74   75+ 
+    1     2     3     4     5     6     7  </code></pre>
+											<br> - We can see that 75+ is label 7, so create a subset where agegrp7 = 7:
+											<br><pre><code>> crime_75victim <- subset(csew1314teachingopen, agegrp7==7) </code></pre>
+											
 									
 									
 									

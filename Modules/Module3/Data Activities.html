@@ -73,7 +73,7 @@
 											<br><pre><code>> table(as_factor(csew1314teachingopen[['bcsvictim']]))
 
 Not a victim of crime       Victim of crime
-                 7460                  1383 </code></pre>
+                 7460                  1383 </code></pre></p>
 											<p><b>Data Activity 3</b>
 											<br>Create a subset of individuals who belong to the ‘75+’ age group and who were a ‘victim of crime’ that occurred in the previous 12 months. Save this dataset under a new name 'crime_75victim'.
 											<br> - First look at the attributes of the agegrp7 variable:
@@ -89,13 +89,23 @@ $class
 
 $labels
 16-24 25-34 35-44 45-54 55-64 65-74   75+ 
-    1     2     3     4     5     6     7  </code></pre>
+    1     2     3     4     5     6     7  </code></pre></p>
 											 - We can see that 75+ is label 7 and we already know that bcsvictim=1 means victim of crime in the past 12 months, so create a subset where agegrp7 = 7 and bcsvictim = 1:
 											<br><pre><code>> crime_75victim <- subset(csew1314teachingopen, agegrp7==7 & bcsvictim==1) </code></pre>
-											This created a subset containing 67 observations.	</p>	
-								<img src="Data%20Activities%20files/U5 boxplot.PNG">
-								<img src="Data%20Activities%20files/U5 barplot.PNG">
-									
+											This created a subset containing 67 observations.		
+
+											<p><b>Data Activity 4</b>
+											<br>Create a boxplot for the variable 'antisocx'.
+											<br>If you’re using ‘graphics’: Add “Levels of anti-social behaviour in neighbourhood ‘antisocx’” as a title and colour the plot in purple and colour the outliers in blue.
+											<br><pre><code>> boxplot(csew1314teachingopen$antisocx, main="Levels of anti-social behaviour in neighbourhood 'antisocx'", col="purple", outcol="blue")</code></pre>
+											<br><img src="Data%20Activities%20files/U5 boxplot.PNG">
+											
+											<br>Create a bar plot using either the barplot() function or the ggplot() function to assess whether or not the survey respondents experienced crime in the 12 months prior to the survey (use the variable 'bcsvictim'). Give the graph a suitable title and choose a colour for the bars (e.g., orange).
+											<br>I also used as_factor to give the bar plot meaningful labels
+											<br><pre><code>> count <-table(as_factor(csew1314teachingopen$bcsvictim))
+barplot(count, main = "Experienced crime in last 12 months?",col="orange")</code></pre>
+											<br><img src="Data%20Activities%20files/U5 barplot.PNG">
+											</p>
 									
 									
 								</div>

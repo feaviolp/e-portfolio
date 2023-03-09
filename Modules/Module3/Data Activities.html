@@ -167,14 +167,14 @@ Modes <- function(x, na.rm = FALSE) {
  52933.00  68636.50  86560.50  99696.25 117210.00
 >
 > boxplot(Health_Data$income) </code></pre>
-											<br><img src="Data%20Activities%20files/U7 boxplot.PNG"></p>
+											<br><img src="Data%20Activities%20files/U7 boxplot.png"></p>
 											<br> And now using ggplot for a neater plot
 											<br><pre><code>> ggplot(Health_Data, aes(x = factor(1), y=income)) +
    geom_boxplot(fill='light blue') +
    stat_boxplot(geom ='errorbar', width=0.1) +
    labs(title = "Income", y = 'Income', x='') +  
    theme(plot.title = element_text(hjust = 0.5, size = 15)) </code></pre>		
-											<br><img src="Data%20Activities%20files/U7 geom_boxplot.PNG"></p>
+											<br><img src="Data%20Activities%20files/U7 geom_boxplot.png"></p>
 											<br>Run a suitable hypothesis test to see if there is any association between systolic blood pressure and presence and absence of peptic ulcer.
 								</div>
 							</section>

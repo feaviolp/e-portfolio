@@ -106,7 +106,76 @@ $labels
 > barplot(count, main = "Experienced crime in last 12 months?",col="orange")</code></pre>
 											<br><img src="Data%20Activities%20files/U5 barplot.PNG"></p>
 									
-									
+											<p><b>Data Activity 5</b>
+											<br>Using the Health_Data, please perform the following functions in R:
+											<br>Find out mean, median and mode of variables sbp, dbp and income.
+											<br><pre><code>> # Modes function from https://stackoverflow.com/questions/2547402/how-to-find-the-statistical-mode
+# Uses a function that calculated Model, enhanced to remove NA values plus another that calculates multimodes. Combined here
+Modes <- function(x, na.rm = FALSE) {
+  if(na.rm){
+    x = x[!is.na(x)]
+  }  
+  ux <- unique(x)
+  tab <- tabulate(match(x, ux))
+  ux[tab == max(tab)]
+}
+> mean(Health_Data$sbp)
+[1] 127.7333
+> median(Health_Data$sbp)
+[1] 123
+> Modes(Health_Data$sbp)
+[1] 120
+> mean(Health_Data$dbp)
+[1] 82.76667
+> median(Health_Data$dbp)
+[1] 82
+> Modes(Health_Data$dbp)
+[1] 80 74 82
+> mean(Health_Data$income)
+[1] 85194.49
+> median(Health_Data$income)
+[1] 86560.5
+> Modes(Health_Data$income)
+  [1]  79774  70295 100117 105528  71417  95920  72785  65365  84255
+ [10]  77208  58323  56897  94294  78767  97935  67906  65278 112278
+ [19] 100756 104527 102776  67035 100934  56249  90689 117210 103087
+ [28]  88974 107683  56250  91968  58861  96574 109697  66751 106392
+ [37]  69940  93009 109854 116656 104632  79538 114671 111583  84335
+ [46]  59033  80865  82867  80354  67420 101023  68433  91245  63331
+ [55]  94978  78270 114518 100731 107274  59437  65890  82891  76231
+ [64]  74478  77477 103582  81095  98453  90790  89997  99160  92093
+ [73] 106693  91736  81818  55183  66737  66415  94873  76845  84263
+ [82]  83086  64482  87707  58576  92339  96351 106832  87076  98444
+ [91]  65943  76056  86719  78217  92655  57111 109943 102764  83980
+[100]  94690  70092 105266  57059 101416  89698  87253  57221  62926
+[109] 108259  94546  78669 115942 101523  55927  78097 105462  56548
+[118]  66587  81742  77597 108537  88315 116423  82265 114636  53980
+[127]  80422  56232  98318  91861  66857  97549 110225 102554  79171
+[136] 103503  99968  53435  85519  98875  72470  83988  61325  66517
+[145]  78559  89783  80714  72884  68461  94752  60866  67389  95869
+[154]  86381 101310 101602  75755 105812  65772  99294  64966  71654
+[163]  67661  94620  84990  65523 101595 115374  69163  97462  83918
+[172]  68350 100473  99610 113240 114488  61600  54883 106953  98474
+[181]  58383  81710 107892  92478 103262  95396  53976  96009  97735
+[190]  54579  52933  61856 109137  60305  97104  59440  75317  91261
+[199]  75301  88929  54329  87565  72657  99725  98405  86402 107849
+[208]  82803  89351  99355  </code></pre>
+											<br>Clearly there are many modes for Income
+											<br>Find out the five-figure summary of income variable and present it using a Boxplot.
+											<br><pre><code>> quantile(Health_Data$income)
+       0%       25%       50%       75%      100% 
+ 52933.00  68636.50  86560.50  99696.25 117210.00
+>
+> boxplot(Health_Data$income) </code></pre>
+											<br><img src="Data%20Activities%20files/U7 boxplot.PNG"></p>
+											<br> And now using ggplot for a neater plot
+											<br><pre><code>> ggplot(Health_Data, aes(x = factor(1), y=income)) +
+   geom_boxplot(fill='light blue') +
+   stat_boxplot(geom ='errorbar', width=0.1) +
+   labs(title = "Income", y = 'Income', x='') +  
+   theme(plot.title = element_text(hjust = 0.5, size = 15)) </code></pre>		
+											<br><img src="Data%20Activities%20files/U7 geom_boxplot.PNG"></p>
+											<br>Run a suitable hypothesis test to see if there is any association between systolic blood pressure and presence and absence of peptic ulcer.
 								</div>
 							</section>
 

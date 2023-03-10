@@ -184,8 +184,26 @@ Modes <- function(x, na.rm = FALSE) {
    facet_grid(~as_factor(pepticulcer)) +
    theme(plot.title = element_text(hjust = 0.5, size = 15)) </code></pre>
 											<br><img src="Data%20Activities%20files/U7 corr boxplot.png"></p>
-											<br>Next...
+											<br>We can see that Q1, Median and Q3 systolic blood pressure is lower for those without a peptic ulcer than those with. So now we can test to see if it is singificant.
+											<br>First let's find the mean values:
+											<br><pre><code>> mean(Health_Data$sbp[as_factor(Health_Data$pepticulcer)=='Yes'])
+[1] 131.3171
+> mean(Health_Data$sbp[as_factor(Health_Data$pepticulcer)=='No'])
+[1] 126.8639  </code></pre>
+											<br>Having determined that the mean sbl for those witha peptic ulcer is alsow lower than without, we can run a t-test to see if teh difference is significant
+											<br><pre><code>> t.test(Health_Data$sbp[as_factor(Health_Data$pepticulcer)=='Yes'], Health_Data$sbp[as_factor(Health_Data$pepticulcer)=='No'])
 
+	Welch Two Sample t-test
+
+data:  Health_Data$sbp[as_factor(Health_Data$pepticulcer) == "Yes"] and Health_Data$sbp[as_factor(Health_Data$pepticulcer) == "No"]
+t = 1.2142, df = 57.562, p-value = 0.2296
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -2.889367 11.795703
+sample estimates:
+mean of x mean of y 
+ 131.3171  126.8639   </code></pre>
+											<br>With a p-value of 0.2296 we fail to reject the null hypothesis. There is not enough evidence to say, at the 95% confidence interval, that the difference in mean systolic blood pressure for those with a peptic ulcer and those without is anything other than chance.
 
 								</div>
 							</section>

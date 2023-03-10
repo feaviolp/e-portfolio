@@ -190,7 +190,7 @@ Modes <- function(x, na.rm = FALSE) {
 [1] 131.3171
 > mean(Health_Data$sbp[as_factor(Health_Data$pepticulcer)=='No'])
 [1] 126.8639  </code></pre>
-											<br>Having determined that the mean sbl for those witha peptic ulcer is alsow lower than without, we can run a t-test to see if teh difference is significant
+											<br>Having determined that the mean sbl for those with a peptic ulcer is also lower for than without, we can run a t-test to see if the difference is significant
 											<br><pre><code>> t.test(Health_Data$sbp[as_factor(Health_Data$pepticulcer)=='Yes'], Health_Data$sbp[as_factor(Health_Data$pepticulcer)=='No'])
 
 	Welch Two Sample t-test

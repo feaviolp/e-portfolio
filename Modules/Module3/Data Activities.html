@@ -61,7 +61,7 @@
 											<br><pre><code>> summary(csew1314teachingopen[['antisocx']])
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
  -1.215  -0.788  -0.185  -0.007   0.528   4.015    6694 </code></pre></p>
-											<p><b>Data Activity 2</b>
+											<p><b><a id="Data-Activity-2">Data Activity 2</a></b>
 											<br>1. Explore whether survey respondents experienced any crime in the 12 months prior to the survey using the variable bcsvictim.
 											<br>2. Create a frequency table to count if the survey respondents experienced any crime in the previous 12 months. Use the table() command.
 											<br><pre><code>> table(csew1314teachingopen[['bcsvictim']])
@@ -74,7 +74,7 @@
 
 Not a victim of crime       Victim of crime
                  7460                  1383 </code></pre></p>
-											<p><b>Data Activity 3</b>
+											<p><b><a id="Data-Activity-3">Data Activity 3</a></b>
 											<br>Create a subset of individuals who belong to the ‘75+’ age group and who were a ‘victim of crime’ that occurred in the previous 12 months. Save this dataset under a new name 'crime_75victim'.
 											<br> - First look at the attributes of the agegrp7 variable:
 											<br><pre><code>> attributes(csew1314teachingopen[['agegrp7']])
@@ -94,7 +94,7 @@ $labels
 											<br><pre><code>> crime_75victim <- subset(csew1314teachingopen, agegrp7==7 & bcsvictim==1) </code></pre>
 											This created a subset containing 67 observations. </p>
 
-											<p><b>Data Activity 4</b>
+											<p><b><a id="Data-Activity-4">Data Activity 4</a></b>
 											<br>Create a boxplot for the variable 'antisocx'.
 											<br>If you’re using ‘graphics’: Add “Levels of anti-social behaviour in neighbourhood ‘antisocx’” as a title and colour the plot in purple and colour the outliers in blue.
 											<br><pre><code>> boxplot(csew1314teachingopen$antisocx, main="Levels of anti-social behaviour in neighbourhood 'antisocx'", col="purple", outcol="blue")</code></pre>
@@ -106,7 +106,7 @@ $labels
 > barplot(count, main = "Experienced crime in last 12 months?",col="orange")</code></pre>
 											<br><img src="Data%20Activities%20files/U5 barplot.PNG"></p>
 									
-											<p><b>Data Activity 5</b>
+											<p><b><a id="Data-Activity-5">Data Activity 5</a></b>
 											<br>Using the Health_Data, please perform the following functions in R:
 											<br>Find out mean, median and mode of variables sbp, dbp and income.
 											<br><pre><code>> # Modes function from https://stackoverflow.com/questions/2547402/how-to-find-the-statistical-mode

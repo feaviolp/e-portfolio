@@ -215,7 +215,7 @@ mean of x mean of y
  131.3171  126.8639   </code></pre>
 											<br>With a p-value of 0.2296 we fail to reject the null hypothesis. There is not enough evidence to say, at the 95% confidence interval, that the difference in mean systolic blood pressure for those with a peptic ulcer and those without is anything other than chance.
 											<br>
-											<br>Revisting after reading some of unit 8 on nonparametric tests, I think the wilcox test is a better option that the t-test due to the lack of normal distribution:
+											<br>Revisting after reading some of unit 8 on nonparametric tests, I think the wilcox test is a better option than the t-test due to the lack of a normal distribution:
 											<br><pre><code>> wilcox.test(sbp ~ pepticulcer, data=Health_Data)
 
 	Wilcoxon rank sum test with continuity correction

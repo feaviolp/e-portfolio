@@ -224,7 +224,78 @@ data:  sbp by pepticulcer
 W = 3975.5, p-value = 0.1434
 alternative hypothesis: true location shift is not equal to 0  </code></pre>
 											<br>With a p-value of 0.1434 we still fail to reject the null hypothesis, as with the t-test. 
+											<p><b><a id="Data-Activity-6">Data Activity 6</a></b>
+											<br>1. Find out the mean, median and mode of ‘age’ variable.
+											<br><pre><code>> mean(Health_Data$age)
+[1] 26.51429
+> median(Health_Data$age)
+[1] 27
+> Modes(Health_Data$age)
+[1] 26  </code></pre>
+											<br>2. Find out whether median diastolic blood pressure is the same among diabetic and non-diabetic participants.
+											<br>First find the overall median of diastolic blood pressure, and then of the groups with and without diabetes:
+											<br><pre><code>> median(Health_Data$dbp)
+[1] 82
+> median(Health_Data$dbp[as_factor(Health_Data$diabetes)=='Yes'])
+[1] 83
+> median(Health_Data$dbp[as_factor(Health_Data$diabetes)=='No'])
+[1] 82   </code></pre>
+											<br>We can see that the median of the overall group is 82, as is the median for those without diabetes. Those with diabetes has a median of 83.
+											<br>We can see this visually using a boxplot:
+											<br><pre><code>> ggplot(Health_Data, aes(x = factor(1), y=dbp)) +
+   geom_boxplot(fill='cyan') +
+   stat_boxplot(geom ='errorbar', width=0.1) +
+   labs(title = "Diastolic blood pressure for diabetic and non-diabetic patients", y = 'Dyastolic blood pressure', x='Diabetic?') + 
+   facet_grid(~as_factor(diabetes)) +
+   theme(plot.title = element_text(hjust = 0.5, size = 15))   </code></pre>
+											<br><img src="Data%20Activities%20files/U8 boxplot.png"></p>
+											<br>The boxplot shows little difference between the diastolic blood pressure for diabetic and non-diabetic patients. We'll test for significant differences anyway though.
+											<br><pre><code>> shapiro.test(Health_Data$dbp)
 
+	Shapiro-Wilk normality test
+
+data:  Health_Data$dbp
+W = 0.97052, p-value = 0.0002204    </code></pre>
+											<br>The Shapiro test with a p-value less than 0.05 shows that the data is not normaly distributed, so we'll use a Mann-Whitney U test, which would be the correct test for comparing medians anyway.
+											<br><pre><code>> wilcox.test(dbp ~ diabetes, data=Health_Data)
+
+	Wilcoxon rank sum test with continuity correction
+
+data:  dbp by diabetes
+W = 3804.5, p-value = 0.7999
+alternative hypothesis: true location shift is not equal to 0    </code></pre>
+											<br>We can see that with a p-value of 0.7999 we fail to reject the null hypothesis. As expected there is noothing to suggest a difference in diastolic blood pressure between diabetic and non-diabetic patients.
+											<br>
+											<br>3. Find out whether systolic BP is different across occupational group.
+											<br>First we'll boxplot the wbp across the occupational group:
+											<br><pre><code>> ggplot(Health_Data, aes(x = factor(1), y=sbp)) +
+   geom_boxplot(fill='cyan') +
+   stat_boxplot(geom ='errorbar', width=0.1) +
+   labs(title = "Systolic blood pressure across different occupational groups", y = 'Systolic blood pressure', x='') + 
+   facet_grid(~as_factor(occupation)) +
+   theme(plot.title = element_text(hjust = 0.5, size = 15))    </code></pre>
+											<br><img src="Data%20Activities%20files/U8 occ boxplot.png"></p>
+											<br>The boxplot shows some differences between the sbp of the different occupational groups, so we'll see if the differences are statistically significant.
+											<br>First we'll check the median sbp for each occupational group because we already know that sbp is not normally distributed so we'll be using a non-parametric test:
+											<br><pre><code>> median(Health_Data$sbp[as_factor(Health_Data$occupation)=='GOVT JOB'])
+[1] 125.5
+> median(Health_Data$sbp[as_factor(Health_Data$occupation)=='PRIVATE JOB'])
+[1] 120
+> median(Health_Data$sbp[as_factor(Health_Data$occupation)=='BUSINESS'])
+[1] 122
+> median(Health_Data$sbp[as_factor(Health_Data$occupation)=='OTHERS'])
+[1] 123    </code></pre>
+											<br>Now we use the Krushal-Wallis test to compare the sbp across the four occupational groups:
+											<br><pre><code>> kruskal.test(sbp ~ occupation, data=Health_Data)
+
+	Kruskal-Wallis rank sum test
+
+data:  sbp by occupation
+Kruskal-Wallis chi-squared = 0.77906, df = 3, p-value = 0.8545   </code></pre>
+											<br>With a p-value of 0.8545 we fail to reject teh null hypotheses. There is insufficient evidence to say that the sbp is different between the occupational groups.
+											<br>
+
+	
 								</div>
 							</section>
 

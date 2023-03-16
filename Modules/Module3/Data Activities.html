@@ -191,14 +191,22 @@ Modes <- function(x, na.rm = FALSE) {
 > mean(Health_Data$sbp[as_factor(Health_Data$pepticulcer)=='No'])
 [1] 126.8639  </code></pre>
 	
-											<br>Now check that the data is normally distrbuted with a Shapiro test
-											<br><pre><code>> shapiro.test(Health_Data$sbp)
+											<br>Now check that the data is normally distrbuted with a Shapiro test on the two distributions (sbp with and without peptic ulcer):
+											<br><pre><code>> shapiro.test(Health_Data$sbp[as_factor(Health_Data$pepticulcer)=='Yes'])
 
 	Shapiro-Wilk normality test
 
-data:  Health_Data$sbp
-W = 0.95474, p-value = 3.345e-06   </code></pre>
-											<br>The Shapiro test suggests that the data is not normally distributed because the p value of 3.345e-6 is lower than 0.06. However I'm still going to attempt a comparrison using a t-test because we haven't learned other methods yet. 
+data:  Health_Data$sbp[as_factor(Health_Data$pepticulcer) == "Yes"]
+W = 0.95393, p-value = 0.0962
+
+> shapiro.test(Health_Data$sbp[as_factor(Health_Data$pepticulcer)=='No'])
+
+	Shapiro-Wilk normality test
+
+data:  Health_Data$sbp[as_factor(Health_Data$pepticulcer) == "No"]
+W = 0.94175, p-value = 2.119e-06   </code></pre>
+											<br>The Shapiro test suggests that the data for sbp with peptic ulcer normally distributed because the p-value of 0.962 is > 0.05. 
+											However, the data for sbp without peptic ulcer is is not normally distributed because the p-value of 2.119e-6 is lower than 0.05. I'm still going to attempt a comparrison using a t-test because we haven't learned other methods yet. 
 											<br>
 											<br>Having determined that the mean sbl for those with a peptic ulcer is lower for than without, we can run a t-test to see if the difference is significant
 											<br><pre><code>> t.test(sbp ~ pepticulcer, data=Health_Data)

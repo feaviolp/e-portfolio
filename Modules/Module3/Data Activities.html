@@ -273,10 +273,10 @@ W = 0.97052, p-value = 0.0002204    </code></pre>
 data:  dbp by diabetes
 W = 3804.5, p-value = 0.7999
 alternative hypothesis: true location shift is not equal to 0    </code></pre>
-											<br>We can see that with a p-value of 0.7999 we fail to reject the null hypothesis. As expected there is noothing to suggest a difference in diastolic blood pressure between diabetic and non-diabetic patients.
+											<br>We can see that with a p-value of 0.7999 we fail to reject the null hypothesis. As expected there is nothing to suggest a difference in diastolic blood pressure between diabetic and non-diabetic patients.
 											<br>
-											<br>3. Find out whether systolic BP is different across occupational group.
-											<br>First we'll boxplot the wbp across the occupational group:
+											<br>3. Find out whether systolic BP is different across occupational groups.
+											<br>First we'll boxplot the wbp across the occupational groups:
 											<br><pre><code>> ggplot(Health_Data, aes(x = factor(1), y=sbp)) +
    geom_boxplot(fill='cyan') +
    stat_boxplot(geom ='errorbar', width=0.1) +

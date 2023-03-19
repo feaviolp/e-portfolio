@@ -303,7 +303,29 @@ data:  sbp by occupation
 Kruskal-Wallis chi-squared = 0.77906, df = 3, p-value = 0.8545   </code></pre>
 											<br>With a p-value of 0.8545 we fail to reject the null hypotheses. There is insufficient evidence to say that the sbp is different between the occupational groups.
 											</p>
-											<br>
+											<p><b><a id="Data-Activity-7">Data Activity 7</a></b>
+											<br>Using the Crime Survey for England and Wales, 2013-2014: Unrestricted Access Teaching Dataset, perform the following activities:
+											<br>1. Create a crosstab to assess how individuals’ experience of any crime in the previous 12 months bcsvictim vary by age group agegrp7.
+											<br> First import the file
+											<br><pre><code>> > library(haven)
+> csew1314teachingopen <- read_sav("csew1314teachingopen.sav")   </code></pre>
+											<br>Use the table() function to tabulate the frequencies of bcsvictim (rows) and agegrp7 (columns)
+											<br>The as_factor() fucntion is used to make the results easier to read 
+											<br><pre><code>> > table(as_factor(csew1314teachingopen$bcsvictim), as_factor(csew1314teachingopen$agegrp7))
+                       
+                        16-24 25-34 35-44 45-54 55-64 65-74  75+
+  Not a victim of crime   523  1049  1194  1242  1226  1194 1032
+  Victim of crime         162   310   248   273   202   121   67)   </code></pre>
+  											<br>Now use prop.table to convert frequencies to proportions, using ,2 to show proportions by column (default os rows)
+											<br>Feed it into the round() function parsing *100,2 to give percentage to two decimal places
+											<br><pre><code>> > round(prop.table(table(as_factor(csew1314teachingopen$bcsvictim), as_factor(csew1314teachingopen$agegrp7)),2)*100,2)
+                       
+                        16-24 25-34 35-44 45-54 55-64 65-74   75+
+  Not a victim of crime 76.35 77.19 82.80 81.98 85.85 90.80 93.90
+  Victim of crime       23.65 22.81 17.20 18.02 14.15  9.20  6.10   </code></pre>
+											<br>We can see from teh table that the 16-24 age group experiences most crime at 23.65% whilst 75+ experiences least at 6.1%.
+											</p>
+
 
 	
 								</div>

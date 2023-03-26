@@ -307,18 +307,18 @@ Kruskal-Wallis chi-squared = 0.77906, df = 3, p-value = 0.8545   </code></pre>
 											<br>Using the Crime Survey for England and Wales, 2013-2014: Unrestricted Access Teaching Dataset, perform the following activities:
 											<br>1. Create a crosstab to assess how individuals’ experience of any crime in the previous 12 months bcsvictim vary by age group agegrp7.
 											<br> First import the file
-											<br><pre><code>> > library(haven)
+											<br><pre><code>> library(haven)
 > csew1314teachingopen <- read_sav("csew1314teachingopen.sav")   </code></pre>
 											<br>Use the table() function to tabulate the frequencies of bcsvictim (rows) and agegrp7 (columns)
 											<br>The as_factor() fucntion is used to make the results easier to read 
-											<br><pre><code>> > table(as_factor(csew1314teachingopen$bcsvictim), as_factor(csew1314teachingopen$agegrp7))
+											<br><pre><code>> table(as_factor(csew1314teachingopen$bcsvictim), as_factor(csew1314teachingopen$agegrp7))
                        
                         16-24 25-34 35-44 45-54 55-64 65-74  75+
   Not a victim of crime   523  1049  1194  1242  1226  1194 1032
   Victim of crime         162   310   248   273   202   121   67)   </code></pre>
   											<br>Now use prop.table to convert frequencies to proportions, using ,2 to show proportions by column (default os rows)
 											<br>Feed it into the round() function parsing *100,2 to give percentage to two decimal places
-											<br><pre><code>> > round(prop.table(table(as_factor(csew1314teachingopen$bcsvictim), as_factor(csew1314teachingopen$agegrp7)),2)*100,2)
+											<br><pre><code>> round(prop.table(table(as_factor(csew1314teachingopen$bcsvictim), as_factor(csew1314teachingopen$agegrp7)),2)*100,2)
                        
                         16-24 25-34 35-44 45-54 55-64 65-74   75+
   Not a victim of crime 76.35 77.19 82.80 81.98 85.85 90.80 93.90
@@ -330,7 +330,7 @@ Kruskal-Wallis chi-squared = 0.77906, df = 3, p-value = 0.8545   </code></pre>
 											<br>Using the Crime Survey for England and Wales, 2013-2014: Unrestricted Access Teaching Dataset, perform the following activities:
 											<br>1. Find out correlation between systolic and diastolic BP.
 											<br> First check for normal distribution on sbp and dbp data
-											<br><pre><code>> > shapiro.test(Health_Data$sbp)
+											<br><pre><code>> shapiro.test(Health_Data$sbp)
 
 	Shapiro-Wilk normality test
 
@@ -344,7 +344,7 @@ W = 0.95474, p-value = 3.345e-06
 data:  Health_Data$dbp
 W = 0.97052, p-value = 0.0002204  </code></pre>
 											<br> Both have a p-value < 0.05 so the distributions are not normal. For that reason the Spearman's rank is used
-											<br><pre><code>> > cor.test(Health_Data$sbp, Health_Data$dbp, method='spearman')
+											<br><pre><code>> cor.test(Health_Data$sbp, Health_Data$dbp, method='spearman')
 
 	Spearman's rank correlation rho
 
@@ -357,10 +357,10 @@ sample estimates:
 											<br>The p-value is < 2.2e-16 and the r value is 0.8 so there a statistically significant, strong positive correlation between sbp and dbp
 											<br>2. Produce a scatter plot between systolic and diastolic BP.
 											<br>Starting with a basic scatterplot:
-											<br><pre><code>> > plot(Health_Data$sbp, Health_Data$dbp)   </code></pre>
+											<br><pre><code>> plot(Health_Data$sbp, Health_Data$dbp)   </code></pre>
 											<br><img src="Data%20Activities%20files/U10 scatterplot 1.png"></p>
 											<br>And now a ggplot scatterplot including a regression line:
-											<br><pre><code>> > ggplot(Health_Data, aes(x=sbp, y=dbp)) +
+											<br><pre><code>> ggplot(Health_Data, aes(x=sbp, y=dbp)) +
   geom_point() +
   geom_smooth(method=lm) +
   labs(title = "Scatterplot of systolic blood pressure and diastolic blood pressure")   </code></pre>

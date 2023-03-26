@@ -326,6 +326,49 @@ Kruskal-Wallis chi-squared = 0.77906, df = 3, p-value = 0.8545   </code></pre>
 											<br>2. Looking at the crosstab you have produced, which age groups were the most likely, and least likely, to be victims of crime?
 											<br>We can see from the table that the 16-24 age group experienced most crime at 23.65% whilst 75+ experienced least at 6.1%.
 											</p>
+											<p><b><a id="Data-Activity-8">Data Activity 8</a></b>
+											<br>Using the Crime Survey for England and Wales, 2013-2014: Unrestricted Access Teaching Dataset, perform the following activities:
+											<br>1. Find out correlation between systolic and diastolic BP.
+											<br> First check for normal distribution on sbp and dbp data
+											<br><pre><code>> > shapiro.test(Health_Data$sbp)
+
+	Shapiro-Wilk normality test
+
+data:  Health_Data$sbp
+W = 0.95474, p-value = 3.345e-06
+
+> shapiro.test(Health_Data$dbp)
+
+	Shapiro-Wilk normality test
+
+data:  Health_Data$dbp
+W = 0.97052, p-value = 0.0002204  </code></pre>
+											<br> Both have a p-value < 0.05 so the distributions are not normal. For that reason the Spearman's rank is used
+											<br><pre><code>> > cor.test(Health_Data$sbp, Health_Data$dbp, method='spearman')
+
+	Spearman's rank correlation rho
+
+data:  Health_Data$sbp and Health_Data$dbp
+S = 305884, p-value < 2.2e-16
+alternative hypothesis: true rho is not equal to 0
+sample estimates:
+      rho 
+0.8018198    </code></pre>
+											<br>The p-value is < 2.2e-16 and the r value is 0.8 so there a statistically significant, strong positive correlation between sbp and dbp
+											<br>2. Produce a scatter plot between systolic and diastolic BP.
+											<br>Starting with a basic scatterplot:
+											<br><pre><code>> > plot(Health_Data$sbp, Health_Data$dbp)   </code></pre>
+											<br><img src="Data%20Activities%20files/U10 scatterplot 1.png"></p>
+											<br>And now a ggplot scatterplot including a regression line:
+											<br><pre><code>> > plot(Health_Data$sbp, Health_Data$dbp)
+											<br><pre><code>> > ggplot(Health_Data, aes(x=sbp, y=dbp)) +
+  geom_point() +
+  geom_smooth(method=lm) +
+  labs(title = "Scatterplot of systolic blood pressure and diastolic blood pressure")   </code></pre>
+											<br><img src="Data%20Activities%20files/U10 scatterplot 2.png"></p>
+											<br>The sdcaterplots show the high positive correlation previously calculated
+											
+											</p>
 
 
 	

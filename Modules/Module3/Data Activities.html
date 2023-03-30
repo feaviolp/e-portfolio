@@ -327,7 +327,7 @@ Kruskal-Wallis chi-squared = 0.77906, df = 3, p-value = 0.8545   </code></pre>
 											<br>We can see from the table that the 16-24 age group experienced most crime at 23.65% whilst 75+ experienced least at 6.1%.
 											</p>
 											<p><b><a id="Data-Activity-8">Data Activity 8</a></b>
-											<br>Using the Crime Survey for England and Wales, 2013-2014: Unrestricted Access Teaching Dataset, perform the following activities:
+											<br>Using the Health_Data, please perform the following functions in R:
 											<br>1. Find out correlation between systolic and diastolic BP.
 											<br> First check for normal distribution on sbp and dbp data
 											<br><pre><code>> shapiro.test(Health_Data$sbp)
@@ -366,7 +366,47 @@ sample estimates:
    labs(title = "Scatterplot of systolic blood pressure and diastolic blood pressure")   </code></pre>
 											<br><img src="Data%20Activities%20files/U10 scatterplot 2.png"></p>
 											<br>The scatterplots show the high positive correlation previously calculated
-											
+											</p>
+											<p><b><a id="Data-Activity-9">Data Activity 9</a></b>
+											<br>Using the Health_Data, please perform the following functions in R:
+											<br>1. Perform simple linear regression analysis to find the population regression equation to predict the diastolic BP by systolic BP.
+											<br>We already have a scatterplot and correlation shest showing a positive correlation between sbp and dbp.
+											<br>First find the linear regression model
+											<br><pre><code>> lm(sbp~dbp, data=Health_Data)
+
+Call:
+lm(formula = sbp ~ dbp, data = Health_Data)
+
+Coefficients:
+(Intercept)          dbp  
+      8.083        1.446     </code></pre>
+											<br>Now get the statistical summary of the model
+											<br><pre><code>> summary(lm(sbp~dbp, data=Health_Data))
+
+Call:
+lm(formula = sbp ~ dbp, data = Health_Data)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-25.625  -6.625   0.033   6.282  35.125 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  8.08266    5.26307   1.536    0.126    
+dbp          1.44564    0.06296  22.961   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 10.69 on 208 degrees of freedom
+Multiple R-squared:  0.7171,	Adjusted R-squared:  0.7157 
+F-statistic: 527.2 on 1 and 208 DF,  p-value: < 2.2e-16     </code></pre>
+											<br>2. Interpret the findings of regression analysis at 5% level of significance.
+											<br>The linear regression model shows the intercept as 8.083 and the beta coefficient for the dbp variable of 1.446.
+											<br>sbp = 8.083 + 1.446*dbp
+											<br>At zero dbp (not possible in someone alive of course) the sbp would be 8.083. For every increase of 1dbp the sbp increases by 1.446.
+											<br>The statistical summary residuals shows a median close to zero which suggests that the residuals are fairly symetrical (above and below the line) which is also shown in the scatterplot. So far so good.
+											<br>The p-value of the F-statistic is <2.2e-16 so we reject the null hypothesis and say that there is a relationship between sbp and dbp.
+											<br>The dbp coefficient (relating to the angle of the slope) is highly significant at <2.2e-16, but the intercept coefficient, at 0.126, is not significant at 5% significance. This isn't a huge problem because the angle is more important, and as already mentioned we're not interested in the actual intercept anyway since a person with 0sbp would not have a meaningful dbp because they would not be alive.
 											</p>
 
 

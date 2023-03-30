@@ -406,7 +406,7 @@ F-statistic: 527.2 on 1 and 208 DF,  p-value: < 2.2e-16     </code></pre>
 											<br>At zero dbp (not possible in someone alive of course) the sbp is estimated to be 8.083. For every increase of 1dbp the sbp increases by 1.446.
 											<br>The statistical summary residuals shows a median close to zero which suggests that the residuals are fairly symetrical (above and below the line) which is also shown in the scatterplot. So far so good.
 											<br>The p-value of the F-statistic is <2.2e-16 so we reject the null hypothesis and say that there is a relationship between sbp and dbp.
-											<br>The dbp coefficient (relating to the angle of the slope) is highly significant at <2.2e-16, but the intercept coefficient, at 0.126, is not significant at 5% significance. This isn't a huge problem because the angle is more important, and as already mentioned we're not interested in the actual intercept anyway since a person with 0dbp would not have a meaningful sbp because they would not be alive.
+											<br>The dbp coefficient (relating to the angle of the slope) is highly significant with p-value <2.2e-16, but the intercept, with p-value of 0.126, is not significant at 5% significance. This isn't a huge problem because the slope is more important, and as already mentioned we're not interested in the actual intercept anyway since a person with 0dbp would not have a meaningful sbp because they would not be alive.
 											<br>
 											<br>Interestingly, if sbp and dbp are reversed, so sbp becomes the predictor value, we get:
 											<br><pre><code>> lm(dbp~sbp, data=Health_Data)
@@ -437,7 +437,7 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 Residual standard error: 6.264 on 208 degrees of freedom
 Multiple R-squared:  0.7171,	Adjusted R-squared:  0.7157 
 F-statistic: 527.2 on 1 and 208 DF,  p-value: < 2.2e-16     </code></pre>
-											<br>This again shows a significant relationship between sbp and dbp, where dbp = 19.407 + 0.496*sbp. However this time the intercept coefficient and the sbp coefficient are both significant at 5%, at 4.67e-11 and <2.2e-16 respectively.
+											<br>This again shows a significant relationship between sbp and dbp, where dbp = 19.407 + 0.496*sbp. However this time the intercept and the sbp coefficient are both significant at 5%, at 4.67e-11 and <2.2e-16 respectively.
 											<br>Once again we can reject the null hypothesis and say that there is a relationship. We can therefore predict sbp from dbp and dbp from sbp.
 											</p>
 

@@ -49,98 +49,194 @@
 						<!-- One -->
 							<section id="one">
 								<div class="inner">
-								<!--  	<header class="major"> -->
+								<!--  	<header class="major"> 
 										<h1>Agent Based Systems - Initial Post</h1>
-								<!--	</header> -->
+									</header> -->
 									
 <div class=WordSection1>
 
-<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%;font-family:
-"Arial",sans-serif'>Innovation is driven by problems and opportunities. Sometimes
-the problems are known and we look for creative ways to solve them. Sometimes we
-see the potential of a new technology and then we look for opportunities to
-leverage it. In most cases the overriding drive is financial.<o:p></o:p></span></p>
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><b><u><span
+style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman";
+mso-font-kerning:0pt;mso-ligatures:none;mso-fareast-language:EN-GB'>Clarification
+call with Tutor (Oli) -</span></u></b><u><span style='font-family:"Arial",sans-serif;
+mso-fareast-font-family:"Times New Roman";mso-font-kerning:0pt;mso-ligatures:
+none;mso-fareast-language:EN-GB'> Thursday May 19th: 14:00 - 14:30 (GMT+1)</span></u><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;mso-fareast-font-family:
+"Times New Roman";mso-font-kerning:0pt;mso-ligatures:none;mso-fareast-language:
+EN-GB'><o:p></o:p></span></p>
 
-<p class=MsoNormal style='margin-left:36.0pt'><span style='font-size:12.0pt;
-line-height:107%;font-family:"Arial",sans-serif'>Taalbi (2017: 1449) sums it up
-nicely, that “most innovations […] were developed as a creative response to problems
-and imbalances emerging in the process of economic development or spurred by
-the observation of new technological opportunities.”<o:p></o:p></span></p>
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;mso-fareast-font-family:
+"Times New Roman";mso-font-kerning:0pt;mso-ligatures:none;mso-fareast-language:
+EN-GB'><br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]><o:p></o:p></span></p>
 
-<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%;font-family:
-"Arial",sans-serif'>So the superficial answer to the question of what has led
-to the rise of agent-based systems would seem to be “for organisations to exploit
-the benefits for financial gain”. That’s not particularly helpful though, so
-lets look at some examples in the supply chain industry. <o:p></o:p></span></p>
+<ul style='margin-top:0cm' type=disc>
+ <li class=MsoNormal style='margin-bottom:0cm;line-height:normal;mso-list:l3 level1 lfo4;
+     tab-stops:list 36.0pt;vertical-align:baseline'><span style='font-family:
+     "Arial",sans-serif;mso-fareast-font-family:"Times New Roman";mso-font-kerning:
+     0pt;mso-ligatures:none;mso-fareast-language:EN-GB'>We shared the draft
+     design document.<o:p></o:p></span></li>
+</ul>
 
-<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%;font-family:
-"Arial",sans-serif'>Dominguez &amp; Cannella (2020) carried out a literature
-review of the applications of multi-agent systems on supply chain management. They
-identified many areas of supply chain management benefiting to varying degrees from
-agent-based systems so we will look at two.<o:p></o:p></span></p>
+<ul style='margin-top:0cm' type=disc>
+ <ul style='margin-top:0cm' type=circle>
+  <li class=MsoNormal style='margin-bottom:0cm;line-height:normal;mso-list:
+      l3 level2 lfo5;tab-stops:list 72.0pt;vertical-align:baseline'><span
+      style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman";
+      mso-font-kerning:0pt;mso-ligatures:none;mso-fareast-language:EN-GB'>Oli
+      who confirmed we are on the right lines.<o:p></o:p></span></li>
+ </ul>
+</ul>
 
-<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%;font-family:
-"Arial",sans-serif'>Azevedo et al (2004) describes a multi-agent system for
-real-time make-to-order customer order planning when the fulfilment requires
-multiple distributed sites. Agents are deployed within each site to plan and
-manage the capacity at that site in collaboration with planner agents at each
-site who negotiate with their counterparts at the other sites to ensure that the
-plans meet the overall customer objectives. In other words, there is no point
-in site A delivering on time if it is dependent upon site B which delivers
-late. The customer is only happy if all requirements are met on time. The
-planner agents have the view of the customer requirements and negotiate to
-ensure that each site delivers what is needed using feedback from the capacity
-agents across all sites relevant for a given customer order. This is not
-possible with conventional software, so the agent-based system improves capacity
-planning at individual sites (a cost saving) whilst improving cashflow from
-on-time delivery and future revenue through increased customer satisfaction.<o:p></o:p></span></p>
+<ul style='margin-top:0cm' type=disc>
+ <li class=MsoNormal style='margin-bottom:0cm;line-height:normal;mso-list:l3 level1 lfo4;
+     tab-stops:list 36.0pt;vertical-align:baseline'><span style='font-family:
+     "Arial",sans-serif;mso-fareast-font-family:"Times New Roman";mso-font-kerning:
+     0pt;mso-ligatures:none;mso-fareast-language:EN-GB'>We shared the draft
+     requirements document and asked if requirements should be included as an
+     appendix..<o:p></o:p></span></li>
+</ul>
 
-<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%;font-family:
-"Arial",sans-serif'>A slightly different use case is presented in Nilsson &amp;
-Darley (2006) where agents are used not to control a factory, but to model it. Here
-the factory was modelled with agents autonomously representing machines, sales,
-operations planning, the warehouse and customers. The model could be used to
-test scenarios such as the introduction of new policies or machines or the growth
-or loss of major customers. One key benefit of the multi-agent approach, in
-addition to providing greater accuracy, was that it made both macro and micro
-analysis possible. As well as monitoring the behaviour of the factory,
-individual agents could also be monitored and evaluated, meaning that
-operations could be optimised on the model before being implemented in the more
-costly “real world”.<o:p></o:p></span></p>
+<ul style='margin-top:0cm' type=disc>
+ <ul style='margin-top:0cm' type=circle>
+  <li class=MsoNormal style='margin-bottom:0cm;line-height:normal;mso-list:
+      l3 level2 lfo6;tab-stops:list 72.0pt;vertical-align:baseline'><span
+      style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman";
+      mso-font-kerning:0pt;mso-ligatures:none;mso-fareast-language:EN-GB'>Oli
+      said that would be OK as long as the appendix wasn’t so long that it
+      detracted from the main purpose (design).<o:p></o:p></span></li>
+ </ul>
+</ul>
 
-<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%;font-family:
-"Arial",sans-serif'><o:p>&nbsp;</o:p></span></p>
+<ul style='margin-top:0cm' type=disc>
+ <li class=MsoNormal style='margin-bottom:0cm;line-height:normal;mso-list:l3 level1 lfo4;
+     tab-stops:list 36.0pt;vertical-align:baseline'><span style='font-family:
+     "Arial",sans-serif;mso-fareast-font-family:"Times New Roman";mso-font-kerning:
+     0pt;mso-ligatures:none;mso-fareast-language:EN-GB'>We shared the draft UML
+     diagrams to check if they were the right level of detail.<o:p></o:p></span></li>
+</ul>
 
-<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:107%;
-font-family:"Arial",sans-serif'>References<o:p></o:p></span></b></p>
+<ul style='margin-top:0cm' type=disc>
+ <ul style='margin-top:0cm' type=circle>
+  <li class=MsoNormal style='margin-bottom:0cm;line-height:normal;mso-list:
+      l3 level2 lfo7;tab-stops:list 72.0pt;vertical-align:baseline'><span
+      style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman";
+      mso-font-kerning:0pt;mso-ligatures:none;mso-fareast-language:EN-GB'>Oli
+      confirmed that they looked OK. He mentioned there are some <span
+      class=SpellE>modeling</span> tools specifically designed for agents, but
+      UML is still fine and won’t lose any marks in the assessment.<o:p></o:p></span></li>
+ </ul>
+</ul>
 
-<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%;font-family:
-"Arial",sans-serif'>Azevedo, A.L., Toscano, C., Sousa, J.P. &amp; Soares, A.L.
-(2004) An advanced agent-based order planning system for dynamic networked
-enterprises. <i>Production Planning &amp; Control</i>, 15(2): 133-144.<o:p></o:p></span></p>
+<ul style='margin-top:0cm' type=disc>
+ <ul style='margin-top:0cm' type=circle>
+  <li class=MsoNormal style='margin-bottom:0cm;line-height:normal;mso-list:
+      l3 level2 lfo8;tab-stops:list 72.0pt;vertical-align:baseline'><b><span
+      style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman";
+      mso-font-kerning:0pt;mso-ligatures:none;mso-fareast-language:EN-GB'>Action</span></b><span
+      style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman";
+      mso-font-kerning:0pt;mso-ligatures:none;mso-fareast-language:EN-GB'>:
+      Leigh to look into whether additional <span class=SpellE>modeling</span>
+      tools should be used to best reflect the final design.<o:p></o:p></span></li>
+ </ul>
+</ul>
 
-<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%;font-family:
-"Arial",sans-serif'>Dominguez, R. &amp; Cannella, S. (2020) Insights on
-multi-agent systems applications for supply chain management. <i>Sustainability</i>,
-12(5): 1935.<o:p></o:p></span></p>
+<ul style='margin-top:0cm' type=disc>
+ <li class=MsoNormal style='margin-bottom:0cm;line-height:normal;mso-list:l3 level1 lfo4;
+     tab-stops:list 36.0pt;vertical-align:baseline'><span style='font-family:
+     "Arial",sans-serif;mso-fareast-font-family:"Times New Roman";mso-font-kerning:
+     0pt;mso-ligatures:none;mso-fareast-language:EN-GB'>We asked about using
+     APIs rather than writing our own screen scraper.<o:p></o:p></span></li>
+</ul>
 
-<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%;font-family:
-"Arial",sans-serif'>Nilsson, F. &amp; Darley, V. (2006) On complex adaptive
-systems and agent</span><span style='font-size:12.0pt;line-height:107%;
-font-family:"Cambria Math",serif;mso-bidi-font-family:"Cambria Math"'>&#8208;</span><span
-style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif'>based
-modelling for improving decision</span><span style='font-size:12.0pt;
-line-height:107%;font-family:"Cambria Math",serif;mso-bidi-font-family:"Cambria Math"'>&#8208;</span><span
-style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif'>making
-in manufacturing and logistics settings: Experiences from a packaging company. <i>International</i>
-<i>Journal of Operations &amp; Production Management</i>, 26(12): 1351-1373.<o:p></o:p></span></p>
+<ul style='margin-top:0cm' type=disc>
+ <ul style='margin-top:0cm' type=circle>
+  <li class=MsoNormal style='margin-bottom:0cm;line-height:normal;mso-list:
+      l3 level2 lfo9;tab-stops:list 72.0pt;vertical-align:baseline'><span
+      style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman";
+      mso-font-kerning:0pt;mso-ligatures:none;mso-fareast-language:EN-GB'>Oli
+      confirmed that using API(s) would be fine because the purpose of the task
+      is to test using agents.<o:p></o:p></span></li>
+ </ul>
+</ul>
 
-<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%;font-family:
-"Arial",sans-serif'>Taalbi, J. (2017) What drives innovation? Evidence from
-economic history. <i>Research Policy</i>, 46(8):1437-1453.<o:p></o:p></span></p>
+<ul style='margin-top:0cm' type=disc>
+ <li class=MsoNormal style='margin-bottom:0cm;line-height:normal;mso-list:l3 level1 lfo4;
+     tab-stops:list 36.0pt;vertical-align:baseline'><span style='font-family:
+     "Arial",sans-serif;mso-fareast-font-family:"Times New Roman";mso-font-kerning:
+     0pt;mso-ligatures:none;mso-fareast-language:EN-GB'>We asked if having
+     agents as separate functions within a single program would meet the
+     criteria of being an agent.<o:p></o:p></span></li>
+</ul>
 
-<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%;font-family:
-"Arial",sans-serif'><o:p>&nbsp;</o:p></span></p>
+<ul style='margin-top:0cm' type=disc>
+ <ul style='margin-top:0cm' type=circle>
+  <li class=MsoNormal style='margin-bottom:0cm;line-height:normal;mso-list:
+      l3 level2 lfo10;tab-stops:list 72.0pt;vertical-align:baseline'><span
+      style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman";
+      mso-font-kerning:0pt;mso-ligatures:none;mso-fareast-language:EN-GB'>Oli
+      said that having agents as separate functions within the same programme
+      would be OK, but it would be better to have them clearly separated into
+      different agents, for example using multiple threads<o:p></o:p></span></li>
+ </ul>
+</ul>
+
+<ul style='margin-top:0cm' type=disc>
+ <ul style='margin-top:0cm' type=circle>
+  <li class=MsoNormal style='margin-bottom:0cm;line-height:normal;mso-list:
+      l3 level2 lfo11;tab-stops:list 72.0pt;vertical-align:baseline'><b><span
+      style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman";
+      mso-font-kerning:0pt;mso-ligatures:none;mso-fareast-language:EN-GB'>Action</span></b><span
+      style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman";
+      mso-font-kerning:0pt;mso-ligatures:none;mso-fareast-language:EN-GB'>:
+      Astrid to look into multithreading in Python<o:p></o:p></span></li>
+ </ul>
+</ul>
+
+<ul style='margin-top:0cm' type=disc>
+ <li class=MsoNormal style='margin-bottom:0cm;line-height:normal;mso-list:l3 level1 lfo4;
+     tab-stops:list 36.0pt;vertical-align:baseline'><span style='font-family:
+     "Arial",sans-serif;mso-fareast-font-family:"Times New Roman";mso-font-kerning:
+     0pt;mso-ligatures:none;mso-fareast-language:EN-GB'>Anastasia shared that
+     she has been working through some exploratory code to get the agents
+     working in order to inform the design.<o:p></o:p></span></li>
+</ul>
+
+<ul style='margin-top:0cm' type=disc>
+ <ul style='margin-top:0cm' type=circle>
+  <li class=MsoNormal style='margin-bottom:0cm;line-height:normal;mso-list:
+      l3 level2 lfo12;tab-stops:list 72.0pt;vertical-align:baseline'><b><span
+      style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman";
+      mso-font-kerning:0pt;mso-ligatures:none;mso-fareast-language:EN-GB'>Action</span></b><span
+      style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman";
+      mso-font-kerning:0pt;mso-ligatures:none;mso-fareast-language:EN-GB'>:
+      Anastasia to share her code to date with Astrid and Leigh<o:p></o:p></span></li>
+ </ul>
+</ul>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;mso-fareast-font-family:
+"Times New Roman";mso-font-kerning:0pt;mso-ligatures:none;mso-fareast-language:
+EN-GB'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman";
+mso-font-kerning:0pt;mso-ligatures:none;mso-fareast-language:EN-GB'>Overall we
+were happy that we’re heading in the right direction.</span><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;mso-fareast-font-family:
+"Times New Roman";mso-font-kerning:0pt;mso-ligatures:none;mso-fareast-language:
+EN-GB'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+style='font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman";
+mso-font-kerning:0pt;mso-ligatures:none;mso-fareast-language:EN-GB'>We agreed
+to cancel our next checkpoint call scheduled for tomorrow due to lack of time
+to make meaningful progress. We will talk again next week.</span><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;mso-fareast-font-family:
+"Times New Roman";mso-font-kerning:0pt;mso-ligatures:none;mso-fareast-language:
+EN-GB'><o:p></o:p></span></p>
 
 								</div>
 							</section>

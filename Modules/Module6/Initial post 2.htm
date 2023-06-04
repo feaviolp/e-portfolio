@@ -1,0 +1,197 @@
+<!DOCTYPE HTML>
+<!--
+	Forty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+	This is an example of a sub page for each module.  It has to be replicated in each module, containing the requested contents -  artefacts, notes, reflections etc
+	Ensure you give a different title to each replica and link it to the main module page accordingly.
+-->
+<html>
+	<head>
+		<title>Leigh Feaviour</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="/e-portfolio/css/main.css" />
+		<noscript><link rel="stylesheet" href="/e-portfolio/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="/e-portfolio/index.html" class="logo"><span>Leigh Feaviour</span></a>
+						<nav>
+							<a href="#menu">Menu</a>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<ul class="links">
+							<<li><a href="/e-portfolio/index.html">Home</a></li>
+							<li><a href="/e-portfolio/About.html">About Me</a></li>
+							<li><a href="/e-portfolio/Launch Module.html">Induction Module</a></li>
+							<li><a href="/e-portfolio/Module 2.html">Understanding Artificial Intelligence</a></li>
+							<li><a href="/e-portfolio/Module 3.html">Numerical Analysis</a></li>
+							<li><a href="/e-portfolio/Module 4.html">Machine Learning</a></li>
+							<li><a href="/e-portfolio/Module 5.html">Knowledge Representation and Reasoning</a></li>
+							<li><a href="/e-portfolio/Module 6.html">Intelligent Agents</a></li>
+							<li><a href="/e-portfolio/Module 7.html">Research Methods and Professional Practice</a></li>
+							<li><a href="/e-portfolio/Project.html">MSc Computing Project</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main" class="alt">
+
+						<!-- One -->
+							<section id="one">
+								<div class="inner">
+								<!--  	<header class="major"> -->
+										<h1>Agent Based Systems - Initial Post</h1>
+								<!--	</header> -->
+									
+<div class=WordSection1>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%;font-family:
+"Arial",sans-serif'>Before discussing the advantages and disadvantages of agent
+communication languages (ACLs), I will first briefly discuss the difference
+between intelligent agents and objects to give a little context, because
+superficially they appear to be similar. </span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%;font-family:
+"Arial",sans-serif'>Odell (2002) gives a nice comparison, with the key feature
+that differentiates agents from objects being autonomy, because agents can
+react to their environment as well as instructions. This gives agents the ability
+to “say ‘No’ – as well as ‘Go.’” (Odell, 2002: 42). It is that autonomy that
+necessitates ACLs rather than typical method or function invocation, because
+when a method is invoked a particular response or action is typically expected.
+With an agent it’s more like a negotiation whereby information is exchanged,
+which the receiving agent adds to its own knowledge, including information based
+upon its environment, and then decides what to do. </span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%;font-family:
+"Arial",sans-serif'>I think it’s now clear why a different communication language
+is needed for agents. Knowledge Query and Manipulation Language (KQML) allows “two
+or more intelligent systems to share knowledge in support of cooperative
+problem solving” (Finin et all, 1994:93). The information is shared “independent
+of content syntax and applicable ontology” (Addakiri &amp; Bahaj, 2013: 4329).
+So with KQML, agents with different goals and ontologies can share information as
+they each try to further their own goals. </span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%;font-family:
+"Arial",sans-serif'>It should be noted that not all agent-based systems are as heterogenous
+as this. Finin et al (1994: 7-10) discuss three types of multi-agent system architecture:</span></p>
+
+<p class=MsoListParagraphCxSpFirst style='text-indent:-18.0pt'><span
+style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif'>1.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif'>Simple
+point-to-point connectivity, a static architecture and synchronous
+communication.</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-18.0pt'><span
+style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif'>2.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif'>Point-to-point
+connectivity with some multicasting, a static architecture and a mix of synchronous
+and asynchronous communication.</span></p>
+
+<p class=MsoListParagraphCxSpLast style='text-indent:-18.0pt'><span
+style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif'>3.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif'>Point-to-point,
+multicast and broadcast connectivity, a dynamic architecture and mainly asynchronous
+communication.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%;font-family:
+"Arial",sans-serif'>Whilst the context was using KQML for all three architectures,
+the first architecture could fairly easily use standard method invocation and
+still meet the brief of an agent-based system.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%;font-family:
+"Arial",sans-serif'>In complex multi-agent systems akin to the third
+architecture, however, an agent might not even know which agent it needs help
+from. A KQML message can be broadcast to agents to see who can help. Also
+facilitator agents can be used, whose job it is to find an agent able to help (Addakiri
+&amp; Bahaj, 2013). Method invocation simply would not work in that scenario.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%;font-family:
+"Arial",sans-serif'>Even with all of the advantages of ACLs such as KQML, there
+are some disadvantages. Hai-long &amp; Wu (2001) describe a deadlock situation
+when two agents try to start a communication with each other and neither
+recede, forcing both into a waiting state. Also, an agent who receives a KQML
+message isn’t obliged to respond or even acknowledge the message (Brooks et al,
+1998), which can lead to sequencing problems in asynchronous solutions. So the
+power of the abstracted asynchronous communication enabled by KQML can also create
+potential problems. It seems that these could be avoided with robust design and
+test practices, but they are nonetheless challenges that would not be encountered
+in a simpler program with a single code-base synchronously invoking methods and
+functions.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%;font-family:
+"Arial",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:107%;
+font-family:"Arial",sans-serif'>References</span></b></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%;font-family:
+"Arial",sans-serif'>Addakiri, K. and Bahaj, M. (2013) Integrating ontologies
+into distributed multi-agent system. <i>International Journal of Engineering
+and Technology (IJET)</i> 5(5): 4326-4331.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%;font-family:
+"Arial",sans-serif'>Brooks, C., Tierney, B. and Johnston, W. (1998) <i>JAVA
+agents for distributed system management</i>. Berkeley: Lawrence Berkeley
+National Laboratory. </span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%;font-family:
+"Arial",sans-serif'>Finin, T., Fritzson, R., McKay, D. &amp;  McEntire, R. (1994)
+‘KQML-a language and protocol for knowledge and information exchange’ <i>13<sup>th</sup>
+International Distributed Artificial Intelligence Workshop</i>. Seattle, WA, 28-30
+July.  Association for the Advancement of Artificial Intelligence (AAAI).
+93-103.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%;font-family:
+"Arial",sans-serif'>Hai-long, L. &amp; Wu, T. (2001) Analysis of the KQML model
+in multi-agent interaction. <i>Journal of Zhejiang University-SCIENCE A,</i> 2:
+132-136.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%;font-family:
+"Arial",sans-serif'>Odell, J. (2002) Objects and agents compared. <i>Journal of
+object technology</i>, 1(1): 41-53.</span></p>
+  
+  
+								</div>
+							</section>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<ul class="icons">
+								<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+								<li><a href="https://www.linkedin.com/in/leigh-feaviour/" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+							</ul>
+							<ul class="copyright">
+								<li>&copy; 2022 Leigh Feaviour</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="/e-portfolio/js/jquery.min.js"></script>
+			<script src="/e-portfolio/js/jquery.scrolly.min.js"></script>
+			<script src="/e-portfolio/js/jquery.scrollex.min.js"></script>
+			<script src="/e-portfolio/js/browser.min.js"></script>
+			<script src="/e-portfolio/js/breakpoints.min.js"></script>
+			<script src="/e-portfolio/js/util.js"></script>
+			<script src="/e-portfolio/js/main.js"></script>
+
+	</body>
+</html>

@@ -57,67 +57,68 @@
                       <br><br>Alice is an agent designed to procure stock and Bob is an agent that controls the stock levels for a warehouse. 
                       This dialogue should see Alice asking Bob about the available stock of 50 inch televisions, and also querying the number of HDMI slots the televisions have.
 											<br><br>First Alice sends a single evaluate question to check the total number of 50 inch TVs and gets a single response:
-                      <br><pre><code>(evaluate
-  :sender 	    Alice	
+<br><pre><code>(evaluate
+  :sender 	  Alice	
   :receiver 	  Bob
   :language 	  KIF	
-  :ontology     televisions
-  :reply-with   q1
-  :content 	    (val (availability 50-inch-tv)))
+  :ontology       televisions
+  :reply-with     q1
+  :content 	  (val (availability 50-inch-tv)))
 
 (reply
-	:sender		    Bob	
-  :receiver	    Alice
-	:language	    KIF	
+  :sender	  Bob	
+  :receiver	  Alice
+  :language	  KIF	
   :ontology:	  stock
-	:in-reply-to	q1
-	:content	    (= (availability 50-inch-tv) 32))</code></pre></p>
-											<br><br>Next Alice requests a stream of how many HDMI ports are on each model of 50 inch TV:
-                      <br><pre><code>(stream-about
-  :sender 	    Alice 
+  :in-reply-to	  q1
+  :content	  (= (availability 50-inch-tv) 32))</code></pre></p>
+
+<br>Next Alice requests a stream of how many HDMI ports are on each model of 50 inch TV:
+<br><pre><code>(stream-about
+  :sender 	  Alice 
   :receiver 	  Bob
   :language 	  KIF	
   :ontology 	  televisions
   :reply-with	  q2
-  :content 	    (if (> 50 screen-size)
-                (model, HDMI-quantity)))
+  :content 	  (if (> 50 screen-size)
+                  (model, HDMI-quantity)))
 
 (tell
-  :sender 	    Bob	
+  :sender 	  Bob	
   :receiver 	  Alice
   :language 	  KIF	
   :ontology 	  televisions
-  :in-reply-to	q2
-  :content 	    (= (Panasonic-ABC-50, 3))
+  :in-reply-to	  q2
+  :content 	  (= (Panasonic-ABC-50, 3))
 
 (tell
-  :sender 	    Bob	
+  :sender 	  Bob	
   :receiver 	  Alice
   :language 	  KIF	
   :ontology 	  televisions
-  :in-reply-to	q2
-  :content 	    (= (LG-ABC-50) 3))
+  :in-reply-to	  q2
+  :content 	  (= (LG-ABC-50) 3))
 
 (tell
-  :sender 	    Bob	
+  :sender 	  Bob	
   :receiver 	  Alice
   :language 	  KIF	
   :ontology 	  televisions
-  :in-reply-to	q2
-  :content 	    (= (LG-ZYX-50) 3))
+  :in-reply-to	  q2
+  :content 	  (= (LG-ZYX-50) 3))
 
 (tell
-  :sender 	    Bob	
+  :sender 	  Bob	
   :receiver 	  Alice
   :language 	  KIF	
   :ontology 	  televisions
-  :in-reply-to	q2
-  :content 	    (= (Sony-XYZ-50) 4))
+  :in-reply-to	  q2
+  :content 	  (= (Sony-XYZ-50) 4))
 
 (eos
-  :sender 	    Bob
+  :sender 	  Bob
   :receiver 	  Alice
-  :in-reply-to  q2) </code></pre></p>
+  :in-reply-to    q2) </code></pre></p>
 
 
 								</div>

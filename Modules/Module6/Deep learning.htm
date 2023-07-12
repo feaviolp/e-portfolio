@@ -1,0 +1,198 @@
+<!DOCTYPE HTML>
+<!--
+	Forty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+	This is an example of a sub page for each module.  It has to be replicated in each module, containing the requested contents -  artefacts, notes, reflections etc
+	Ensure you give a different title to each replica and link it to the main module page accordingly.
+-->
+<html>
+	<head>
+		<title>Leigh Feaviour</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="/e-portfolio/css/main.css" />
+		<noscript><link rel="stylesheet" href="/e-portfolio/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="/e-portfolio/index.html" class="logo"><span>Leigh Feaviour</span></a>
+						<nav>
+							<a href="#menu">Menu</a>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<ul class="links">
+							<<li><a href="/e-portfolio/index.html">Home</a></li>
+							<li><a href="/e-portfolio/About.html">About Me</a></li>
+							<li><a href="/e-portfolio/Launch Module.html">Induction Module</a></li>
+							<li><a href="/e-portfolio/Module 2.html">Understanding Artificial Intelligence</a></li>
+							<li><a href="/e-portfolio/Module 3.html">Numerical Analysis</a></li>
+							<li><a href="/e-portfolio/Module 4.html">Machine Learning</a></li>
+							<li><a href="/e-portfolio/Module 5.html">Knowledge Representation and Reasoning</a></li>
+							<li><a href="/e-portfolio/Module 6.html">Intelligent Agents</a></li>
+							<li><a href="/e-portfolio/Module 7.html">Research Methods and Professional Practice</a></li>
+							<li><a href="/e-portfolio/Project.html">MSc Computing Project</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main" class="alt">
+
+						<!-- One -->
+							<section id="one">
+								<div class="inner">
+								<!--  	<header class="major"> -->
+										<h1>Deep Learning</h1>
+								<!--	</header> -->
+									
+<div class=WordSection1>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%;font-family:
+"Arial",sans-serif'>There are currently many applications of deep learning. <span
+class=SpellE>Narasimman</span> (2023) has helpfully compiled a list, including self-driving
+cars, virtual assistants, fraud detection, image colouring and advertising, to
+name a few. Interesting they don’t mention generative AI such as GPT which
+seems like a strange omission given the recent publicity. In any case, for my
+example of a deep learning application I have chosen to find something that has
+not yet been discussed in order to bring a fresh perspective. To that end I have
+chosen to look at breast cancer diagnosis using deep learning. This isn’t a
+completely new topic, but it hasn’t been discussed so far in this module.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%;font-family:
+"Arial",sans-serif'>Medical diagnosis by human experts can be significantly
+improved with the use of deep learning (Azad et al, 2021). There have been many
+recent experiments to diagnose skin cancer using convolutional neural networks
+(CNNs). <span class=SpellE>Haggenmüller</span> et al (2021) examined 19 such studies
+and found that all of the CNN models gave superior or equivalent performance to
+trained clinicians. There is a caveat, however, that most of the studies were
+conducted using a single image for each patient. Clinicians performed better
+when given multiple images and additional information such as patient age and
+sex, and the location of the lesion. It still looks very encouraging though. I
+expect a solution incorporating the additional details that improve clinician
+accuracy could also be used to improve the deep learning solution accuracy too.
+For example, the CNN could be trained not to provide a binary malignant or
+benign output, but rather some weighted outputs that could then go into another
+algorithm such as an artificial neural network (ANN), or even a decision tree, where
+the additional data such as age, gender and lesion location could be included
+to calculate the final diagnoses.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%;font-family:
+"Arial",sans-serif'>Telemedicine, whereby patients consult with clinicians via audio-visual
+media on their smartphones, and specifically <span class=SpellE>teledermatology</span>
+focusing on early diagnosis of skin cancer, is already growing in popularity
+due to its time saving for both the patient and the clinician (<span
+class=SpellE>Fabbrocini</span>, 2011). It seems a natural step, therefore, to
+take the same smartphone but send the pictures to a CNN for initial diagnosis,
+referring to a clinician where necessary. Studies are already underway in this
+area (Azad, 2021).<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%;font-family:
+"Arial",sans-serif'>That all sounds good, but there are of course ethical
+considerations. Firstly, deep learning models rely on large volumes of data on which
+to be trained. Medical data is, but it’s nature, sensitive, so patient
+confidentiality must be considered when training the models.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%;font-family:
+"Arial",sans-serif'>Next there is the question of accuracy. If an advertising algorithm
+gets it wrong, you might see an advert that doesn’t interest you. If a medical
+diagnosis algorithm gets it wrong you could be mis-diagnosed with potentially lethal
+consequences. The stakes are high, so accuracy is always a hot topic. However,
+clinicians don’t always get it right either. So is accuracy equivalent or
+better than a clinician all that is needed? Perhaps, but what if you are one
+who is mis—diagnosed by the deep learning algorithm? You would be quite
+justified in asking if the same mistake would have been made by a clinician. Averages
+and statistics are fine, but with it’s you personally then it becomes binary;
+right or wrong. It’s a difficult conundrum.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%;font-family:
+"Arial",sans-serif'>I do believe, however, that this use case of early
+detection and referral for potential skin cancer could be a very good example. It
+could be a self-service tool for people who have noticed an unusual lesion to
+get an instant answer to the question “should I be worried?”. The algorithm
+could be trained to be err on the side of caution, referring even marginal
+cases to an actual clinician, so the clinician still saves time by not seeing
+the people who are obviously clear, but they still have the final say on
+everyone else, at least while the accuracy continues to improve until it can potentially
+be allowed to “run solo”. <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%;font-family:
+"Arial",sans-serif'>In the current climate of overworked healthcare staff and the
+availability of smartphones to practically everyone, personally I think this is
+an excellent use of deep learning, provided it is implemented carefully, with
+patient health taking precedence over clinical efficiency.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%;font-family:
+"Arial",sans-serif'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:107%;
+font-family:"Arial",sans-serif'>References<o:p></o:p></span></b></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%;font-family:
+"Arial",sans-serif'>Azad, M.M., Ganapathy, A., <span class=SpellE>Vadlamudi</span>,
+S. &amp; <span class=SpellE>Paruchuri</span>, H. (2021) Medical diagnosis using
+deep learning techniques: a research survey. <i>Annals of the Romanian Society
+for Cell Biology</i>, 25(6): 5591-5600.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span class=SpellE><span style='font-size:12.0pt;line-height:
+107%;font-family:"Arial",sans-serif'>Fabbrocini</span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif'>, G.
+et al (2011) <span class=SpellE>Teledermatology</span>: from prevention to
+diagnosis of nonmelanoma and melanoma skin cancer. <i>International journal of
+telemedicine and applications</i>, 2011: 1-5.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span class=SpellE><span style='font-size:12.0pt;line-height:
+107%;font-family:"Arial",sans-serif'>Haggenmüller</span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif'>, S.
+et al (2021) Skin cancer classification via convolutional neural networks:
+systematic review of studies involving human experts. <i>European Journal of
+Cancer</i>, 156: 202-216.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span class=SpellE><span style='font-size:12.0pt;line-height:
+107%;font-family:"Arial",sans-serif'>Narasimman</span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Arial",sans-serif'>, P.
+(2023) Top 26 Applications of Deep Learning in 2023. Available from: <a
+href="https://www.knowledgehut.com/blog/data-science/deep-learning-applications">https://www.knowledgehut.com/blog/data-science/deep-learning-applications</a>
+[Accessed 12 July 2023].<o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:107%;
+font-family:"Arial",sans-serif'><o:p>&nbsp;</o:p></span></b></p>
+
+								</div>
+							</section>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<ul class="icons">
+								<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+								<li><a href="https://www.linkedin.com/in/leigh-feaviour/" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+							</ul>
+							<ul class="copyright">
+								<li>&copy; 2022 Leigh Feaviour</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="/e-portfolio/js/jquery.min.js"></script>
+			<script src="/e-portfolio/js/jquery.scrolly.min.js"></script>
+			<script src="/e-portfolio/js/jquery.scrollex.min.js"></script>
+			<script src="/e-portfolio/js/browser.min.js"></script>
+			<script src="/e-portfolio/js/breakpoints.min.js"></script>
+			<script src="/e-portfolio/js/util.js"></script>
+			<script src="/e-portfolio/js/main.js"></script>
+
+	</body>
+</html>

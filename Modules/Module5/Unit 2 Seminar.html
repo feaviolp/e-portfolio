@@ -120,11 +120,6 @@
 											<br>2. Read the wiki at Sharma et al (2022) and then attempt the exercises below:
 											<br>&emsp;i. For each clause (a) - (f) below, create truth tables for each to answer the question of when each statement is false.
 											<br>&emsp;&emsp;a. ~ P
-											<br>&emsp;&emsp;b. P ∧ Q
-											<br>&emsp;&emsp;c. P ∨ Q
-											<br>&emsp;&emsp;d. P → Q
-											<br>&emsp;&emsp;e. P ←→ Q
-											<br>&emsp;&emsp;f. P → (~ Q)
 <br><pre><code>
 <style>
 table, td, th {
@@ -140,8 +135,8 @@ td {
 </style>
 <table>
   <tr>
-    <td>P</td>
-    <td>~P</td>
+    <th>P</th>
+    <th>~P</th>
    </tr>
   <tr>
     <td>T</td>
@@ -153,8 +148,227 @@ td {
   </tr>
 </table>
 </code></pre>
-									
+											<br>&emsp;&emsp;b. P ∧ Q
+<br><pre><code>
+<style>
+table, td, th {
+  border: 1px solid black;
+}
 
+table {
+  border-collapse: collapse;
+  width: 50%;
+}
+
+td {
+  text-align: center;
+}
+</style>
+<table>
+  <tr>
+    <th>P</th>
+    <th>Q</th>
+    <th>P &and; Q</th>
+   </tr>
+  <tr>
+    <td>T</td>
+    <td>T</td>
+    <td>T</td>
+  </tr>
+  <tr>
+    <td>T</td>
+    <td>F</td>
+    <td>F</td>
+  </tr>
+  <tr>
+    <td>F</td>
+    <td>T</td>
+    <td>F</td>
+  </tr>
+  <tr>
+    <td>F</td>
+    <td>F</td>
+    <td>F</td>
+  </tr>
+</table>
+</code></pre>
+											<br>&emsp;&emsp;c. P ∨ Q
+<br><pre><code>
+<style>
+table, td, th {
+  border: 1px solid black;
+}
+
+table {
+  border-collapse: collapse;
+  width: 50%;
+}
+
+td {
+  text-align: center;
+}
+</style>
+<table>
+  <tr>
+    <th>P</th>
+    <th>Q</th>
+    <th>P &or; Q</th>
+   </tr>
+  <tr>
+    <td>T</td>
+    <td>T</td>
+    <td>T</td>
+  </tr>
+  <tr>
+    <td>T</td>
+    <td>F</td>
+    <td>T</td>
+  </tr>
+  <tr>
+    <td>F</td>
+    <td>T</td>
+    <td>T</td>
+  </tr>
+  <tr>
+    <td>F</td>
+    <td>F</td>
+    <td>F</td>
+  </tr>
+</table>
+</code></pre>
+											<br>&emsp;&emsp;d. P → Q
+<br><pre><code>
+<style>
+table, td, th {
+  border: 1px solid black;
+}
+
+table {
+  border-collapse: collapse;
+  width: 50%;
+}
+
+td {
+  text-align: center;
+}
+</style>
+<table>
+  <tr>
+    <th>P</th>
+    <th>Q</th>
+    <th>P &rArr; Q</th>
+   </tr>
+  <tr>
+    <td>T</td>
+    <td>T</td>
+    <td>T</td>
+  </tr>
+  <tr>
+    <td>T</td>
+    <td>F</td>
+    <td>F</td>
+  </tr>
+  <tr>
+    <td>F</td>
+    <td>T</td>
+    <td>T</td>
+  </tr>
+  <tr>
+    <td>F</td>
+    <td>F</td>
+    <td>T</td>
+  </tr>
+</table>
+</code></pre>
+											<br>&emsp;&emsp;e. P ←→ Q
+<br><pre><code>
+<style>
+table, td, th {
+  border: 1px solid black;
+}
+
+table {
+  border-collapse: collapse;
+  width: 50%;
+}
+
+td {
+  text-align: center;
+}
+</style>
+<table>
+  <tr>
+    <th>P</th>
+    <th>Q</th>
+    <th>P &hArr; Q</th>
+   </tr>
+  <tr>
+    <td>T</td>
+    <td>T</td>
+    <td>T</td>
+  </tr>
+  <tr>
+    <td>T</td>
+    <td>F</td>
+    <td>F</td>
+  </tr>
+  <tr>
+    <td>F</td>
+    <td>T</td>
+    <td>F</td>
+  </tr>
+  <tr>
+    <td>F</td>
+    <td>F</td>
+    <td>T</td>
+  </tr>
+</table>
+</code></pre>
+											<br>&emsp;&emsp;f. P → (~ Q)
+<br><pre><code>
+<style>
+table, td, th {
+  border: 1px solid black;
+}
+
+table {
+  border-collapse: collapse;
+  width: 50%;
+}
+
+td {
+  text-align: center;
+}
+</style>
+<table>
+  <tr>
+    <th>P</th>
+    <th>Q</th>
+    <th>P &rArr; (~Q)</th>
+   </tr>
+  <tr>
+    <td>T</td>
+    <td>T</td>
+    <td>F</td>
+  </tr>
+  <tr>
+    <td>T</td>
+    <td>F</td>
+    <td>T</td>
+  </tr>
+  <tr>
+    <td>F</td>
+    <td>T</td>
+    <td>T</td>
+  </tr>
+  <tr>
+    <td>F</td>
+    <td>F</td>
+    <td>T</td>
+  </tr>
+</table>
+</code></pre>
+									
 											<br>&emsp;ii. Consider the statement (∼ Q) -> (∼ P).
 											<br>&emsp;&emsp;a. When is it false?
 											<br>&emsp;&emsp;b. Now consider P → Q. When is it false?

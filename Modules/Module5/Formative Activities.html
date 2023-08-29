@@ -54,7 +54,7 @@
 									</header>
 
 											<p><b><a id="Unit-1-Formative-Activities">Unit 1 Formative Activities</a></b>
-                      									<p><b>Formative Activity 1.1</b></p>
+                      									<p><b>Formative Activity 1.1</b>
 											<br>Look at the seven topics described briefly below. Which of them would you consider yourself as ‘knowing’, and which would you consider yourself as having information about?
 											<br>
 											<br>&emsp;a. A second language in which you are fluent.
@@ -76,7 +76,7 @@ I have inforamtion about:
 	f. The weather on the other side of the world.</code></pre>
 
 
-											<p><b>Formative Activity 1.2</b></p>
+											<p><b>Formative Activity 1.2</b>
 											<br>What would you suggest is the primary characteristic that distinguishes the ‘having information’ situations from the ‘knowing’ situations you categorised in the previous activity? You will need to make sure that your description does not simply describe information or data but must particularly take account of the former.
 											<br><pre><code>Having information is knowing facts. Knowing, or having knowledge, 
 is about having a more detailed and contextualised understanding so 
@@ -84,10 +84,10 @@ the facts can be interpreted to answer questions not immediately
 obvious from the facts alone.</code></pre></p>
 
 											<p><b><a id="Unit-3-Formative-Activities">Unit 3 Formative Activities</a></b>
-                      									<p><b>Formative Activity 3.1</b></p>
+                      									<p><b>Formative Activity 3.1</b>
 											<br>Attempt the following questions from the module core text:
 											<br>
-											<br>&emsp;- Chapter 2 Question 4 - The barber's paradox.
+											<br><b>&emsp;- Chapter 2 Question 4 - The barber's paradox.</b>
 											<br>In a certain town, there are the following regulations concerning the town barber:
 											<ul><i>
 												<li>Anyone who does not shave himself must be shaved by the barber.</li>
@@ -95,21 +95,29 @@ obvious from the facts alone.</code></pre></p>
 											</ul></i>
 											Show that no barber can fulfil the requirements. That is, formulate the requirements as sentences of FOL and show that in any interpretation where the first regulation is true, the second one must be false. (This is called the <i>barber’s paradox</i> and was formulated by Bertrand Russell.)
 											<br><pre><code>∃x∀y. Shaves(x,y) ∧ ¬Shaves(y,y)
-There exists a barber (x) for all people (y) such that the barber (x) shaves the person (y), and the person (y) does not shave the person (y).
+There exists a barber (x) for all people (y) such that the barber (x) shaves the person (y), and 
+the person (y) does not shave the person (y).
+
 Where x ≠ y:
 M⊨ Shaves(x,y) ∧ ¬Shaves(y,y)
+
 Where x = y:
-M ⊭ Shaves(x,x) ∧ ¬Shaves(x,x)</code></pre></p>
+M ⊭ Shaves(x,x) ∧ ¬Shaves(x,x)</code></pre>
 											<br> --- OR --- (better answer after looking for solutions using Google):
 											<br><pre><code>Anyone who does not shave himself must be shaved by the barber:
 ∀x (¬Shave(x, x) → Shave(Barber, x))
+												
 Whomever the barber shaves, must not shave himself:
 ∀x (Shave(Barber, x) → ¬Shave(x, x))
-If the barber shaves himself (Shave(Barber,Barber))) this contradicts the second sentence because the barber is shaving himself, so he must therefore not shave himself.
-If the barber does not shave himself (¬Shave(Barber, Barber)) this contradicts the first sentence, because the barber does not shave himself, so he must therefore shave himself.</code></pre>
+												
+If the barber shaves himself (Shave(Barber,Barber))) this contradicts the second sentence 
+because the barber is shaving himself, so he must therefore not shave himself.
+												
+If the barber does not shave himself (¬Shave(Barber, Barber)) this contradicts the first
+sentence, because the barber does not shave himself, so he must therefore shave himself.</code></pre>
 
 
-											<br>&emsp;- Chapter 3 Question 4 - A Canadian variant of an old puzzle.
+											<br><b>&emsp;- Chapter 3 Question 4 - A Canadian variant of an old puzzle.</b>
 											<br>A traveler in remote Quebec comes to a fork in the road and does not know which way to go to get to Chicoutimi. Henri and Pierre are two local inhabitants nearby who do know the way. One of them always tells the truth, and the other one never does, but the traveler does not know which is which. Is there a single question the traveler can ask Henri (in French, of course) that will be sure to tell him which way to go?</i>
 											<br>
 											<br>We will formalize this problem in FOL. Assume there are only two sorts of objects in our domain: inhabitants, denoted by the constants henri and pierre; and French questions, which Henri and Pierre can answer. These questions are denoted by the following terms:
@@ -138,7 +146,7 @@ If the barber does not shave himself (¬Shave(Barber, Barber)) this contradicts 
 											<br>
 											<br>An inhabitant will answer yes to a question if and only if he is a truth teller and the correct answer is yes, or he is not a truth teller and the correct answer is not yes.
 											<br><pre><code>∀x ∀q (Answer_yes(x, q) ↔ ((Truth_teller(x) ∧ True(q)) ∨ (¬Truth_teller(x) ∧ ¬True(q))))
-											For all inhabitants and all questions, the inhabitant will answer yes to the question if and 
+For all inhabitants and all questions, the inhabitant will answer yes to the question if and 
 only if the inhabitant is the truth teller and the question is true, or the inhabitant is not
 the truth teller and the question is not true.</code></pre>
 											<br>The gauche question is correctly answered yes if and only if the proper direction is to go is left.
@@ -157,8 +165,9 @@ For all inhabitants and all questions, the dit_oui answer will be true if and on
 											<br>
 											<br>In other words, there is a question t that can be asked to Henri (and there is an analogous one for Pierre) that will be answered yes if and only if the proper direction to get to Chicoutimi is to go left.
 											<br><pre><code>KB ⊨ [Answer.yes(henri.dit.non(pierre,gauche)) ≡ Go.left].
-											<br>
-											<br>If Henri answers yes when asked if Pierre would say no to being asked if the correct direction is left, then the correct direction is left.</code></pre>
+
+If Henri answers yes when asked if Pierre would say no to being asked if the correct 
+direction is left, then the correct direction is left.</code></pre>
 											<br>
 											<br>(c) Show that this KB does not entail which direction to go, that is, show that there is an interpretation satisfying the KB where Go_left is true, and another one where it is false.
 											<br><pre><code>If the correct direction is left and Henri is the truth teller:
@@ -193,7 +202,7 @@ But Henri would incorrectly say that Pierre would answer incorrectly, so:
 Answer.yes(henri.dit.non(pierre,gauche))
 is answered no, resulting in the correct direction being right.</code></pre>
                   
-											<p><b>Formative Activity 3.2</b></p>
+											<p><b>Formative Activity 3.2</b>
 											<br>Read the paper by Palomino et al (2005) and review the ‘crossing problem’ diagram provided in the Lecturecast.
 											<br>
 											<br>Create a set of statements in first order logic (FOL) that represent the states shown – for example you may define two functions left and right and therefore the first state could be represented as: Left(F) and left(W) and Left(G) and left(C). Define your own set of FOL statements for the entire diagram.
@@ -201,7 +210,7 @@ is answered no, resulting in the correct direction being right.</code></pre>
 											<br><pre><code>Answer here</code></pre></p>
 
 											<p><b><a id="Unit-5-Formative-Activities">Unit 5 Formative Activities</a></b>
-											<p><b>Formative Activity 5.1</b></p>
+											<p><b>Formative Activity 5.1</b>
 											<br>Read the article by Bimba et al (2016) and then answer the following questions:
 											<br>
 											<br>&emsp;- What are the 3 knowledge bases identified by the authors?
@@ -209,14 +218,14 @@ is answered no, resulting in the correct direction being right.</code></pre>
 											<br>&emsp;- How are these related to ontologies?
 											<br><pre><code>Answer here</code></pre></p>
 
-      									                <p><b>Formative Activity 5.2</b></p>
+      									                <p><b>Formative Activity 5.2</b>
 											<br>Read the article by Leydesdorff, L. (2010) and then answer the questions below:
 											<br>
 											<br>&emsp;- How does the author define a ‘Knowledge based economy’?
 											<br>&emsp;- What is the triple helix model?
 											<br><pre><code>Answer here</code></pre></p>
 
-      									                <p><b>Formative Activity 5.3</b></p>
+      									                <p><b>Formative Activity 5.3</b>
 											<br>Read the Fensel et al (2000) paper then answer the following questions:
 											<br>
 											<br>&emsp;- What are the components of the Onto Knowledge model/ framework?

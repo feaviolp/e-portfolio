@@ -206,8 +206,39 @@ is answered no, resulting in the correct direction being right.</code></pre>
 											<br>Read the paper by Palomino et al (2005) and review the ‘crossing problem’ diagram provided in the Lecturecast.
 											<br>
 											<br>Create a set of statements in first order logic (FOL) that represent the states shown – for example you may define two functions left and right and therefore the first state could be represented as: Left(F) and left(W) and Left(G) and left(C). Define your own set of FOL statements for the entire diagram.
-											<br>You have been provided with solutions to the ‘crossing problem’ written in Lisp (here), Prolog (here) and Maude (here). Compare your FOL clauses with the various implementations – which of the implementations provides the closest match to your FOL version?
-											<br><pre><code>Answer here</code></pre></p>
+											<br>You have been provided with solutions to the ‘crossing problem’ written in Lisp, Prolog and Maude. Compare your FOL clauses with the various implementations – which of the implementations provides the closest match to your FOL version?
+											<br>The problem states: A farmer needs to transport to the other side of a river a wolf, a goat, and a cabbage. He has only a boat with room for the farmer himself and another item. The problem is that in the absence of the farmer the wolf would eat the goat, and the goat would eat the cabbage.
+											<br><pre><code>Farmer = F
+Wolf = W
+Goat = G
+Cabbage = C
+
+<b>Safe states (in the sequence of the solution diagram)</b>
+Left(F) ∧ Left(W) ∧ Left(G) ∧ Left(C)
+Right(F) ∧ Left(W) ∧ Right(G) ∧ Left(C)
+Left(F) ∧ Left(W) ∧ Right(G) ∧ Left(C)
+Right(F) ∧ Left(W) ∧ Right(G) ∧ Right(C)
+Left(F) ∧ Left(W) ∧ Left(G) ∧ Right(C)
+Right(F) ∧ Right(W) ∧ Left(G) ∧ Right(C)
+Left(F) ∧ Right(W) ∧ Left(G) ∧ Right(C)
+Right(F) ∧ Right(W) ∧ Right(G) ∧ Right(C)
+--- two additional safe states not in the diagram (can solve without them) ---
+Left(F) ∧ Right(W) ∧ Left(G) ∧ Left(C)
+Right(F) ∧ Right(W) ∧ Right(G) ∧ Left(C)
+
+<b>Unsafe statues</b>
+Left(F) ∧ Right(W) ∧ Right(G) ∧ Left(C) – wolf eats goat
+Right(F) ∧ Left(W) ∧ Left(G) ∧ Right(C) – wolf eats goat
+Left(F) ∧ Left(W) ∧ Right(G) ∧ Right(C) – goat eats cabbage
+Right(F) ∧ Right(W) ∧ Left(G) ∧ Left(C) – goat eats cabbage
+Left(F) ∧ Right(W) ∧ Right(G) ∧ Right(C) – goat eats cabbage AND wolf eats goat
+Right(F) ∧ Left(W) ∧ Left(G) ∧ Left(C) – goat eats cabbage AND wolf eats goat
+
+None of the example code solutions look the same. The Prolog example seems to be
+most similar because it defines unsafe states when the goat and cabbage are
+together without the farmner, or the wolf and goat without the farmer, although
+is uses a simpler notation simply saying which members should change sides without
+needing to say from which side to which.</code></pre>
 
 											<p><b><a id="Unit-5-Formative-Activities">Unit 5 Formative Activities</a></b>
 											<p><b>Formative Activity 5.1</b>
@@ -216,21 +247,21 @@ is answered no, resulting in the correct direction being right.</code></pre>
 											<br>&emsp;- What are the 3 knowledge bases identified by the authors?
 											<br>&emsp;- What are the differences between them?
 											<br>&emsp;- How are these related to ontologies?
-											<br><pre><code>Answer here</code></pre></p>
+											<br><pre><code>Answer here</code></pre>
 
       									                <p><b>Formative Activity 5.2</b>
 											<br>Read the article by Leydesdorff, L. (2010) and then answer the questions below:
 											<br>
 											<br>&emsp;- How does the author define a ‘Knowledge based economy’?
 											<br>&emsp;- What is the triple helix model?
-											<br><pre><code>Answer here</code></pre></p>
+											<br><pre><code>Answer here</code></pre>
 
       									                <p><b>Formative Activity 5.3</b>
 											<br>Read the Fensel et al (2000) paper then answer the following questions:
 											<br>
 											<br>&emsp;- What are the components of the Onto Knowledge model/ framework?
 											<br>&emsp;- What are the example use cases given for the framework?
-											<br><pre><code>Answer here</code></pre></p>
+											<br><pre><code>Answer here</code></pre>
 
 											<p><b><a id="Unit-6-Formative-Activity">Unit 6 Formative Activity</a></b>
 											<br>Read Chapter 3 of Solanki, A (2019) An Introduction to Knowledge Engineering.
@@ -238,18 +269,18 @@ is answered no, resulting in the correct direction being right.</code></pre>
 											<br>&emsp;- Reflect on the various data acquisition methods.
 											<br>&emsp;- What are the advantages and disadvantages of each method?
 											<br>&emsp;- Think about scenarios and which methods would be suitable for each.
-											<br><pre><code>Answer here</code></pre></p>
+											<br><pre><code>Answer here</code></pre>
 
 											<p><b><a id="Unit-8-Formative-Activity">Unit 8 Formative Activity</a></b>
 											<br>&emsp;- Work through a practical example by following Chapters 3 - 4 of A Practical Guide to Building OWL Ontologies Using Protégé 4 and CO-ODE Tools.
 											<br>&emsp;- Create an ontology of pizza following the steps outlined in Exercises 2-6
-											<br><pre><code>Answer here</code></pre></p>
+											<br><pre><code>Answer here</code></pre>
 
 											<p><b><a id="Unit-10-Formative-Activity">Unit 10 Formative Activity</a></b>
 											<br>Read Chapter 6 - More on Open World Reasoning of Horridge, M. (2011) A Practical Guide To Building OWL Ontologies, Using Prot´eg´e 4 and CO-ODE Tools. Manchester: University of Manchester.
 											<br>
 											<br>Then work through a practical example by following Chapters 3 and 4 and create a NonVegetarianPizza using the steps outlined in Exercise 52.
-											<br><pre><code>Answer here</code></pre></p>
+											<br><pre><code>Answer here</code></pre>
                   
 								</div>
 							</section>

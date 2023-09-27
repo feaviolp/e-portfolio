@@ -355,7 +355,7 @@ A few screen shots are included here to show the final ontology.
 Class hierarchy shows the various classes defined.
 Note that the AmericanHot pizza has been selected to show the subclasses.
 Also note that AmericanHot has been added to CheesyPizza, InterestingPizza and 
-SpicyPizza through inference:</code></pre>
+SpicyPizza through reasoning:</code></pre>
 											<br><img src="Classes Class hierarchy.png">
 											<br>
 <br><pre><code>Object properties shows that the ingredients of a Pizza is a base and toppings, 
@@ -363,14 +363,22 @@ and that spiciness has a relative scale using milder and spicier:</code></pre>
 											<br><img src="Entities object properties.png">
 											<br>
 <br><pre><code>Individuals by class shows the individual instances of Pizzas that were created.
-It also shows how instances have been placed into categories by inference e.g. which are 
+It also shows how instances have been placed into categories by reasoning e.g. which are 
 HighCaloriePizza: </code></pre>
 											<br><img src="Individuals by class.png">
 											<br>
-<br><pre><code>Finally, Class hierarchy (inferred) extends the Class hierarchy view to show inferrence.
+<br><pre><code>Class hierarchy (inferred) extends the Class hierarchy view to show inferrence.
 We can see that three instances of AmericanPizza and AmericanHotPizza have been placed
 in the HighCaloriePizza class:</code></pre>
 											<br><img src="Classes Class hierarchy inferred.png">
+											<br>
+<br><pre><code>Finally, the asserted class hierarchy and inferred class hierarchy are visualised.
+It can be seen that reasoning has inferred which pizza types are spicy, interesting, cheesy, 
+and vegetarian. High calorie and low calorie are not inferred because they need to be
+inferred by instance, not class:</code></pre>
+											<br><img src="Asserted hierarchy.png">
+											<br>
+											<br><img src="Inferred hierarchy.png">
 											<br>
 											<br>
 

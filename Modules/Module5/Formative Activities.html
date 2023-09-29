@@ -356,21 +356,21 @@ Class hierarchy shows the various classes defined.
 Note that the AmericanHot pizza has been selected to show the subclasses.
 Also note that AmericanHot has been added to CheesyPizza, InterestingPizza and 
 SpicyPizza through reasoning:</code></pre>
-											<br><img src="Classes Class hierarchy.png">
+											<img src="Classes Class hierarchy.png">
 											<br>
 <br><pre><code>Object properties shows that the ingredients of a Pizza is a base and toppings, 
 and that spiciness has a relative scale using milder and spicier:</code></pre>
-											<br><img src="Entities object properties.png">
+											<img src="Entities object properties.png">
 											<br>
 <br><pre><code>Individuals by class shows the individual instances of Pizzas that were created.
 It also shows how instances have been placed into categories by reasoning e.g. which are 
 HighCaloriePizza: </code></pre>
-											<br><img src="Individuals by class.png">
+											<img src="Individuals by class.png">
 											<br>
 <br><pre><code>Class hierarchy (inferred) extends the Class hierarchy view to show inferrence.
 We can see that three instances of AmericanPizza and AmericanHotPizza have been placed
 in the HighCaloriePizza class:</code></pre>
-											<br><img src="Classes Class hierarchy inferred.png">
+											<img src="Classes Class hierarchy inferred.png">
 											<br>
 <br><pre><code>Finally, the asserted class hierarchy and inferred class hierarchy are visualised.
 It can be seen that reasoning has inferred which pizza types are spicy, interesting, cheesy, 
@@ -378,10 +378,10 @@ and vegetarian. High calorie and low calorie are not inferred because they need 
 inferred by instance, not class.</code></pre>
 									
 <br><pre><code>Asserted hierarchy:</code></pre>
-											<br><img src="Asserted hierarchy.png">
+											<img src="Asserted hierarchy.png">
 											<br>
 <br><pre><code>Inferred hierarchy:</code></pre>
-											<br><img src="Inferred hierarchy.png">
+											<img src="Inferred hierarchy.png">
 											<br>
 											<br>
 
@@ -389,7 +389,29 @@ inferred by instance, not class.</code></pre>
 											<br>Read Chapter 6 - More on Open World Reasoning of Horridge, M. (2011) A Practical Guide To Building OWL Ontologies, Using Prot´eg´e 4 and CO-ODE Tools. Manchester: University of Manchester.
 											<br>
 											<br>Then work through a practical example by following Chapters 3 and 4 and create a NonVegetarianPizza using the steps outlined in Exercise 52.
-											<br><pre><code>Answer here</code></pre>
+											<br><pre><code>This was simple because I had already created a VegetarianPizza class in unit 8.
+
+The steps were:
+        1. Duplicate the VegetarianPizza class and call is NonVegetarianPizza
+        2. Edit the "Equivalent to" and add "not" to make it the inverse of VegetarianPizza
+        3. Run the reasoner
+
+The following screen shots show the addition of the NonVegetarianClass.
+												
+Class hierarchy with NonVegetarianPizza selected so show the edits:</code></pre>
+											<img src="Classes Class hierarchy non veg.png">
+											<br>
+<br><pre><code>Class hierarchy (inferred) to show that AmericanPizza and AmericanHotPizza
+have been added to the NonVegetarianPizza class by the reasoner:</code></pre>
+											<img src="Classes Class hierarchy inferred non veg.png">
+											<br>
+<br><pre><code>Asserted hierarchy to show that NonVegatarianPizza is a subclass of Pizza:</code></pre>
+											<img src="Asserted hierarchy with non veg.png">
+											<br>
+<br><pre><code>Inferred hierarchy to show that AnericanPizza and AmericanHotPizza belong to 
+NonVegetatianPizza:</code></pre>
+											<img src="Inferred hierarchy with non veg.png">
+											<br>
                   
 								</div>
 							</section>
